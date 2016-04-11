@@ -1,0 +1,19 @@
+﻿Bienvenue dans le monde des dieux , appuie sur:
+"A" pour aller à gauche,
+"D" pour aller à droite
+et "Espace" pour sauter;
+Tu peux mettre le jeu
+sur pause en tout temps
+en appuyant sur : Esc;
+aie pas peur de tomber,
+Ton armur te protège des dégats de chute;
+différentes pièces se trouvent
+dans tous les niveaux:
++ de 100 pièces dorées, 8 pièces obscurs
+et 4 pièces célestes,
+à toi de les trouver !;
+W : pour grimper sur les échelles;
+Dans l'eau tu peux retenir ton souffle pendant 10 sec.
+après quoi, tu meurs noyer;
+Finalement, il y a 4 orbs dans chaque niveau
+à toi de les libérer et/ou les trouver !;

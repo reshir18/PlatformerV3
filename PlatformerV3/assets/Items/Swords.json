@@ -1,0 +1,119 @@
+{"Swords":[
+	{
+		"name" : "None",
+		"damages" : 1,
+		"craft" : []
+	},
+	{
+		"name" : "Wooden sword",
+		"damages" : 3,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 2
+		}]
+	},
+	{
+		"name" : "Slime sword",
+		"damages" : 5,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 1
+		},
+		{
+			"idItem" : 1,
+			"qts" : 2
+		},
+		{
+			"idItem" : 5,
+			"qts" : 2
+		}]
+	},
+	{
+		"name" : "Wind blade",
+		"damages" : 12,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 8
+		},
+		{
+			"idItem" : 3,
+			"qts" : 4
+		},
+		{
+			"idItem" : 4,
+			"qts" : 1
+		}]
+	},
+	{
+		"name" : "Monster slayer",
+		"damages" : 18,
+		"craft" : [
+		{
+			"idItem" : 7,
+			"qts" : 2
+		},
+		{
+			"idItem" : 9,
+			"qts" : 6
+		},
+		{
+			"idItem" : 6,
+			"qts" : 4
+		}]
+	},
+	{
+		"name" : "Sand sword",
+		"damages" : 13,
+		"craft" : [
+		{
+			"idItem" : 10,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Mummy's sword",
+		"damages" : 18,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 20
+		},
+		{
+			"idItem" : 10,
+			"qts" : 4
+		},
+		{
+			"idItem" : 12,
+			"qts" : 4
+		},
+		{
+			"idItem" : 14,
+			"qts" : 1
+		}]
+	},
+	{
+		"name" : "Horus sword",
+		"damages" : 25,
+		"craft" : [
+		{
+			"idItem" : 10,
+			"qts" : 15
+		},
+		{
+			"idItem" : 13,
+			"qts" : 8
+		},
+		{
+			"idItem" : 14,
+			"qts" : 3
+		},
+		{
+			"idItem" : 16,
+			"qts" : 1
+		}]
+	}
+
+]}

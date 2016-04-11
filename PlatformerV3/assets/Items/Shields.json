@@ -1,0 +1,107 @@
+{"Shields":[
+	{
+		"name" : "None",
+		"protect" : 0,
+		"craft" : []
+	},
+	{
+		"name" : "Wooden shield",
+		"protect" : 1,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 2
+		}]
+	},
+	{
+		"name" : "Slime shield",
+		"protect" : 3,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 1
+		},
+		{
+			"idItem" : 1,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Beast shield",
+		"protect" : 5,
+		"craft" : [
+		{
+			"idItem" : 1,
+			"qts" : 5
+		},
+		{
+			"idItem" : 2,
+			"qts" : 5
+		}]
+	},
+	{
+		"name" : "Jungle shield",
+		"protect" : 10,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 3
+		},
+		{
+			"idItem" : 5,
+			"qts" : 5
+		},
+		{
+			"idItem" : 8,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Desert shield",
+		"protect" : 8,
+		"craft" : [
+		{
+			"idItem" : 10,
+			"qts" : 3
+		},
+		{
+			"idItem" : 9,
+			"qts" : 2
+		}]
+	},
+	{
+		"name" : "Sturdy shield",
+		"protect" : 13,
+		"craft" : [
+		{
+			"idItem" : 10,
+			"qts" : 5
+		},
+		{
+			"idItem" : 11,
+			"qts" : 5
+		},
+		{
+			"idItem" : 12,
+			"qts" : 5
+		}]
+	},
+	{
+		"name" : "Ghost shield",
+		"protect" : 18,
+		"craft" : [
+		{
+			"idItem" : 14,
+			"qts" : 2
+		},
+		{
+			"idItem" : 15,
+			"qts" : 5
+		},
+		{
+			"idItem" : 16,
+			"qts" : 3
+		}]
+	}
+
+]}

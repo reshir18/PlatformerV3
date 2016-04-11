@@ -1,0 +1,70 @@
+{"Loots":[
+	{
+		"id" : 0,
+		"name" : "stick"
+	},
+	{
+		"id" : 1,
+		"name" : "slime gel"
+	},
+	{
+		"id" : 2,
+		"name" : "fur"
+	},
+	{
+		"id" : 3,
+		"name" : "bat wing"
+	},
+	{
+		"id" : 4,
+		"name" : "bat tail"
+	},
+	{
+		"id" : 5,
+		"name" : "spike"
+	},
+	{
+		"id" : 6,
+		"name" : "zombie eye"
+	},
+	{
+		"id" : 7,
+		"name" : "stardust"
+	},
+	{
+		"id" : 8,
+		"name" : "dead leaf"
+	},
+	{
+		"id" : 9,
+		"name" : "tooth"
+	},
+	{
+		"id" : 10,
+		"name" : "sand pearl"
+	},
+	{
+		"id" : 11,
+		"name" : "bone"
+	},
+	{
+		"id" : 12,
+		"name" : "bandage"
+	},
+	{
+		"id" : 13,
+		"name" : "hard stone"
+	},
+	{
+		"id" : 14,
+		"name" : "animus"
+	},
+	{
+		"id" : 15,
+		"name" : "cloak rag"
+	},
+	{
+		"id" : 16,
+		"name" : "soul"
+	}
+]}

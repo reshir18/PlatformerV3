@@ -1,0 +1,83 @@
+{"Enemies":[
+	{
+		"nameMob" : "Slime",
+		"imgFoe" : "slime",
+		"hp" : 5,
+		"attack" : 5,
+		"defense" : 0,
+		"speed": 5
+	},
+	{
+		"nameMob" : "Bat",
+		"imgFoe" : "bat",
+		"hp" : 7,
+		"attack" : 3,
+		"defense" : 1,
+		"speed": 2
+	},
+	{
+		"nameMob" : "Spiky Slime",
+		"imgFoe" : "spikySlime",
+		"hp" : 12,
+		"attack" : 8,
+		"defense" : 1,
+		"speed": 7
+	},
+	{
+		"nameMob" : "Zombie",
+		"imgFoe" : "zombie",
+		"hp" : 20,
+		"attack" : 8,
+		"defense" : 0,
+		"speed": 10
+	},
+	{
+		"nameMob" : "Carnivor Plant",
+		"imgFoe" : "carnivorPlant",
+		"hp" : 15,
+		"attack" : 12,
+		"defense" : 2,
+		"speed": 4
+	},
+	{
+		"nameMob" : "Seleton",
+		"imgFoe" : "skeleton",
+		"hp" : 15,
+		"attack" : 8,
+		"defense" : 1,
+		"speed": 4
+	},
+	{
+		"nameMob" : "Mummy",
+		"imgFoe" : "mummy",
+		"hp" : 20,
+		"attack" : 10,
+		"defense" : 8,
+		"speed": 10
+	},
+	{
+		"nameMob" : "Pyramid Rock",
+		"imgFoe" : "pyramidRock",
+		"hp" : 27,
+		"attack" : 12,
+		"defense" : 5,
+		"speed": 8
+	},
+	{
+		"nameMob" : "Desert Soul",
+		"imgFoe" : "desertSoul",
+		"hp" : 15,
+		"attack" : 20,
+		"defense" : 10,
+		"speed": 5
+	}
+	,
+	{
+		"nameMob" : "Golem",
+		"imgFoe" : "desertSoul",
+		"hp" : 40,
+		"attack" : 30,
+		"defense" : 15,
+		"speed": 4
+	}
+]}
