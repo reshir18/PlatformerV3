@@ -238,6 +238,7 @@ World2.prototype =
                     e.seeLineFloor.start.set(e.body.x + 22, e.body.y + 14);
                     e.moveDirection = -1;
                     e.seeLineFloor.end.set(e.body.x - 65, e.body.y + 70);
+                    e.anchor.setTo(.5,0);
                     layer.getRayCastTiles(e.seeLineFloor, 4, false, false);
                     e.mobPositionInWorld = mobPos;
                     mobPos++;   

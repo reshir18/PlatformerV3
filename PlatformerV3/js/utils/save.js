@@ -195,8 +195,10 @@ function getOrbsCount(min)
 	orbCount = 0;
 	for(var i = 0; i < 21; i += 5)
 		for(var j = 0; j < 3;j++)
-			orbCount += gameDataArray[i+j];
+			orbCount += parseInt(gameDataArray[i+j]);
 
+	if(!min)
+		return orbCount;
 	return orbCount >= requiredOrbForWorlds[min - 1];
 }
 

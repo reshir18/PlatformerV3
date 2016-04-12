@@ -55,6 +55,8 @@ function menuNavigation(direction)
         maxM = swordList.Swords.length - 1;
     else if(currentMenuLayout == 3)
         maxM = shieldList.Shields.length - 1;
+    else if(currentMenuLayout == 4)
+        maxM = 6;
     else
         maxM = 0;
     if(menuChoice < minM)
@@ -74,7 +76,9 @@ function menuNavigation(direction)
     if(currentMenuLayout < 2)
         gameHud.showText(menuTexts[menuChoice + currentMenuLayout * 4]);
     else if(currentMenuLayout < 4)
-        changeWeapon(currentMenuLayout == 2, menuChoice);   
+        changeWeapon(currentMenuLayout == 2, menuChoice);
+    else if(currentMenuLayout == 4)
+        gameHud.showLayout3(menuChoice);   
 }
 
 function setSecondMenu(c)
@@ -87,7 +91,7 @@ function setSecondMenu(c)
     }
     else if(c == 2)
     {
-        gameHud.showLayout3();
+        gameHud.showLayout3(0);
         return false;
     }
     else if(c == 3)

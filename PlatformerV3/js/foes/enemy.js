@@ -3,7 +3,7 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
     Phaser.Sprite.call(this, game, x, y, stats.imgFoe);
     
     this.enableBody = true;
-    
+    //this.anchor.setTo(.5,.5);
     this.game.physics.arcade.enable(this);
     this.body.gravity.y = hasGravity;
     this.timeAttack = null
@@ -11,6 +11,7 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
     this.positionFoe = pos;
     this.stats = stats;
     this.lootList = lootList;
+    this.mobDirection = -8;
  
     this.maxHp = Math.floor((Math.random() * (this.stats.hp * 2)) + this.stats.hp - 2);
     this.hp = this.maxHp; 
@@ -68,16 +69,27 @@ Enemy.prototype.update = function()
 moveEnemy = function(mob, layer)
 { 
     if(checkEnemycollide(mob))
+    {
         mob.moveDirection = mob.moveDirection * -1;
-    checkWallDirection = -8;
-    if(mob.moveDirection > 0)
-        checkWallDirection = 48;
+        
+        if(mob.moveDirection > 0)
+        {
+            mob.scale.x =-1;
+            mob.mobDirection = 48;
+        } 
+        else
+        {
+            mob.scale.x =1;
+            mob.mobDirection = -8;
+
+        }
+    }
 
     mob.body.x += mob.moveDirection;
     mob.seeLineFloor.start.set(mob.body.x + 22, mob.body.y + 14);
     mob.seeLineFloor.end.set(mob.body.x + 65 * mob.moveDirection, mob.body.y + 70);
     mob.seeLineWall.start.set(mob.body.x + 22, mob.body.y + 14);
-    mob.seeLineWall.end.set(mob.body.x + checkWallDirection , mob.body.y + 14);
+    mob.seeLineWall.end.set(mob.body.x + mob.mobDirection , mob.body.y + 14);
 }
 
 checkEnemycollide = function(mob)

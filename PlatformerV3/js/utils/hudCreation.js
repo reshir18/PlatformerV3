@@ -155,14 +155,15 @@ var pauseHud =
     },
     showLayout0: function()
     {
+        this.showMasterLayout();
         for(var i = 1; i < 5; i++)
         {
-            var img = game.add.sprite(game.camera.x + ((i+1) * 120) , game.camera.y + 250, 'commandsHud',i);
+            var img = game.add.sprite(game.camera.x + ((i+1) * 120)  - 80, game.camera.y + 250, 'commandsHud',i);
             img.fixedToCamera = true;
             this.commandGroup.add(img);
         }
 
-        img = game.add.sprite(game.camera.x + 240 , game.camera.y + 250, 'outline');
+        img = game.add.sprite(game.camera.x + 240  - 80, game.camera.y + 250, 'outline');
         img.fixedToCamera = true;
         this.commandGroup.add(img);
     },
@@ -252,7 +253,7 @@ var pauseHud =
         this.showText(itemShow.name + "\n" + efect, lootText);
         this.moveMenu(game.camera.x + 350, true);
     },
-    showLayout3: function()
+    showLayout3: function(inventorySelect)
     {
         this.showMasterLayout();
         var img = game.add.sprite(game.camera.x + 240 , game.camera.y + 250, 'commandsHud',1);
@@ -261,9 +262,26 @@ var pauseHud =
         img = game.add.sprite(game.camera.x + 240 , game.camera.y + 250, 'outline');
         img.fixedToCamera = true;
         this.commandGroup.add(img);
-        var lootText = "Inventaire" + "\n";
-        lootText += "Épée: " + this.player.sword.name + "\n";
-        lootText += "Bouclier: " + this.player.shield.name + "\n";
+        if(inventorySelect == 0)
+        {
+            var lootText = "Inventaire" + "\n";
+            lootText += "Épée: " + this.player.sword.name + "\n";
+            lootText += "Bouclier: " + this.player.shield.name + "\n";
+        }
+        if(inventorySelect == 1)
+        {
+            var lootText = "Orbs au total" + "\n";
+            lootText += getOrbsCount() + " orbs(s) " + "\n";
+        }
+        if(inventorySelect > 1)
+        {
+            currentWorldDataCheck = inventorySelect - 1;
+            var lootText = "Orbs du world" + currentWorldDataCheck + "\n";
+            lootText += "Orb pur: " + getData((currentWorldDataCheck - 1) * 5) + "\n";
+            lootText += "Orb obscur: " + getData((currentWorldDataCheck - 1) * 5 + 1) + "\n";
+            lootText += "Orb venom: " + getData((currentWorldDataCheck - 1) * 5 + 2) + "\n";
+        }
+        
         this.showText("Retour", lootText);
     },
     showMasterLayout: function()
