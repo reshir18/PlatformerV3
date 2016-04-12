@@ -14,15 +14,24 @@
 		"powerUpSpawnInfo" : ["map1", 9, 23, 1]
 	},
 	{
-		"id" : 2,
-		"name" : "fur"
+		"name" : "World3",
+		"darkCoin" : [0,2,5,6,8],
+		"goldCoin" : [0,50,47,12,53],
+		"mobWorldMap" : "skeleton",
+		"powerUpSpawnInfo" : ["map4", 14, 24, 2]
 	},
 	{
-		"id" : 3,
-		"name" : "bat wing"
+		"name" : "World4",
+		"darkCoin" : [0,2,5,6,8],
+		"goldCoin" : [0,50,47,12,53],
+		"mobWorldMap" : "skeleton",
+		"powerUpSpawnInfo" : ["map2", 19, 25, 3]
 	},
 	{
-		"id" : 4,
-		"name" : "bat tail"
+		"name" : "World5",
+		"darkCoin" : [0,2,5,6,8],
+		"goldCoin" : [0,50,47,12,53],
+		"mobWorldMap" : "skeleton",
+		"powerUpSpawnInfo" : ["map1", 9, 26, 4]
 	}
 ]}
