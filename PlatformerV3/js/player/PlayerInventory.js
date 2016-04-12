@@ -14,7 +14,7 @@ function setPlayerInventory(player)
         console.log(player.loot);
     }
     else
- 	loadJSON("assets/Items/PlayerInventory.json",function(response) {
+ 	loadJSON("assets/Json/PlayerInventory.json",function(response) {
     	inventory = JSON.parse(response);
     	player.inventory = inventory;
     	console.log(inventory);

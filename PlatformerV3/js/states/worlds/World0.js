@@ -85,7 +85,9 @@ World0.prototype =
         else if(getOrbsCount(portal.name.substring(5)))
         {
             this.game.world.removeAll();
-            this.game.state.start(portal.name);
+            setWorld(portal.name.substring(5));
+            this.game.state.start("World1");
+            
         }
             
         

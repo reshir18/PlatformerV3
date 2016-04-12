@@ -79,7 +79,6 @@ function createNewGame()
     game.state.add('Preloader', preload, false);
     game.state.add('World0', World0, false);
     game.state.add('World1', World1, false);
-    game.state.add('World2', World2, false);
     game.state.start('Boot');
 }
 

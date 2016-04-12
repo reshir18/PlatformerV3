@@ -1,0 +1,28 @@
+{"Worlds":[
+	{
+		"name" : "World1",
+		"darkCoin" : [0,2,5,6,8],
+		"goldCoin" : [0,50,47,12,53],
+		"mobWorldMap" : "slime",
+		"powerUpSpawnInfo" : ["map2", 4, 22, 0]
+	},
+	{
+		"name" : "World2",
+		"darkCoin" : [0,2,5,6,8],
+		"goldCoin" : [0,50,47,12,53],
+		"mobWorldMap" : "skeleton",
+		"powerUpSpawnInfo" : ["map1", 9, 23, 1]
+	},
+	{
+		"id" : 2,
+		"name" : "fur"
+	},
+	{
+		"id" : 3,
+		"name" : "bat wing"
+	},
+	{
+		"id" : 4,
+		"name" : "bat tail"
+	}
+]}

@@ -1,23 +1,22 @@
-//BATTLES ENEMIES COORD: y: 4; x: 6-8-10
+
 var World1 = function (game) { }
 
 World1.prototype =
 {
     preload: function () { 
-
-        this.game.load.tilemap('map1', 'TiledMap/level1-1.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.tilemap('map2', 'TiledMap/level1-2.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.tilemap('map3', 'TiledMap/level1-3.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.tilemap('map4', 'TiledMap/level1-4.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.tilemap('mapBattle', 'TiledMap/level1-battle.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.image('world1Tiles', 'assets/Tiles/world1Tiles.png');
-        background = this.game.load.image('plain', 'assets/Background/world1.png');
+        tiledmapCommonStart = 'TiledMap/level';
+        currentWorldData = getWorldData();
+        console.log(currentWorldData);
+        this.game.load.tilemap('map1', tiledmapCommonStart + currentWorld + '-1.json', null, Phaser.Tilemap.TILED_JSON);
+        //this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.tilemap('map3', tiledmapCommonStart + currentWorld + '-3.json', null, Phaser.Tilemap.TILED_JSON);
+        //this.game.load.tilemap('map4', tiledmapCommonStart + currentWorld + '-4.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);
+        background = this.game.load.image('plain', 'assets/Background/world' + currentWorld +'.png');
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
-        setWorld(1);
         this.player = new Player(this.game, 140, 140);
         //this.game.add.existing(this.player);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
-        
     },
     render : function()
     {
@@ -35,11 +34,6 @@ World1.prototype =
         
     },
     create: function () {
-        //LEVEL1 = 0 --- 0
-        //LEVEL2 = 2 --- 50
-        //LEVEL3 = 5 --- 50 + 47
-        //LEVEL4 = 6 --- 50 + 47 + 12
-        //Level5 = Nan - 50 + 47 + 12 + 53
         var map;
         var layer;
         var ladders;
@@ -62,7 +56,7 @@ World1.prototype =
         var maxEnemiesType = 2;
         var oldmap = ["map1",0,0,140,140];
         var nbFoes;
-        this.changeMap('map1',0,0, true);
+        this.changeMap('map1', true);
 
     },
     update: function () {
@@ -133,18 +127,16 @@ World1.prototype =
     changeLevel: function(player, portal)
     {
         if(portal.name !== "normalMap")
+        {
             maxEnemiesType = parseInt(portal.name.substring(3)) + 1;
-        if(portal.name == "map1")
-            this.changeMap('map1', 0, 0);
-        if(portal.name == "map2")
-            this.changeMap('map2', 2, 50);
-        if(portal.name == "map3")
-            this.changeMap('map3', 5, 50 + 47);
-        if(portal.name == "map4")
-            this.changeMap('map4', 6, 50 + 47 + 12);
-        if(portal.name == "map5" && this.player.checkSkyCoins())
-            this.changeMap('map5', 8, 50 + 47 + 12 + 53)
-        if(portal.name == "normalMap")
+            if(portal.name == "map5" && this.player.checkSkyCoins())
+                this.changeMap('map5')
+            else
+            {
+                this.changeMap(portal.name);
+            }
+        }
+        else
         {
             for(f of foes.children)
             {
@@ -152,7 +144,8 @@ World1.prototype =
             }
             this.changeMap();
         }
-            
+        
+    
     },
     enterBattle: function(player, foe)
     {
@@ -161,36 +154,46 @@ World1.prototype =
         this.changeMap('mapBattle');
         
     },
-    changeMap: function (mapDraw,firstRedCoinposition, firstCoinposition, firstTime) {
+    changeMap: function (mapDraw, firstTime) {
         
+        firstGoldCoinPosition = 0;
+        firstDarkCoinPosition = 0;
+        currentMap = "map0";
+        returnFromBattle = false;
+
         if(!firstTime)
-        {
             game.world.removeAll();
-            
-        }
         else
             maxEnemiesType = 2;
 
         this.game.add.existing(this.player);
 
-        returnFromBattle = false;
+        
         if(!mapDraw)
         {
             returnFromBattle = true;
             mapDraw = oldmap[0];
-            firstRedCoinposition = oldmap[1];
-            firstCoinposition = oldmap[2];
+            firstGoldCoinPosition = oldmap[1];
+            firstDarkCoinposition = oldmap[2];
             this.player.body.x = oldmap[3];
             this.player.body.y = oldmap[4] - 40;
         }
         else if(mapDraw !== "mapBattle")
         {
-            oldmap = [mapDraw,firstRedCoinposition,firstCoinposition,0,0,0];
+            
+            currentMap = mapDraw.substring(3);
+            for (var i = 0; i < parseInt(currentMap) ; i++) 
+            {
+               firstGoldCoinPosition += currentWorldData.goldCoin[i].valueOf();
+            };
+            firstDarkCoinposition = currentWorldData.darkCoin[currentMap-1];
+            oldmap = [mapDraw,firstGoldCoinPosition,firstDarkCoinposition,0,0,0];
         }
+        
         map = this.game.add.tilemap(mapDraw);
         background = game.add.sprite(0, 0, 'plain');
 
-        map.addTilesetImage('world1Tiles');
+        map.addTilesetImage('world'+ currentWorld +'Tiles');
 
         map.setCollisionBetween(1, 3);
         map.setCollisionBetween(8, 11);
@@ -236,7 +239,7 @@ World1.prototype =
         else
         {
             mobPos = 0;
-            map.createFromObjects('layerObj', 32, 'slime', 0, true, false, enemies);
+            map.createFromObjects('layerObj', 32, currentWorldData.mobWorldMap, 0, true, false, enemies);
             for(e of enemies.children)
             {
                     e.seeLineFloor = new Phaser.Line();
@@ -284,17 +287,17 @@ World1.prototype =
 
         orbs = this.game.add.group();
         orbs.enableBody = true;
-        
+        //currentWorldData.powerUpSpawnInfo[].valueOf()
         powerUp = this.game.add.group();
-        if(mapDraw.valueOf() === "map2" && !getData(4))
+        if(mapDraw.valueOf() === currentWorldData.powerUpSpawnInfo[0].valueOf() && !getData(currentWorldData.powerUpSpawnInfo[1].valueOf()))
         {
             powerUp.enableBody = true;
-            map.createFromObjects('layerObj', 22, 'powersUp', 0, true, false, powerUp);
+            map.createFromObjects('layerObj', currentWorldData.powerUpSpawnInfo[2].valueOf(), 'powersUp', currentWorldData.powerUpSpawnInfo[3].valueOf(), true, false, powerUp);
         }
 
         generateOrbs(orbs, this.player);
 
-        generateCoins(goldCoins, darkCoins, skyCoins, this.player, firstCoinposition, firstRedCoinposition);
+        generateCoins(goldCoins, darkCoins, skyCoins, this.player, firstDarkCoinposition);
 
         //SET LADDERS***************************************************************
         ladders = this.game.add.group();
