@@ -6,7 +6,6 @@ World1.prototype =
     preload: function () { 
         tiledmapCommonStart = 'TiledMap/level';
         currentWorldData = getWorldData();
-        console.log(currentWorldData);
         this.game.load.tilemap('map1', tiledmapCommonStart + currentWorld + '-1.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map3', tiledmapCommonStart + currentWorld + '-3.json', null, Phaser.Tilemap.TILED_JSON);
@@ -15,7 +14,6 @@ World1.prototype =
         background = this.game.load.image('plain', 'assets/Background/world' + currentWorld +'.png');
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.player = new Player(this.game, 140, 140);
-        //this.game.add.existing(this.player);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
     },
     render : function()
@@ -26,12 +24,8 @@ World1.prototype =
             {
                 this.game.debug.geom(en.seeLineFloor);
                 this.game.debug.geom(en.seeLineWall);
-
             }
-        }
-        for (portal of portals.children) 
-                game.debug.body(portal);
-        
+        }  
     },
     create: function () {
         var map;
@@ -61,7 +55,6 @@ World1.prototype =
     },
     update: function () {
         
-
         this.game.physics.arcade.collide(this.player, layer);
         
         this.game.physics.arcade.collide(blocks, layer);
@@ -73,8 +66,7 @@ World1.prototype =
         for(en of enemies.children)
             if(layer)
                 moveEnemy(en, layer);
-
-        
+    
         this.game.physics.arcade.overlap(this.player, enemies, this.enterBattle, null, this);
 
         this.game.physics.arcade.overlap(this.player, keys, collectKeys, null, this);
@@ -103,15 +95,14 @@ World1.prototype =
 
         //POWER UP + WATER
         if(!this.player.ghostMode)
+        {
             this.game.physics.arcade.collide(this.player, locks, openLocks, null, this);
-
-         //POWER UP + WATER
-        if(!this.player.ghostMode)
             this.game.physics.arcade.collide(this.player, cages);
+        }
         
         this.game.physics.arcade.collide(this.player, blocks, burnBlock, null, this);
         
-        this.game.physics.arcade.collide(this.player, powerUp, getPowerUp1, null, this);
+        this.game.physics.arcade.collide(this.player, powerUp, getPowersUp, null, this);
 
         this.game.physics.arcade.overlap(this.player, spikes, takeDamages, null, this);
 
@@ -132,9 +123,7 @@ World1.prototype =
             if(portal.name == "map5" && this.player.checkSkyCoins())
                 this.changeMap('map5')
             else
-            {
                 this.changeMap(portal.name);
-            }
         }
         else
         {
@@ -168,7 +157,6 @@ World1.prototype =
 
         this.game.add.existing(this.player);
 
-        
         if(!mapDraw)
         {
             returnFromBattle = true;
@@ -180,7 +168,6 @@ World1.prototype =
         }
         else if(mapDraw !== "mapBattle")
         {
-            
             currentMap = mapDraw.substring(3);
             for (var i = 0; i < parseInt(currentMap) ; i++) 
             {
@@ -233,8 +220,7 @@ World1.prototype =
                 posY = 280 - (70 * i);
                 foes.add(enemyFactory(foeType, this.game, posX, posY, i))
             }
-            battleDatas.setInfos(nbFoes, potionGift, potions, foes.children);
-                
+            battleDatas.setInfos(nbFoes, potionGift, potions, foes.children);     
         }
         else
         {
@@ -266,8 +252,6 @@ World1.prototype =
         locks.enableBody = true;
         generateLocks(locks, this.player);
 
-        
-
         //SET PORTALS***************************************************************
         portals = this.game.add.group();
         portals.enableBody = true;
@@ -291,6 +275,7 @@ World1.prototype =
         {
             powerUp.enableBody = true;
             map.createFromObjects('layerObj', currentWorldData.powerUpSpawnInfo[2].valueOf(), 'powersUp', currentWorldData.powerUpSpawnInfo[3].valueOf(), true, false, powerUp);
+            powerUp.children[0].indexSaveArray = currentWorldData.powerUpSpawnInfo[1].valueOf();
         }
 
         generateOrbs(orbs, this.player);

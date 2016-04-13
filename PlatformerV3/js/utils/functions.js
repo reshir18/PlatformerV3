@@ -1,7 +1,6 @@
 function collectKeys (player, keys) 
 {
 	var res = keys.name.substring(0, keys.name.length - 3);
-	console.log(res.valueOf());
 	if(!player.keysArray[res.valueOf()])
 	{
 		player.keysArray[res.valueOf()] = res.valueOf();
@@ -12,8 +11,6 @@ function collectKeys (player, keys)
 function openLocks (player, locks) 
 {
 	var res = locks.name.substring(0, locks.name.length - 5);
-
-	console.log(res.valueOf());
 	if(player.keysArray[res.valueOf()])
 	{
 		player.keysArray[res.valueOf()] = false;
@@ -63,67 +60,49 @@ function collectPotions(player, potion)
 	if(pot == "maxPotion" || pot == "fairyPotion")
 		amount = player.maxHp;
 	killCollectedObject(potion, player.heal(amount));
-
 }
 
-function getPowerUp1 (player, wind) 
+function getPowersUp (player, power) 
 {
-	player.windStateKey.onDown.add(player.switchPowerUpWind,player);
-	player.switchPowerUpWind();
-	insertArray(4);
-	wind.kill();
-}
-
-function getPowerUp1Plus (player, wind) 
-{
-	player.powerUpKey.onDown.add(player.switchFlyMode,player);
-	insertArray(24);
-	wind.kill();
-}
-
-function getPowerUp2 (player, fire) 
-{
-	player.fireStateKey.onDown.add(player.switchPowerUpFire,player);
-	player.switchPowerUpFire();
-	insertArray(9);
-	fire.kill();
-}
-
-function getPowerUp2Plus (player, fire) 
-{
-	player.canSwimLava = true;
-	insertArray(25);
-	fire.kill();
-}
-
-function getPowerUp3 (player, water) 
-{
-	player.waterStateKey.onDown.add(player.switchPowerUpWater,player);
-	player.canBreathUnderwater = true;
-	insertArray(14);
-	water.kill();
-}
-
-function getPowerUp3Plus (player, water) 
-{
-	player.powerUpKey.onDown.add(player.switchGhostMode,player);
-	insertArray(26);
-	water.kill();
-}
-
-function getPowerUp4 (player, earth) 
-{
-	player.earthStateKey.onDown.add(player.switchPowerUpEarth,player);
-	player.powerUpKey.onDown.add(player.switchRockMode,player);
-	insertArray(19);
-	earth.kill();
-}
-
-function getPowerUp4Plus (player, earth) 
-{
-	player.resistance = 0.25;
-	insertArray(27);
-	earth.kill();
+	switch(power.name) 
+	{
+	    case "Wind":
+	        player.switchPowerUpWind();
+			player.windStateKey.onDown.add(player.switchPowerUpWind,player);
+	        break;
+	    case "Fire":
+	    	player.switchPowerUpFire();
+	    	player.fireStateKey.onDown.add(player.switchPowerUpFire,player);
+	        break;
+	    case "Water":
+	    	player.switchPowerUpWater();
+	    	player.waterStateKey.onDown.add(player.switchPowerUpWater,player);
+	        break;
+	    case "Earth":
+	    	player.switchPowerUpEarth();
+	    	player.earthStateKey.onDown.add(player.switchPowerUpEarth,player);
+	        break;
+	    case "WindPlus":
+	        player.switchPowerUpWind();
+	        player.powerUpKey.onDown.add(player.switchFlyMode,player);
+	        break;
+	    case "FirePlus":
+	    	player.switchPowerUpFire();
+	    	player.canSwimLava = true;
+	        break;
+	    case "WaterPlus":
+	    	player.switchPowerUpWater();
+	    	player.powerUpKey.onDown.add(player.switchGhostMode,player);
+	        break;
+	    case "EarthPlus":
+	    	player.switchPowerUpEarth();
+	    	player.resistance = 0.25;
+	        break;
+	    default:
+	        break;
+	}
+	insertArray(power.indexSaveArray);
+	power.kill();
 }
 
 function getOrbs(p, d)
@@ -165,18 +144,10 @@ function takeDamages(player, trap)
 {
 	player.hp -= 1 * player.resistance;
 	gameHud.refreshHearts();
-	//console.log(player.hp);
 	if(player.hp < 0)
 	{
 		gameOver();
 	}
-}
-
-
-
-function changeScene (game, scene) 
-{
-	game.state.start(scene);
 }
 
 function killCollectedObject(objectToKill, condition)
@@ -189,8 +160,6 @@ function burnBlock(player, block)
 {
 	killCollectedObject(block, player.burnMode);
 }
-
-
 
 function moveBlock(p, b)
 {
@@ -257,7 +226,6 @@ function particleBurst(obj, img) {
     emitter.gravity = 200;
     emitter.x = obj.x + 17.5;
     emitter.y = obj.y + 17.5;
-
     emitter.start(true, 4000, null, 10);
 
     game.time.events.add(500, destroyEmitter, this);

@@ -3,7 +3,6 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
     Phaser.Sprite.call(this, game, x, y, stats.imgFoe);
     
     this.enableBody = true;
-    //this.anchor.setTo(.5,.5);
     this.game.physics.arcade.enable(this);
     this.body.gravity.y = hasGravity;
     this.timeAttack = null
@@ -87,7 +86,6 @@ moveEnemy = function(mob, layer)
         {
             mob.scale.x =1;
             mob.mobDirection = -8;
-
         }
     }
 
