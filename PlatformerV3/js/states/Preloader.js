@@ -63,6 +63,10 @@ preload.prototype =
             this.game.load.image('mummy', 'assets/Enemies/mummy.png');
             this.game.load.image('pyramidRock', 'assets/Enemies/pyramidRock.png');
             this.game.load.image('desertSoul', 'assets/Enemies/desertSoul.png');
+            //this.game.load.image('golem', 'assets/Enemies/golem.png');
+            //*********************** World 3 *****************************************************
+            this.game.load.image('wolf', 'assets/Enemies/wolf.png');
+
 
             this.game.stage.backgroundColor = '#3BB9FF';
             this.game.world.setBounds(0, 0, 3500, 3500);

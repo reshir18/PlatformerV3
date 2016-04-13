@@ -121,7 +121,7 @@ function buyItem(c, sword)
     else if(!gameHud.player.canBuyItem)
         return true;
    
-    else if(sword && gameHud.player.inventory.Inventory[0].sword < c)
+    else if(sword && gameHud.player.sword.damages < getSword(c).damages)
     {
         gameHud.player.sword = getSword(c);
         gameHud.player.inventory.Inventory[0].loot = gameHud.player.inventoryAfterPurchase;
@@ -134,7 +134,7 @@ function buyItem(c, sword)
         saveInventory(jsonV);
 
     }
-    else if(!sword && gameHud.player.inventory.Inventory[0].shield < c)
+    else if(!sword && gameHud.player.shield.protect < getShield(c).protect)
     {
         gameHud.player.shield = getShield(c);
         gameHud.player.inventory.Inventory[0].loot = gameHud.player.inventoryAfterPurchase;

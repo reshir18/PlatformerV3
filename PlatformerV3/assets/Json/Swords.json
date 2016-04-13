@@ -114,6 +114,27 @@
 			"idItem" : 16,
 			"qts" : 1
 		}]
+	},
+	{
+		"name" : "Spirits blade",
+		"damages" : 34,
+		"craft" : [
+		{
+			"idItem" : 10,
+			"qts" : 15
+		},
+		{
+			"idItem" : 13,
+			"qts" : 8
+		},
+		{
+			"idItem" : 14,
+			"qts" : 3
+		},
+		{
+			"idItem" : 16,
+			"qts" : 1
+		}]
 	}
 
 ]}

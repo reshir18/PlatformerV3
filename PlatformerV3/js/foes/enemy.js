@@ -40,21 +40,27 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
         return turn % this.speed == 0
     }
 
-    this.setDrop = function()
+    this.setDrop = function(shinyNumber)
     {
         
-        var rdn = Math.floor((Math.random() * 100) + 1); 
+        var rdn = Math.floor((Math.random() * 100) + 1);
+        
         for (item of this.lootList)
         {
             if(rdn <= item.percent)
             {
+                if(rdn >= shinyNumber)
+                { 
+                    this.alpha = 0.5;
+                }
                 return item;
             }
         }
     };
 
     this.monsterText.fixedToCamera = true;
-    this.drop = this.setDrop();
+    var shinyNumber = (this.lootList[this.lootList.length - 2].percent > 85 ? this.lootList[this.lootList.length - 2].percent : 101);
+    this.drop = this.setDrop(shinyNumber);
     console.log(getLootItem(this.drop.id).name);
 };
 
