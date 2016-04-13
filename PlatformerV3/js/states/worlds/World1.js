@@ -8,7 +8,7 @@ World1.prototype =
         currentWorldData = getWorldData();
         console.log(currentWorldData);
         this.game.load.tilemap('map1', tiledmapCommonStart + currentWorld + '-1.json', null, Phaser.Tilemap.TILED_JSON);
-        //this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map3', tiledmapCommonStart + currentWorld + '-3.json', null, Phaser.Tilemap.TILED_JSON);
         //this.game.load.tilemap('map4', tiledmapCommonStart + currentWorld + '-4.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);
@@ -266,9 +266,7 @@ World1.prototype =
         locks.enableBody = true;
         generateLocks(locks, this.player);
 
-        blocks = this.game.add.group();
-        blocks.enableBody = true;
-        generateBurningBlocks(blocks)
+        
 
         //SET PORTALS***************************************************************
         portals = this.game.add.group();
@@ -298,6 +296,10 @@ World1.prototype =
         generateOrbs(orbs, this.player);
 
         generateCoins(goldCoins, darkCoins, skyCoins, this.player, firstDarkCoinposition);
+
+        blocks = this.game.add.group();
+        blocks.enableBody = true;
+        generateBurningBlocks(blocks)
 
         //SET LADDERS***************************************************************
         ladders = this.game.add.group();
