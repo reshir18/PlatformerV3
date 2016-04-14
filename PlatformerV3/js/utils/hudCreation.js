@@ -11,6 +11,7 @@ var playHud =
     keysGroup: 'none',
     hintTextGroup: 'none',
     indTextSign: 'none',
+    worldInfoTextGroup: 'none',
     refreshAll: function()
     {
     	this.refreshHearts();
@@ -34,6 +35,12 @@ var playHud =
             this.hintTextGroup.removeAll();
         else
             this.hintTextGroup.children[0].text = textTutoHint[this.indTextSign];
+    },
+    refreshWorldInfo: function(portal)
+    {
+        var minimumOrbsNeeded = requiredOrbForWorlds[portal.name.substring(5) - 1];
+        txtNameWorld = (minimumOrbsNeeded <= getOrbsCount()) ? portal.name : "Manque " + (minimumOrbsNeeded - getOrbsCount()) + " orb(s)";
+        var portalText = game.add.text(portal.body.x , portal.body.y - 40, txtNameWorld, { font: "30px mecharegular"} );
     },
     refreshHearts: function()
     {
@@ -196,7 +203,6 @@ var pauseHud =
             var img = game.add.sprite(game.camera.x + 350 , game.camera.y + 250, 'commandsHud',1);
             img.fixedToCamera = true;
             this.commandGroup.add(img);
-            console.log(getSword(0));
             img = game.add.sprite(game.camera.x + 350 , game.camera.y + 250, 'outline');
             img.fixedToCamera = true;
             this.commandGroup.add(img);
@@ -348,6 +354,11 @@ function showHintOnHud(ind)
 {
     gameHud.indTextSign = ind;
     gameHud.refreshHintInfo();
+}
+
+function generateWorldInfo(group)
+{
+    playHud.worldInfoTextGroup = group;
 }
 
 function generateHudHealth(group)

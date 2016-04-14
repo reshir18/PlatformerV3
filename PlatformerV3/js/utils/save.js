@@ -64,7 +64,7 @@ document.addEventListener('keydown', function(event) {
 });
 
 var gameDataArray = null;
-var requiredOrbForWorlds = [0,0,4,6,9];
+var requiredOrbForWorlds = [0,2,4,6,9];
 var currentWorld = 0;
 var game;
 var textTutoHint;
@@ -121,9 +121,9 @@ function returnToMainWorld()
 		setPlayerInputsNull(gameHud.player);
 		gameHud.player.body.velocity.y = 0;
 	    gameHud.player.body.velocity.x = 0;
-		game.paused = false;
 		game.world.removeAll();
 	    setWorld(6);
+	    game.paused = false;
 	    game.state.start("World0");
 	}
 	else

@@ -24,10 +24,10 @@ World0.prototype =
             this.player = new Player(this.game, portalCoord[0], portalCoord[1]);
             this.player.body.velocity.y = 0;
             this.player.body.velocity.x = 0;
-
+            
             //this.player.reset(portalCoord[0], portalCoord[1]);
             //alert(portalCoord[1]);
-            portalCoord = [0,0,false]
+            portalCoord = [0,0,false];
         }else if(getData(28))
             this.player = new Player(this.game, 140, 1900);
         else
@@ -187,8 +187,6 @@ World0.prototype =
         portals = this.game.add.group();
         portals.enableBody = true;
         map.createFromObjects('layerObj', 18, 'portal', 0, true, false, portals);
-        for (portal of portals.children) 
-                portal.body.setSize(30, 30, 20, 15);
 
         //SET LADDERS***************************************************************
         ladders = this.game.add.group();
@@ -217,5 +215,11 @@ World0.prototype =
         }
 
         setHud(this.player);
+
+        for (portal of portals.children) 
+        {
+            portal.body.setSize(30, 30, 20, 15);
+            gameHud.refreshWorldInfo(portal);
+        }
     }
 }
