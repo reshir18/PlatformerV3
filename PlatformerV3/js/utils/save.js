@@ -69,6 +69,7 @@ var currentWorld = 0;
 var game;
 var textTutoHint;
 var battleDatas = new BattleDatas();
+var portalCoord = [0,0, false];
 
 function createNewGame()
 {
@@ -106,6 +107,29 @@ function pauseGame()
 	menuChoice = 0;
 	currentMenuLayout = 0;
 	setPausedHud();
+}
+
+function setMainWorldPortalCoord(portalObject)
+{
+	portalCoord = [portalObject.body.x - 100 ,portalObject.body.y, true];
+}
+
+function returnToMainWorld()
+{
+	if(portalCoord[2])
+	{
+		setPlayerInputsNull(gameHud.player);
+		gameHud.player.body.velocity.y = 0;
+	    gameHud.player.body.velocity.x = 0;
+		game.paused = false;
+		game.world.removeAll();
+	    setWorld(6);
+	    game.state.start("World0");
+	}
+	else
+	{
+		location.reload();
+	}
 }
 
 function setCookie(cname,cvalue) 

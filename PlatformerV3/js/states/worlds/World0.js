@@ -11,10 +11,24 @@ World0.prototype =
         this.game.load.image('world3Tiles', 'assets/Tiles/world3Tiles.png');
         this.game.load.image('sign', 'assets/Objects/sign.png');
         setWorld(6);
-        
+        //alert("World main");
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         
-        if(getData(28))
+        
+
+        if(portalCoord[2])
+        {
+            this.player.body.velocity.y = 0;
+            this.player.body.velocity.x = 0;
+            this.player.body.gravity.y = 0;
+            this.player = new Player(this.game, portalCoord[0], portalCoord[1]);
+            this.player.body.velocity.y = 0;
+            this.player.body.velocity.x = 0;
+
+            //this.player.reset(portalCoord[0], portalCoord[1]);
+            //alert(portalCoord[1]);
+            portalCoord = [0,0,false]
+        }else if(getData(28))
             this.player = new Player(this.game, 140, 1900);
         else
             this.player = new Player(this.game, 140, 140);
@@ -84,6 +98,7 @@ World0.prototype =
         }
         else if(getOrbsCount(portal.name.substring(5)))
         {
+            setMainWorldPortalCoord(portal);
             this.game.world.removeAll();
             setWorld(portal.name.substring(5));
             this.game.state.start("World1");
@@ -113,6 +128,8 @@ World0.prototype =
         layer.resizeWorld();
 
         setMapAndLayer(map,layer);
+
+        
 
         //SET KEYS ***********************************************************
         keys = this.game.add.group();

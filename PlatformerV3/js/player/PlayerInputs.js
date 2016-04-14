@@ -12,3 +12,18 @@ function setPlayerInputs(player)
     player.waterStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
     player.earthStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.FIVE);
 }
+
+function setPlayerInputsNull(player)
+{
+    player.jumpKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.climbKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.leftKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.rightKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.powerUpKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.powerUpKey2 = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.normalStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.windStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.fireStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.waterStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+    player.earthStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.SIX);
+}

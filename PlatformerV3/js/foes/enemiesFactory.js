@@ -1,9 +1,9 @@
 function enemyFactory(idEnemy, game, x, y, positionOfEnemy)
 {
     idEnemy = (currentWorld-1) * 5 + idEnemy;
-	gravity = 300;
-	if(idEnemy == 2)
-		gravity = 0;
+
+    gravity = (idEnemy == 2) ? 0 : 300;
+
 	var dropListFoe = dropList.slime;
 
 	switch(idEnemy) 

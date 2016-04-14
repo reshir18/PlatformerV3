@@ -70,7 +70,7 @@ Enemy.prototype.update = function()
 {
     
 };
-
+//Enemys in world map NOT in battle ************************************************************************************
 moveEnemy = function(mob, layer)
 { 
     if(checkEnemycollide(mob))

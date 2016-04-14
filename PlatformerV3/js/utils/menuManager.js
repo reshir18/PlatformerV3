@@ -1,6 +1,6 @@
 var menuChoice = 0;
 var currentMenuLayout = 0;
-var menuTexts = ["Reprendre", "Crafting", "Inventaire", "Exit", "Retour", "Swords", "Shields"];
+var menuTexts = ["Reprendre", "Crafting", "Inventaire", "Main World", "Retour", "Swords", "Shields"];
 
 function menuNavigation(direction)
 {
@@ -95,7 +95,11 @@ function setSecondMenu(c)
         return false;
     }
     else if(c == 3)
-        close();
+    {
+        //gameOver();
+        returnToMainWorld();
+        //alert(game);
+    }
 
     return true; 
 }
