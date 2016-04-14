@@ -21,7 +21,7 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
 
     this.takeDamagesAndDie = function(dmg)
     {
-        this.hp -= (dmg - this.def);
+        this.hp -= Math.max(0, dmg - this.def);
         if(this.hp <= 0)
         {
             this.monsterText.setText(getLootItem(this.drop.id).name);

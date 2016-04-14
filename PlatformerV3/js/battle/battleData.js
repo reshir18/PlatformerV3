@@ -46,27 +46,27 @@ BattleDatas.prototype.setPotion = function(idPotion)
         case 3:
         default:
             this.potionSpriteId = -1;
-            return "---"; //Rien
+            return enums.potionsName.None; //Rien
         case 4:
         case 5:
         case 6:
         case 7:
         case 8:
         	this.potionSpriteId = 0;
-        	return "healPotion"; // Normal (1 coeur)
+        	return enums.potionsName.Base; // Normal (1 coeur)
         case 9:
         case 10:
         case 11:
         case 12:
             this.potionSpriteId = 1;
-            return "halfPotion";// half (la moitié des vies)
+            return enums.potionsName.Half;// half (la moitié des vies)
         case 13:
         case 14:
         	this.potionSpriteId = 2;
-        	return "maxPotion";// max (toute la vie)
+        	return enums.potionsName.Max;// max (toute la vie)
     	case 15:
        		this.potionSpriteId = 3;
-       		return "fairyPotion";// Fairy (donne un coeur de plus et restaure toute la vie)
+       		return enums.potionsName.Fairy;// Fairy (donne un coeur de plus et restaure toute la vie)
     }
 };
 

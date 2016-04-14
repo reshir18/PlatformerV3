@@ -51,13 +51,13 @@ function collectPotions(player, potion)
 {
 	var amount = 0;
 	pot = battleDatas.getPotionName();
-	if(pot == "healPotion")
+	if(pot == enums.potionsName.Base)
 		amount = 50;
-	if(pot == "fairyPotion")
+	if(pot == enums.potionsName.Fairy)
 		player.maxHp += 50;
-	if(pot == "halfPotion")
+	if(pot == enums.potionsName.Half)
 		amount = player.maxHp * 0.5;
-	if(pot == "maxPotion" || pot == "fairyPotion")
+	if(pot == enums.potionsName.Max || pot == enums.potionsName.Fairy)
 		amount = player.maxHp;
 	killCollectedObject(potion, player.heal(amount));
 }
@@ -107,26 +107,26 @@ function getPowersUp (player, power)
 
 function getOrbs(p, d)
 {
-	if(d.key == "emptyOrb")
+	if(d.key == enums.orbsName.Empty)
 	{
 		d.kill();
 	}
-	else if(d.name == "PureOrb")
+	else if(d.name == enums.orbsName.Pure)
 	{
 		insertArray((currentWorld-1) * 5)
 		d.kill();
 	}
-	else if(d.name == "DarkOrb" && p.checkDarkCoins())
+	else if(d.name == enums.orbsName.Dark && p.checkDarkCoins())
 	{
 		insertArray(((currentWorld-1) * 5) + 1)
 		d.kill();
 	}
-	else if(d.name == "VenomOrb" && p.goldCoinsNumber >= 100)
+	else if(d.name == enums.orbsName.Venom && p.goldCoinsNumber >= 100)
 	{
 		insertArray(((currentWorld-1) * 5) + 2)
 		d.kill();
 	}
-	else if(d.name == "SkyOrb")
+	else if(d.name == enums.orbsName.Sky)
 	{
 		insertArray(((currentWorld-1) * 5) + 3)
 		d.kill();

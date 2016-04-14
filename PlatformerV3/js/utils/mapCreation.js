@@ -67,13 +67,13 @@ function generateOrbs(orbs, player)
     //ORB CELESTE
     var positionFirstOrbInArray  = (currentWorld-1) * 5;
     if (getData(positionFirstOrbInArray + 3))
-        map.createFromObjects('layerObj', firstOrbId + 3, 'emptyOrb', 0, true, false, orbs);
+        map.createFromObjects('layerObj', firstOrbId + 3, enums.orbsName.Empty, 0, true, false, orbs);
     else 
         map.createFromObjects('layerObj', firstOrbId + 3, 'orbs', 3, true, false, orbs);
 
     //ORB DES 100 PIECES
     if (getData(positionFirstOrbInArray + 2))
-        map.createFromObjects('layerObj', firstOrbId + 2, 'emptyOrb', 0, true, false, orbs);
+        map.createFromObjects('layerObj', firstOrbId + 2, enums.orbsName.Empty, 0, true, false, orbs);
     else if (player.goldCoinsNumber >= 100)
         map.createFromObjects('layerObj', firstOrbId + 2, 'orbs', 0, true, false, orbs);
     else 
@@ -81,7 +81,7 @@ function generateOrbs(orbs, player)
 
     //ORB DES 8 PIECES MAUVES
     if (getData(positionFirstOrbInArray + 1))
-        map.createFromObjects('layerObj', firstOrbId + 1, 'emptyOrb', 0, true, false, orbs);
+        map.createFromObjects('layerObj', firstOrbId + 1, enums.orbsName.Empty, 0, true, false, orbs);
     else if (player.checkDarkCoins())
         map.createFromObjects('layerObj', firstOrbId + 1, 'orbs', 0, true, false, orbs);
     else 
@@ -89,7 +89,7 @@ function generateOrbs(orbs, player)
 
     //ORB PRINCIPALE DU LEVEL
     if (getData(positionFirstOrbInArray)) 
-        map.createFromObjects('layerObj', firstOrbId, 'emptyOrb', 0, true, false, orbs);
+        map.createFromObjects('layerObj', firstOrbId, enums.orbsName.Empty, 0, true, false, orbs);
     else 
         map.createFromObjects('layerObj', firstOrbId, 'orbs', 0, true, false, orbs);
 }
