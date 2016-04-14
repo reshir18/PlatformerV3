@@ -18,12 +18,8 @@ World0.prototype =
 
         if(portalCoord[2])
         {
-            this.player.body.velocity.y = 0;
-            this.player.body.velocity.x = 0;
-            this.player.body.gravity.y = 0;
+            
             this.player = new Player(this.game, portalCoord[0], portalCoord[1]);
-            this.player.body.velocity.y = 0;
-            this.player.body.velocity.x = 0;
             
             //this.player.reset(portalCoord[0], portalCoord[1]);
             //alert(portalCoord[1]);

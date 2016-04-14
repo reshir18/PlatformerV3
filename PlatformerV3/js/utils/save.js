@@ -118,13 +118,7 @@ function returnToMainWorld()
 {
 	if(portalCoord[2])
 	{
-		setPlayerInputsNull(gameHud.player);
-		gameHud.player.body.velocity.y = 0;
-	    gameHud.player.body.velocity.x = 0;
-		game.world.removeAll();
-	    setWorld(6);
-	    game.paused = false;
-	    game.state.start("World0");
+		gameOver();
 	}
 	else
 	{
