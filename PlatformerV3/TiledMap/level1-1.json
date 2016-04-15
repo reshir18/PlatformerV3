@@ -13,6 +13,7 @@
          "y":0
         }, 
         {
+         "color":"#a0a0a4",
          "draworder":"topdown",
          "height":50,
          "name":"layerObj",

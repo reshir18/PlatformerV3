@@ -64,6 +64,7 @@ document.addEventListener('keydown', function(event) {
 });
 
 var gameDataArray = null;
+var achievementDataArray = null;
 var requiredOrbForWorlds = [0,2,4,6,9];
 var currentWorld = 0;
 var game;
@@ -176,6 +177,31 @@ function getGameSave()
 	}
 }
 
+function getAchievements()
+{
+	var SavedNumber = getCookie("OrbOfGodsAchievement");
+	if(SavedNumber !="")
+	{
+		var str = parseInt(SavedNumber).toString(2);
+		var saveArray = str.split("").reverse();
+		while(saveArray.length < 32)
+			saveArray[saveArray.length] = "0";
+		return saveArray;
+	}
+
+	else
+	{
+		//return ["0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0"];
+		var temp = [];
+		var posTemp = 32	
+		while(posTemp--)
+		{
+			temp[posTemp] = "0";
+		}
+		return temp; 
+	}
+}
+
 function getInventory()
 {
 	if (checkCookie("inventoryPlayer"))
@@ -195,6 +221,9 @@ function saveGame()
 	var arrayTemp = gameDataArray.slice();
     var saveDecimalValue = parseInt(arrayTemp.reverse().join(''),2);
     setCookie("OrbOfGodsDatas", saveDecimalValue);
+    var arrayTemp = achievementDataArray.slice();
+    var saveDecimalValue = parseInt(arrayTemp.reverse().join(''),2);
+    setCookie("OrbOfGodsAchievement", saveDecimalValue);
 }
 
 function saveInventory(inv)
