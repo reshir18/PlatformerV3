@@ -151,7 +151,7 @@ Player = function (game, x, y)
     this.switchPowerUpNormal = function()
     {
         this.setPowerModeToNormal('perso');
-        player.powerUpKey.onDown.add(player.saveTheGame,player);
+        this.powerUpKey.onDown.add(this.saveTheGame,this);
         checkWaterCapacity(this, breathLoop);
 
     };
@@ -201,7 +201,7 @@ Player = function (game, x, y)
     this.setAllAnimations();
     this.jumpKey.onDown.add(this.baseJump,this);
     this.normalStateKey.onDown.add(this.switchPowerUpNormal,this);
-    this.powerUpKey.onDown.add(this.saveTheGame,player);
+    this.powerUpKey.onDown.add(this.saveTheGame,this);
     this.powerUpKey2.onDown.add(this.resetBlockPosition,this);
     //Attribute All Power Ups unlocked
     if(getData(4))
