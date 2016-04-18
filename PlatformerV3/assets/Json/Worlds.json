@@ -17,7 +17,7 @@
 		"name" : "World3",
 		"darkCoin" : [0,2,5,6,8],
 		"goldCoin" : [0,50,47,12,53],
-		"mobWorldMap" : "skeleton",
+		"mobWorldMap" : "wolf",
 		"powerUpSpawnInfo" : ["map4", 14, 24, 2]
 	},
 	{

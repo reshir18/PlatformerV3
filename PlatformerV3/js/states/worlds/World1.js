@@ -165,7 +165,7 @@ World1.prototype =
             returnFromBattle = true;
             mapDraw = oldmap[0];
             firstGoldCoinPosition = oldmap[1];
-            firstDarkCoinposition = oldmap[2];
+            firstDarkCoinPosition = oldmap[2];
             this.player.body.x = oldmap[3];
             this.player.body.y = oldmap[4] - 40;
         }
@@ -176,8 +176,8 @@ World1.prototype =
             {
                firstGoldCoinPosition += currentWorldData.goldCoin[i].valueOf();
             };
-            firstDarkCoinposition = currentWorldData.darkCoin[currentMap-1];
-            oldmap = [mapDraw,firstGoldCoinPosition,firstDarkCoinposition,0,0,0];
+            firstDarkCoinPosition = currentWorldData.darkCoin[currentMap-1];
+            oldmap = [mapDraw,firstGoldCoinPosition,firstDarkCoinPosition,0,0,0];
         }
         
         map = this.game.add.tilemap(mapDraw);
@@ -288,7 +288,7 @@ World1.prototype =
 
         generateOrbs(orbs, this.player);
 
-        generateCoins(goldCoins, darkCoins, skyCoins, this.player, firstDarkCoinposition);
+        generateCoins(goldCoins, darkCoins, skyCoins, this.player, firstGoldCoinPosition, firstDarkCoinPosition);
 
         blocks = this.game.add.group();
         blocks.enableBody = true;
