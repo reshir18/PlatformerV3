@@ -55,7 +55,7 @@ preload.prototype =
             //ENEMIES******************************************************************************
             //*********************** World 1 *****************************************************
             this.game.load.image('slime', 'assets/Enemies/slime.png');
-            this.game.load.image('bat', 'assets/Enemies/bat.png');
+            this.game.load.image('bat', 'assets/Enemies/bat2.png');
             this.game.load.image('zombie', 'assets/Enemies/zombie.png');
             this.game.load.image('spikySlime', 'assets/Enemies/spikySlime.png');
             this.game.load.image('carnivorPlant', 'assets/Enemies/carnivorPlant.png');
