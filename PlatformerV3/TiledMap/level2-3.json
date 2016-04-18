@@ -1695,6 +1695,22 @@
                  "width":70,
                  "x":140,
                  "y":560
+                }, 
+                {
+                 "gid":32,
+                 "height":70,
+                 "id":167,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":70,
+                 "x":875,
+                 "y":280
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1703,7 +1719,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":166,
+ "nextobjectid":168,
  "orientation":"orthogonal",
  "properties":
     {
@@ -1930,6 +1946,23 @@
             },
          "spacing":0,
          "tilecount":2,
+         "tileheight":70,
+         "tilewidth":70
+        }, 
+        {
+         "columns":1,
+         "firstgid":32,
+         "image":"..\/assets\/Objects\/savePoints.png",
+         "imageheight":70,
+         "imagewidth":70,
+         "margin":0,
+         "name":"savePoints",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":1,
          "tileheight":70,
          "tilewidth":70
         }],

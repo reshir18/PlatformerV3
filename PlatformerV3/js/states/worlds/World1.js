@@ -50,6 +50,7 @@ World1.prototype =
         var maxEnemiesType = 2;
         var oldmap = ["map1",0,0,140,140];
         var nbFoes;
+        var savePoints;
         this.changeMap('map1', true);
 
     },
@@ -66,6 +67,8 @@ World1.prototype =
         for(en of enemies.children)
             if(layer)
                 moveEnemy(en, layer);
+        
+        this.player.canSaveGame = this.game.physics.arcade.overlap(this.player, savePoints);
     
         this.game.physics.arcade.overlap(this.player, enemies, this.enterBattle, null, this);
 
@@ -258,6 +261,11 @@ World1.prototype =
         map.createFromObjects('layerObj', 12, 'portal', 0, true, false, portals);
         for (portal of portals.children) 
                 portal.body.setSize(30, 30, 20, 15);
+
+        //SAVES POINTS ************************************************************/
+        savePoints = this.game.add.group();
+        savePoints.enableBody = true;
+        map.createFromObjects('layerObj', 33, 'savePoints', 0, true, false, savePoints);
 
         //SET COLLECTIBLES***********************************************************
         goldCoins = this.game.add.group();

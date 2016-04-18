@@ -147,7 +147,6 @@ BattleDatas.prototype.battleAction = function()
 		var jsonV = JSON.stringify(player.inventory);
 		var vJson = JSON.parse(jsonV);
 		console.log(this);
-		saveInventory(jsonV);
 	}
     else if(selectedFoe)
     {

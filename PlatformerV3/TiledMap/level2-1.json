@@ -2415,6 +2415,38 @@
                  "width":70,
                  "x":3150,
                  "y":1680
+                }, 
+                {
+                 "gid":33,
+                 "height":70,
+                 "id":190,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":70,
+                 "x":1050,
+                 "y":560
+                }, 
+                {
+                 "gid":33,
+                 "height":70,
+                 "id":191,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":70,
+                 "x":280,
+                 "y":3150
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2423,7 +2455,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":190,
+ "nextobjectid":192,
  "orientation":"orthogonal",
  "properties":
     {
@@ -2669,6 +2701,23 @@
          "tilecount":1,
          "tileheight":40,
          "tilewidth":42
+        }, 
+        {
+         "columns":1,
+         "firstgid":33,
+         "image":"..\/assets\/Objects\/savePoints.png",
+         "imageheight":70,
+         "imagewidth":70,
+         "margin":0,
+         "name":"savePoints",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":70,
+         "tilewidth":70
         }],
  "tilewidth":70,
  "version":1,

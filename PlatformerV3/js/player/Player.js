@@ -15,6 +15,8 @@ Player = function (game, x, y)
     setPlayerInputs(this);
 
     setPlayerPhysics(this);
+
+    this.canSaveGame = false;
     
     this.maxHp = 150;
     this.hp = this.maxHp;
@@ -149,6 +151,7 @@ Player = function (game, x, y)
     this.switchPowerUpNormal = function()
     {
         this.setPowerModeToNormal('perso');
+        player.powerUpKey.onDown.add(player.saveTheGame,player);
         checkWaterCapacity(this, breathLoop);
 
     };
@@ -174,6 +177,15 @@ Player = function (game, x, y)
         return true;
     }
 
+    this.saveTheGame = function()
+    {
+        if(this.canSaveGame)
+        {
+            saveGame();
+            saveInventory(JSON.stringify(this.inventory));
+        }
+    }
+
     this.resetBlockPosition = function()
     {
         if(!this.magnetBlock)
@@ -189,6 +201,7 @@ Player = function (game, x, y)
     this.setAllAnimations();
     this.jumpKey.onDown.add(this.baseJump,this);
     this.normalStateKey.onDown.add(this.switchPowerUpNormal,this);
+    this.powerUpKey.onDown.add(this.saveTheGame,player);
     this.powerUpKey2.onDown.add(this.resetBlockPosition,this);
     //Attribute All Power Ups unlocked
     if(getData(4))

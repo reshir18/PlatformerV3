@@ -132,11 +132,6 @@ function buyItem(c, sword)
         gameHud.player.loot = gameHud.player.inventoryAfterPurchase;
         gameHud.player.inventory.Inventory[0].sword = c;
         console.log(gameHud.player.sword);
-        var jsonV = JSON.stringify(gameHud.player.inventory);
-        var vJson = JSON.parse(jsonV);
-        console.log(vJson);
-        saveInventory(jsonV);
-
     }
     else if(!sword && gameHud.player.shield.protect < getShield(c).protect)
     {
@@ -145,10 +140,6 @@ function buyItem(c, sword)
         gameHud.player.loot = gameHud.player.inventoryAfterPurchase;
         gameHud.player.inventory.Inventory[0].shield = c;
         console.log(gameHud.player.shield);
-        var jsonV = JSON.stringify(gameHud.player.inventory);
-        var vJson = JSON.parse(jsonV);
-        console.log(vJson);
-        saveInventory(jsonV);
     }
     gameHud.showLayout2(sword, c);
     return true;
