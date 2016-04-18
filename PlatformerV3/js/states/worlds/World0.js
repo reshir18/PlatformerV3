@@ -84,6 +84,7 @@ World0.prototype =
         if(portal.name == "mainWorld")
         {
             insertArray(28);
+            saveGame();
             loadGame();
             this.loadMap();
         }
@@ -206,11 +207,14 @@ World0.prototype =
         }
 
         setHud(this.player);
-
-        for (portal of portals.children) 
+        if(getData(28))
         {
-            portal.body.setSize(30, 30, 20, 15);
-            gameHud.refreshWorldInfo(portal);
+            for (portal of portals.children) 
+            {
+                portal.body.setSize(30, 30, 20, 15);
+                gameHud.refreshWorldInfo(portal);
+            }
         }
+            
     }
 }

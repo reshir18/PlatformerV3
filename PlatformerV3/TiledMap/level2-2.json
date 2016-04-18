@@ -269,6 +269,23 @@
          "tilecount":1,
          "tileheight":40,
          "tilewidth":42
+        }, 
+        {
+         "columns":1,
+         "firstgid":33,
+         "image":"..\/assets\/Objects\/savePoints.png",
+         "imageheight":70,
+         "imagewidth":70,
+         "margin":0,
+         "name":"savePoints",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":70,
+         "tilewidth":70
         }],
  "tilewidth":70,
  "version":1,
