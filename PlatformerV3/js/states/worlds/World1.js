@@ -160,6 +160,7 @@ World1.prototype =
         if(!mapDraw)
         {
             returnFromBattle = true;
+            battleDatas.isOnBattle = false;
             mapDraw = oldmap[0];
             firstGoldCoinPosition = oldmap[1];
             firstDarkCoinPosition = oldmap[2];
