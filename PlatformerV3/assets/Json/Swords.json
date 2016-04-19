@@ -135,6 +135,22 @@
 			"idItem" : 16,
 			"qts" : 1
 		}]
+	},
+	{
+		"name" : "Frost sword",
+		"damages" : 30,
+		"craft" : [
+		{
+			"idItem" : 2,
+			"qts" : 15
+		},
+		{
+			"idItem" : 18,
+			"qts" : 3
+		},
+		{
+			"idItem" : 19,
+			"qts" : 1
+		}]
 	}
-
 ]}

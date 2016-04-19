@@ -66,5 +66,17 @@
 	{
 		"id" : 16,
 		"name" : "soul"
+	},
+	{
+		"id" : 17,
+		"name" : "gold sand"
+	},
+	{
+		"id" : 18,
+		"name" : "claws"
+	},
+	{
+		"id" : 19,
+		"name" : "softed snow"
 	}
 ]}
