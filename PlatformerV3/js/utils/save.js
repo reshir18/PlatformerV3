@@ -80,7 +80,7 @@ function createNewGame()
     game.state.add('World0', World0, false);
     game.state.add('World1', World1, false);
     game.state.start('Boot');
-    //showNotific8({title:'Start game', content:'Go !', life:2500, color:'cerulean'});
+    showNotific8({title:'Start game', content:'Go !', life:2500, color:'cerulean'});
 }
 
 function loadGame() 
