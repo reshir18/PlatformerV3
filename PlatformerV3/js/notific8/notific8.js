@@ -17,7 +17,7 @@ notific8 = (function() {
     sticky: false,
     verticalEdge: "right",
     horizontalEdge: "top",
-    zindex: 500,
+    zindex: 1100,
     icon: false,
     closeText: "close",
     onInit: null,
@@ -25,7 +25,7 @@ notific8 = (function() {
     onClose: null,
     namespace: 'notific8',
     height: {
-      atomic: 70,
+      atomic: 50,
       chicchat: 120,
       legacy: 90
     }

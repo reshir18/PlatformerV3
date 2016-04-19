@@ -390,9 +390,9 @@
 .left .notific8-notification.family-chicchat .notific8-close { left: .5em; }
 
 /** @author Will Steinmetz  ChicChat family themes for the notific8 plug-in for jQuery  Copyright (c)2013-2016, Will Steinmetz Licensed under the BSD license. http://opensource.org/licenses/BSD-3-Clause */
-.notific8-notification.family-atomic { border-radius: 3px; font-size: 0.875em; height: 0; padding: 0; transition: all .15s ease-in-out; width: 31.25em; }
-.notific8-notification.family-atomic .notific8-heading { padding: .75em; }
-.notific8-notification.family-atomic .notific8-message { font-size: 0.85714em; padding: 0.75em; }
+.notific8-notification.family-atomic { border-radius: 3px; font-size: 0.875em; height: 0; padding: 0; transition: all .15s ease-in-out; width: 15.25em; }
+.notific8-notification.family-atomic .notific8-heading { padding: .25em; }
+.notific8-notification.family-atomic .notific8-message { font-size: 0.85714em; padding: 0.50em; }
 .notific8-notification.family-atomic .notific8-close { top: .325em; }
 .notific8-notification.family-atomic .notific8-close.sticky { font-size: .75em; text-decoration: underline; }
 .notific8-notification.family-atomic .notific8-icon { box-sizing: border-box; color: #fff; font-size: 1.25em; height: 4.51429em; padding-top: .375em; position: absolute; text-align: center; top: 0; width: 1.71429em; }
