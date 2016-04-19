@@ -131,7 +131,7 @@ function buyItem(c, sword)
         gameHud.player.inventory.Inventory[0].loot = gameHud.player.inventoryAfterPurchase;
         gameHud.player.loot = gameHud.player.inventoryAfterPurchase;
         gameHud.player.inventory.Inventory[0].sword = c;
-        console.log(gameHud.player.sword);
+        showNotific8({title:'New sword', content:getSword(c).name, life:2500, color:'pear'});
     }
     else if(!sword && gameHud.player.shield.protect < getShield(c).protect)
     {
@@ -139,7 +139,7 @@ function buyItem(c, sword)
         gameHud.player.inventory.Inventory[0].loot = gameHud.player.inventoryAfterPurchase;
         gameHud.player.loot = gameHud.player.inventoryAfterPurchase;
         gameHud.player.inventory.Inventory[0].shield = c;
-        console.log(gameHud.player.shield);
+        showNotific8({title:'New shield', content:getShield(c).name, life:2500, color:'pear'});
     }
     gameHud.showLayout2(sword, c);
     return true;

@@ -234,3 +234,16 @@ function particleBurst(obj, img) {
 function destroyEmitter() {
     emitter.destroy();
 }
+
+function showNotific8(notifParam)
+{
+	var paramsNotific8 = 
+	{
+		life: (notifParam.life),
+		theme: (notifParam.color),
+		heading: (notifParam.title),
+		sticky: (false)
+	},
+	text = notifParam.content;
+	$.notific8(text, paramsNotific8);
+}

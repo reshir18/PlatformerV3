@@ -217,6 +217,7 @@ function saveGame()
 	var arrayTemp = gameDataArray.slice();
     var saveDecimalValue = parseInt(arrayTemp.reverse().join(''),2);
     setCookie("OrbOfGodsDatas", saveDecimalValue);
+	showNotific8({title:'Save', content:'game saved !', life:2500, color:'onyx'});
 }
 
 function saveInventory(inv)

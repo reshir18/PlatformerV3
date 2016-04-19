@@ -1699,54 +1699,6 @@
                  "y":3430
                 }, 
                 {
-                 "gid":27,
-                 "height":70,
-                 "id":349,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":70,
-                 "x":1050,
-                 "y":210
-                }, 
-                {
-                 "gid":27,
-                 "height":70,
-                 "id":350,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":70,
-                 "x":1050,
-                 "y":140
-                }, 
-                {
-                 "gid":27,
-                 "height":70,
-                 "id":351,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":70,
-                 "x":1050,
-                 "y":70
-                }, 
-                {
                  "gid":32,
                  "height":28,
                  "id":356,

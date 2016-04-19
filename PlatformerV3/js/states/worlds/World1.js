@@ -70,8 +70,6 @@ World1.prototype =
         
         this.player.canSaveGame = this.game.physics.arcade.overlap(this.player, savePoints);
     
-        this.game.physics.arcade.overlap(this.player, enemies, this.enterBattle, null, this);
-
         this.game.physics.arcade.overlap(this.player, keys, collectKeys, null, this);
 
         this.game.physics.arcade.overlap(this.player, orbs, getOrbs, null, this);
@@ -101,15 +99,14 @@ World1.prototype =
         {
             this.game.physics.arcade.collide(this.player, locks, openLocks, null, this);
             this.game.physics.arcade.collide(this.player, cages);
+            this.game.physics.arcade.overlap(this.player, spikes, takeDamages, null, this);
+            this.game.physics.arcade.overlap(this.player, portals, this.changeLevel, null, this);
+            this.game.physics.arcade.overlap(this.player, enemies, this.enterBattle, null, this);
         }
         
         this.game.physics.arcade.collide(this.player, blocks, burnBlock, null, this);
         
         this.game.physics.arcade.collide(this.player, powerUp, getPowersUp, null, this);
-
-        this.game.physics.arcade.overlap(this.player, spikes, takeDamages, null, this);
-
-        this.game.physics.arcade.overlap(this.player, portals, this.changeLevel, null, this);
             
         if (this.player.climbKey && this.player.climbKey.isDown && this.game.physics.arcade.overlap(this.player, ladders))
             this.player.climbUp();

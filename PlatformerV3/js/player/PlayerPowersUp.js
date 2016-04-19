@@ -42,6 +42,7 @@ function removePowerUp(player)
     player.powerUpKey.onDown.remove(player.switchGhostMode,player);
     player.powerUpKey.onDown.remove(player.switchBurnMode,player);
     player.powerUpKey.onDown.remove(player.switchMagnetMode,player);
+    player.powerUpKey.onDown.remove(player.saveTheGame,player);
     player.jumpKey.onDown.add(player.baseJump,player);
     player.magnetBlock = null;
 }
