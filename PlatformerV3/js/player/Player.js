@@ -11,6 +11,7 @@ Player = function (game, x, y)
     this.canBuyItem = "Data";
     this.enableBody = true;
     this.game.physics.arcade.enable(this);
+    this.inputEnabled = true;
     
     setPlayerInputs(this);
 

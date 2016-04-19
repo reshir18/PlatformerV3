@@ -98,6 +98,9 @@ function gameOver()
 	game.world.removeAll();
 	game.destroy();
 	document.body.innerHTML = '';
+	var para = document.createElement("span");
+	para.setAttribute("id", "notific8Span");
+	document.body.appendChild(para);
 	createNewGame();
 }
 
@@ -161,7 +164,6 @@ function getGameSave()
 			saveArray[saveArray.length] = "0";
 		return saveArray;
 	}
-
 	else
 	{
 		//return ["0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0"];
