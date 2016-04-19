@@ -146,7 +146,7 @@ function takeDamages(player, trap)
 	gameHud.refreshHearts();
 	if(player.hp < 0)
 	{
-		gameOver();
+		gameOver('Trop de dégats');
 	}
 }
 
@@ -209,7 +209,7 @@ function waterContactExit (p, w)
 function lavaContact (p, l)
 {
     if(!p.canSwimLava)
-        gameOver();
+        gameOver('Lave = mort chaude');
     else
         p.lava = true;
 }

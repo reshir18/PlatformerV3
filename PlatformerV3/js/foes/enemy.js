@@ -5,13 +5,9 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
     this.enableBody = true;
     this.game.physics.arcade.enable(this);
     this.body.gravity.y = hasGravity;
-    this.timeAttack = null
-    this.inputEnabled = true;
     this.positionFoe = pos;
     this.stats = stats;
     this.lootList = lootList;
-    this.mobDirection = -8;
- 
     this.maxHp = Math.floor((Math.random() * (this.stats.hp * 2)) + this.stats.hp - 2);
     this.hp = this.maxHp; 
     this.att = this.stats.attack;
@@ -41,7 +37,6 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
 
     this.setDrop = function(shinyNumber)
     {
-        
         var rdn = Math.floor((Math.random() * 100) + 1);
         
         for (item of this.lootList)

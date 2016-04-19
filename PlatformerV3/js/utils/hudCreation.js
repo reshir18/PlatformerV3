@@ -143,13 +143,17 @@ var pauseHud =
         this.commandGroup.visible = visible;
         this.textGroup.visible = visible;
     },
-    showText: function(text, hasWeapon)
+    showText: function(text, hasWeapon, hasColor)
     {
         this.textGroup.removeAll();
         if(!text)
             text = "Reprendre";
 
-        var bmpText = game.add.text(game.camera.x + 250, game.camera.y + 100,  text, { font: textWeigthFont} );
+        var textColorFill = "#000000";
+        if(hasColor)
+            textColorFill = hasColor;
+
+        var bmpText = game.add.text(game.camera.x + 250, game.camera.y + 100,  text, { font: textWeigthFont, fill:textColorFill} );
         bmpText.fixedToCamera = true;
         this.textGroup.add(bmpText); 
 
@@ -212,6 +216,7 @@ var pauseHud =
         img = game.add.image(game.camera.x + 350 , game.camera.y + 250, 'baseEquipement');
         img.fixedToCamera = true;
         this.commandGroup.add(img);
+        var textColorFill = "#000000";
         if(isSword)
         {
             
@@ -220,7 +225,8 @@ var pauseHud =
             img.fixedToCamera = true;
             this.commandGroup.add(img);
             efect = "Dommages: " + itemShow.damages;
-            
+            if(this.player.sword.damages == itemShow.damages)
+                textColorFill = "#0000FF";
         }
         else
         {
@@ -229,6 +235,8 @@ var pauseHud =
             this.commandGroup.add(img);
             var itemShow = getShield(idItem);
             efect = "Résistance: " + itemShow.protect;
+            if(this.player.shield.protect == itemShow.protect)
+                textColorFill = "#0000FF";
         }
         img = game.add.sprite(game.camera.x + 350 , game.camera.y + 250, 'outline');
         img.fixedToCamera = true;
@@ -251,12 +259,13 @@ var pauseHud =
                 nbI = c.qts - lootPlayer[c.idItem];
                 lootText += "manque: " + nbI + "\n";
                 resCount++;
+                //textColorFill = "#FF0000";
             }
             
         }
         this.player.canBuyItem = resCount == 0;
 
-        this.showText(itemShow.name + "\n" + efect, lootText);
+        this.showText(itemShow.name + "\n" + efect, lootText, textColorFill);
         this.moveMenu(game.camera.x + 350, true);
     },
     showLayout3: function(inventorySelect)

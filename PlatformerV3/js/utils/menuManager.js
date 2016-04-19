@@ -123,7 +123,10 @@ function buyItem(c, sword)
         return false;
     }
     else if(!gameHud.player.canBuyItem)
+    {
+        showNotific8({title:'Achat impossible', content:"Manque de ressources", life:2500, color:'tomato'});
         return true;
+    }
    
     else if(sword && gameHud.player.sword.damages < getSword(c).damages)
     {
@@ -141,6 +144,8 @@ function buyItem(c, sword)
         gameHud.player.inventory.Inventory[0].shield = c;
         showNotific8({title:'New shield', content:getShield(c).name, life:2500, color:'pear'});
     }
+    else
+        showNotific8({title:'Achat impossible', content:"Équipement actuel supérieur ou égal", life:2500, color:'amethyst'});
     gameHud.showLayout2(sword, c);
     return true;
 }

@@ -165,5 +165,5 @@ BattleDatas.prototype.attackPlayer = function(mob)
     p.hp -= Math.max(0,(mob.att - p.shield.protect) * p.resistance);
     gameHud.refreshHearts();
     if(p.hp < 0)
-        gameOver();
+        gameOver('Mort au combat');
 }

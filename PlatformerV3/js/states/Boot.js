@@ -1,6 +1,5 @@
 var boot = function(game)
 {
-    console.log("%cStarting my awesome game", "color:white; background:red");
 };
   
 boot.prototype = 

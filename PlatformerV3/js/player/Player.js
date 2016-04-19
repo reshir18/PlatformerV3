@@ -196,7 +196,7 @@ Player = function (game, x, y)
 
     this.playerDrowned = function(p, w)
     {
-        gameOver();
+        gameOver('Noyade');
     };
     
     this.setAllAnimations();

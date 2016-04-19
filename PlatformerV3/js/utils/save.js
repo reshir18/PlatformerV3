@@ -80,7 +80,7 @@ function createNewGame()
     game.state.add('World0', World0, false);
     game.state.add('World1', World1, false);
     game.state.start('Boot');
-    showNotific8({title:'Start game', content:'Go !', life:2500, color:'cerulean'});
+    //showNotific8({title:'Start game', content:'Go !', life:2500, color:'cerulean'});
 }
 
 function loadGame() 
@@ -94,7 +94,7 @@ function setWorld(w)
 	textTutoHint = game.cache.getText('gameplayInfo').split(';');
 }
 
-function gameOver()
+function gameOver(textDead)
 {
 	game.world.removeAll();
 	game.destroy();
@@ -103,6 +103,8 @@ function gameOver()
 	para.setAttribute("id", "notific8Span");
 	document.body.appendChild(para);
 	createNewGame();
+	if(textDead)
+		showNotific8({title:'Game Over', content:textDead, life:2500, color:'cerulean'});
 }
 
 function pauseGame()
@@ -157,30 +159,6 @@ function checkCookie(cname)
 function getGameSave()
 {
 	var SavedNumber = getCookie("OrbOfGodsDatas");
-	if(SavedNumber !="")
-	{
-		var str = parseInt(SavedNumber).toString(2);
-		var saveArray = str.split("").reverse();
-		while(saveArray.length < 32)
-			saveArray[saveArray.length] = "0";
-		return saveArray;
-	}
-	else
-	{
-		//return ["0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0"];
-		var temp = [];
-		var posTemp = 32	
-		while(posTemp--)
-		{
-			temp[posTemp] = "0";
-		}
-		return temp; 
-	}
-}
-
-function getAchievements()
-{
-	var SavedNumber = getCookie("OrbOfGodsAchievement");
 	if(SavedNumber !="")
 	{
 		var str = parseInt(SavedNumber).toString(2);

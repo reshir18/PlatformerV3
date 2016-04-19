@@ -121,7 +121,10 @@ World1.prototype =
         {
             maxEnemiesType = parseInt(portal.name.substring(3)) + 1;
             if(portal.name == "map5" && this.player.checkSkyCoins())
+            {
+                maxEnemiesType--;
                 this.changeMap('map5')
+            }
             else
                 this.changeMap(portal.name);
         }

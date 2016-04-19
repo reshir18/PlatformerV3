@@ -26,7 +26,7 @@ function checkWaterCapacity(player, loop)
 function checkLavaCapacity(player)
 {
     if(player.lava && !player.canSwimLava)
-        gameOver();
+        gameOver('Mauvaise idée');
 }
 
 function removePowerUp(player)
