@@ -147,6 +147,7 @@ World1.prototype =
     enterBattle: function(player, foe)
     {
         oldmap = ["map" + (maxEnemiesType - 1),oldmap[1],oldmap[2],foe.body.x,foe.body.y, foe.mobPositionInWorld];
+        this.game.time.events.removeAll();
         foe.destroy();
         this.changeMap('mapBattle');
         

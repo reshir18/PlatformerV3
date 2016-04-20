@@ -21,7 +21,7 @@
 		"goldCoin" : [0,50,47,12,53],
 		"mobWorldMap" : "wolf",
 		"powerUpSpawnInfo" : ["map4", 14, 24, 2],
-		"minimapTileColor" : "#009900"
+		"minimapTileColor" : "#00ccff"
 	},
 	{
 		"name" : "World4",
