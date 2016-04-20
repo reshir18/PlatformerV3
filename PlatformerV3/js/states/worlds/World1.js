@@ -339,10 +339,7 @@ World1.prototype =
         setHud(this.player);
 
         this.game.map = map;
-
         var miniMapBmd = this.game.add.bitmapData((this.game.map.width + 2)* this.game.miniMapSize, (this.game.map.height + 2) * this.game.miniMapSize);
-        // this.game.miniMapSize is the pixel size in the minimap
-        // iterate my map layers
         //Draw the backgroud white
         miniMapBmd.ctx.fillStyle = '#FFF';
         miniMapBmd.ctx.globalAlpha = 0.5;
@@ -358,32 +355,33 @@ World1.prototype =
         miniMapBmd.ctx.fillRect(0, 0, this.game.miniMapSize, (this.game.map.height + 2) * this.game.miniMapSize);
         //Right border
         miniMapBmd.ctx.fillRect((this.game.map.width + 1) * this.game.miniMapSize, 0, this.game.miniMapSize, (this.game.map.height + 2) *  this.game.miniMapSize);
-        for (l=0; l<this.game.map.layers.length; l++) 
-        {
-            for (y = 0; y < this.game.map.height; y++) 
-            {      
-                for (x = 0; x < this.game.map.width ; x++) 
-                {   
-                    var tileColorPixel = '#000000';
-                    var tile = this.game.map.getTile(x, y, l);
-                    if (tile && this.game.map.layers[l].name == 'layerGround') 
-                    {
-                        // fill a pixel in the minimap
-                        tileColorPixel = currentWorldData.minimapTileColor
-                        miniMapBmd.ctx.fillStyle = tileColorPixel;
-                        miniMapBmd.ctx.fillRect((x + 1) * this.game.miniMapSize, (y + 1)* this.game.miniMapSize, this.game.miniMapSize, this.game.miniMapSize);         
-                    }
-                    /*else if ... other types of tiles*/      
-                }   
-            }
+        for (y = 0; y < this.game.map.height; y++) 
+        {      
+            for (x = 0; x < this.game.map.width ; x++) 
+            {   
+                var tileColorPixel = '#000000';
+                var tile = this.game.map.getTile(x, y, 0);
+                if (tile && this.game.map.layers[0].name == 'layerGround') 
+                {
+                    tileColorPixel = currentWorldData.minimapTileColor
+                    miniMapBmd.ctx.fillStyle = tileColorPixel;
+                    miniMapBmd.ctx.fillRect((x + 1) * this.game.miniMapSize, (y + 1)* this.game.miniMapSize, this.game.miniMapSize, this.game.miniMapSize);         
+                }     
+            }   
         }
-        //this.game.miniMap = this.game.add.sprite(x, y, miniMapBmd);
+        //Set the spwan place of the player
+        miniMapBmd.ctx.fillStyle = '#f06';
+        miniMapBmd.ctx.fillRect((this.player.body.x + 70) / 70  * this.game.miniMapSize, (this.player.body.y + 70) / 70 * this.game.miniMapSize, this.game.miniMapSize, this.game.miniMapSize);
+        //Set the locks on the minimap
+        for (var i = 0, len = locks.children.length; i < len;i++) 
+        {
+            var l = locks.children[i];  
+            var res = l.name.substring(0, l.name.length - 5);
+            miniMapBmd.ctx.fillStyle = res;
+            miniMapBmd.ctx.fillRect((l.body.x + 70) / 70  * this.game.miniMapSize, (l.body.y + 70) / 70 * this.game.miniMapSize, this.game.miniMapSize, this.game.miniMapSize);
+        }
         this.game.miniMap = this.game.add.sprite(x, this.game.height - (y * this.game.miniMapSize) - 20 , miniMapBmd);
-        // dynamic bmd where I draw mobile stuff like friends and enemies 
-        this.game.miniMapOverlay = this.game.add.bitmapData(this.game.map.width*this.game.miniMapSize, this.game.map.height*this.game.miniMapSize);
-        //this.game.add.sprite(this.game.miniMap.x, this.game.miniMap.y, this.game.miniMapOverlay);
         this.game.miniMap.fixedToCamera = true;
         this.game.miniMap.visible = this.player.key == 'perso';
-
     }
 }

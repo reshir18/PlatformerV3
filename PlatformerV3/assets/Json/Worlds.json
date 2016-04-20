@@ -13,7 +13,7 @@
 		"goldCoin" : [0,62,47,12,53],
 		"mobWorldMap" : "skeleton",
 		"powerUpSpawnInfo" : ["map1", 9, 23, 1],
-		"minimapTileColor" : "#009900"
+		"minimapTileColor" : "#dfc163"
 	},
 	{
 		"name" : "World3",
