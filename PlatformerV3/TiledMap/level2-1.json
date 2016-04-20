@@ -2719,6 +2719,22 @@
                  "width":70,
                  "x":3220,
                  "y":2730
+                }, 
+                {
+                 "gid":14,
+                 "height":35,
+                 "id":214,
+                 "name":"darkCoin",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":35,
+                 "x":87,
+                 "y":2677
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2727,7 +2743,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":211,
+ "nextobjectid":215,
  "orientation":"orthogonal",
  "properties":
     {
