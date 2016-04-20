@@ -380,6 +380,12 @@ World1.prototype =
             var res = l.name.substring(0, l.name.length - 5);
             miniMapBmd.ctx.fillStyle = res;
             miniMapBmd.ctx.fillRect((l.body.x + 70) / 70  * this.game.miniMapSize, (l.body.y + 70) / 70 * this.game.miniMapSize, this.game.miniMapSize, this.game.miniMapSize);
+        }//Set the save points on the minimap
+        miniMapBmd.ctx.fillStyle = '#4C0733';
+        for (var i = 0, len = savePoints.children.length; i < len;i++) 
+        {
+            var s = savePoints.children[i];  
+            miniMapBmd.ctx.fillRect((s.body.x + 70) / 70  * this.game.miniMapSize, (s.body.y + 70) / 70 * this.game.miniMapSize, this.game.miniMapSize, this.game.miniMapSize);
         }
         this.game.miniMap = this.game.add.sprite(x, this.game.height - (y * this.game.miniMapSize) - 20 , miniMapBmd);
         this.game.miniMap.fixedToCamera = true;
