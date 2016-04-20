@@ -153,6 +153,7 @@ Player = function (game, x, y)
     {
         this.setPowerModeToNormal('perso');
         this.powerUpKey.onDown.add(this.saveTheGame,this);
+        this.game.miniMap.visible = true;
         checkWaterCapacity(this, breathLoop);
 
     };
