@@ -12,7 +12,20 @@
 29 = Boss World 5 mort
 30 = 
 31 = 
-*/ 
+*/
+var gameDataArray = null;
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+if(isChrome)
+{
+	//chrome.storage.sync.clear(function (){});
+	var objectKey1 = 'OrbOfGodsDatas';
+	var objectKey2 = 'inventoryPlayer';
+
+	var objSaveChrome= {};
+	gameDataArray = getGameSave();
+	loadGameChrome();
+}
+      
 document.addEventListener('DOMContentLoaded', function () {
   createNewGame();
 });
@@ -62,7 +75,6 @@ document.addEventListener('keydown', function(event) {
 	}  
 });
 
-var gameDataArray = null;
 var requiredOrbForWorlds = [0,2,4,6,9];
 var currentWorld = 0;
 var game;
@@ -86,6 +98,10 @@ function createNewGame()
 function loadGame() 
 {
 	gameDataArray = getGameSave();
+	if(isChrome)
+	{
+		loadGameChrome();
+	}
 }
 
 function setWorld(w)
@@ -133,12 +149,28 @@ function returnToMainWorld()
 
 function setCookie(cname,cvalue) 
 {
+	if(isChrome)
+	{
+		var objectKey = cname;
+
+		var objSave= {};
+
+		objSave[objectKey] = cvalue;
+
+		chrome.storage.sync.set(objSave, function() {});
+        return;
+	}
 	var expires = "expires=Sun, 12 Feb 2017 00:00:00 UTC";
 	document.cookie = cname+"="+cvalue+"; "+expires;
 }
 
 function getCookie(cname) 
 {
+	if(isChrome)
+	{
+		console.log('Data get = ' + objSaveChrome[cname]);
+		return objSaveChrome[cname];
+	}
 	var name = cname + "=";
 	var ca = document.cookie.split(';');
     for(var i=0; i<ca.length; i++) {
@@ -159,7 +191,7 @@ function checkCookie(cname)
 function getGameSave()
 {
 	var SavedNumber = getCookie("OrbOfGodsDatas");
-	if(SavedNumber !="")
+	if(SavedNumber && SavedNumber !="")
 	{
 		var str = parseInt(SavedNumber).toString(2);
 		var saveArray = str.split("").reverse();
@@ -225,7 +257,8 @@ function getOrbsCount(min)
 
 function loadJSON(file, callback) {   
 
-    var xobj = new XMLHttpRequest();
+
+    	var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
     xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
     xobj.onreadystatechange = function () {
@@ -235,4 +268,36 @@ function loadJSON(file, callback) {
           }
     };
     xobj.send(null);  
- }
+}
+
+function loadGameChrome()
+{
+	var gameSaveChrome = '';
+	chrome.storage.sync.get('OrbOfGodsDatas', function(items) 
+	{
+		gameSaveChrome = items['OrbOfGodsDatas'];
+		objSaveChrome[objectKey1] = gameSaveChrome;
+	});
+
+	var inventorySaveChrome = '';
+	chrome.storage.sync.get('inventoryPlayer', function(items) 
+	{
+		inventorySaveChrome = items['inventoryPlayer'];
+		objSaveChrome[objectKey2] = inventorySaveChrome;
+
+	});
+
+	chrome.storage.onChanged.addListener(function(changes, namespace) 
+	{
+        for (key in changes) 
+        {
+          var storageChange = changes[key];
+          console.log('Storage key "%s" in namespace "%s" changed. ' +
+                      'Old value was "%s", new value is "%s".',
+                      key,
+                      namespace,
+                      storageChange.oldValue,
+                      storageChange.newValue);
+        }
+    });
+}

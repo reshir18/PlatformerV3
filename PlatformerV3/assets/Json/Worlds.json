@@ -9,8 +9,8 @@
 	},
 	{
 		"name" : "World2",
-		"darkCoin" : [0,2,4,6,8],
-		"goldCoin" : [0,62,47,12,53],
+		"darkCoin" : [0,2,3,5,8],
+		"goldCoin" : [0,62,47,35,53],
 		"mobWorldMap" : "skeleton",
 		"powerUpSpawnInfo" : ["map1", 9, 23, 1],
 		"minimapTileColor" : "#dfc163"
