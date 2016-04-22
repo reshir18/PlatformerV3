@@ -2,4 +2,4 @@
 
 Power-up >> Multiple worlds >> Menu and Crafting
 _____________________________________________________
-*Only works with firefox
+works with firefox & chrome app (.crx)
