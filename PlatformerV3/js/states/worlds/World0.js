@@ -95,9 +95,7 @@ World0.prototype =
             setWorld(portal.name.substring(5));
             this.game.state.start("World1");
             
-        }
-            
-        
+        }    
     },
     loadMap: function () 
     {

@@ -270,6 +270,50 @@ function loadJSON(file, callback) {
     xobj.send(null);  
 }
 
+function deleteGameSave(player,deleteOption)
+{
+	if(isChrome)
+		deleteSaveChrome(deleteOption);
+	else
+		deleteSave(deleteOption)
+	
+}
+function deleteSave(option)
+{
+	var expires = "expires=Thu, 01 Jan 1970 00:00:01 UTC";
+	var deleteName = "None";
+	if(option == "save")
+	{
+		var deleteName = "OrbOfGodsDatas";
+	}
+	if(option == "inventory")
+	{
+		var deleteName = "inventoryPlayer";
+	}
+	if(option == "all")
+	{
+		document.cookie = "OrbOfGodsDatas=None; "+expires;
+		var deleteName = "inventoryPlayer";
+	}
+	document.cookie = deleteName+"=None; "+expires;
+}
+
+function deleteSaveChrome(option)
+{
+	if(option == "save")
+	{
+		chrome.storage.sync.remove("OrbOfGodsDatas", function (){});
+	}
+	if(option == "inventory")
+	{
+		chrome.storage.sync.remove("inventoryPlayer", function (){});
+	}
+	if(option == "all")
+	{
+		chrome.storage.sync.clear(function (){});
+	}
+}
+
 function loadGameChrome()
 {
 	var gameSaveChrome = '';
