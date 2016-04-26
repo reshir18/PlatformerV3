@@ -13,6 +13,8 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
     this.att = this.stats.attack;
     this.def = this.stats.defense;
     this.speed = this.stats.speed;
+    this.modifyX = this.stats.modifyX;
+    this.modifyY = this.stats.modifyY;
     this.monsterText = setFoeText(this.positionFoe, this.stats.nameMob, this.hp, this.maxHp);
 
     this.takeDamagesAndDie = function(dmg)

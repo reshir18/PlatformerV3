@@ -93,8 +93,8 @@ BattleDatas.prototype.makePotion = function(x, y)
 
 BattleDatas.prototype.setTargetPosition = function() 
 {
-   this.selectedTarget.x = this.arrayFoe[this.selectedEnemie].body.x - 20;
-   this.selectedTarget.y = this.arrayFoe[this.selectedEnemie].body.y - 20;
+   this.selectedTarget.x = this.arrayFoe[this.selectedEnemie].body.x - this.arrayFoe[this.selectedEnemie].modifyX;
+   this.selectedTarget.y = this.arrayFoe[this.selectedEnemie].body.y - this.arrayFoe[this.selectedEnemie].modifyY;
 };
 
 BattleDatas.prototype.setEnemie =  function (direction)
