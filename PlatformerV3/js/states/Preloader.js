@@ -27,6 +27,7 @@ preload.prototype =
             this.game.load.spritesheet('liquid', 'assets/Tiles/liquid.png',70,70);
             this.game.load.image('portal', 'assets/Objects/portal.png');
             this.game.load.spritesheet('ladder', 'assets/Objects/ladders.png',70,70);
+            this.game.load.spritesheet('deleteOptions', 'assets/Objects/deleteOptions.png',70,70);
             this.game.load.image('cage', 'assets/Tiles/cage.png');
             this.game.load.image('savePoints', 'assets/Objects/savePoints.png');
             this.game.load.spritesheet('powerUpBlocks', 'assets/Tiles/powerUpBlocks.png',70,70);

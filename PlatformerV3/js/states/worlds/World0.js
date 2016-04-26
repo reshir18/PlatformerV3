@@ -88,6 +88,10 @@ World0.prototype =
             loadGame();
             this.loadMap();
         }
+        if(portal.name == "OptionWorld")
+        {
+            this.game.state.start("OptionWorld");
+        }
         else if(getOrbsCount(portal.name.substring(5)))
         {
             setMainWorldPortalCoord(portal);
@@ -181,7 +185,7 @@ World0.prototype =
         //SET LADDERS***************************************************************
         ladders = this.game.add.group();
         ladders.enableBody = true;
-        map.createFromObjects('layerObj', 28, 'ladder', 0, true, false, ladders);
+        map.createFromObjects('layerObj', 28, 'ladder', 1, true, false, ladders);
         for (ladder of ladders.children) 
             if(ladder.name == 'top')
                 ladder.frame = 0;
@@ -210,7 +214,8 @@ World0.prototype =
             for (portal of portals.children) 
             {
                 portal.body.setSize(30, 30, 20, 15);
-                gameHud.refreshWorldInfo(portal);
+                if(portal.name != "OptionWorld")  
+                    gameHud.refreshWorldInfo(portal);
             }
         }
         this.game.map = map;

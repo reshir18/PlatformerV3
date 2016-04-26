@@ -703,6 +703,22 @@
                  "width":70,
                  "x":140,
                  "y":210
+                }, 
+                {
+                 "gid":18,
+                 "height":58,
+                 "id":57,
+                 "name":"OptionWorld",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":70,
+                 "x":700,
+                 "y":1680
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -711,7 +727,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":57,
+ "nextobjectid":58,
  "orientation":"orthogonal",
  "properties":
     {

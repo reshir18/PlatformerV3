@@ -81,6 +81,7 @@ var game;
 var textTutoHint;
 var battleDatas = new BattleDatas();
 var portalCoord = [0,0, false];
+var optionAction = "None";
 
 function createNewGame()
 {
@@ -91,6 +92,7 @@ function createNewGame()
     game.state.add('Preloader', preload, false);
     game.state.add('World0', World0, false);
     game.state.add('World1', World1, false);
+    game.state.add('OptionWorld', OptionWorld, false);
     game.state.start('Boot');
     //showNotific8({title:'Start game', content:'Go !', life:2500, color:'cerulean'});
 }
@@ -270,13 +272,19 @@ function loadJSON(file, callback) {
     xobj.send(null);  
 }
 
-function deleteGameSave(player,deleteOption)
+function setOptionAction(player,option)
+{
+	optionAction = option.name;
+}
+
+function deleteGameSave()
 {
 	if(isChrome)
-		deleteSaveChrome(deleteOption);
+		deleteSaveChrome(optionAction);
 	else
-		deleteSave(deleteOption)
-	
+		deleteSave(optionAction)
+	optionAction = "None";
+	showNotific8({title:'Data deleted', content:'Good luck', life:2500, color:'onyx'});
 }
 function deleteSave(option)
 {

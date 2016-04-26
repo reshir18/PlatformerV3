@@ -18,6 +18,8 @@ Player = function (game, x, y)
     setPlayerPhysics(this);
 
     this.canSaveGame = false;
+
+    this.canExecuteOptionAction = false;
     
     this.maxHp = 150;
     this.hp = this.maxHp;
@@ -186,6 +188,8 @@ Player = function (game, x, y)
             saveGame();
             saveInventory(JSON.stringify(this.inventory));
         }
+        else if(this.canExecuteOptionAction && optionAction != "None")
+            deleteGameSave();
     }
 
     this.resetBlockPosition = function()
