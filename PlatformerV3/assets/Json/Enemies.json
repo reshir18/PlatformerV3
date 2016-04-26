@@ -73,7 +73,7 @@
 	},
 	{
 		"nameMob" : "Golem",
-		"imgFoe" : "desertSoul",
+		"imgFoe" : "golem",
 		"hp" : 40,
 		"attack" : 30,
 		"defense" : 15,

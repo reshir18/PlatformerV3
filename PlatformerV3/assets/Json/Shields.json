@@ -102,6 +102,27 @@
 			"idItem" : 16,
 			"qts" : 3
 		}]
+	},
+	{
+		"name" : "Aegypti shield",
+		"protect" : 25,
+		"craft" : [
+		{
+			"idItem" : 7,
+			"qts" : 2
+		},
+		{
+			"idItem" : 10,
+			"qts" : 8
+		},
+		{
+			"idItem" : 13,
+			"qts" : 10
+		},
+		{
+			"idItem" : 17,
+			"qts" : 3
+		}]
 	}
 
 ]}

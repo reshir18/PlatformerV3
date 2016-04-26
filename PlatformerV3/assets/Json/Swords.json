@@ -120,19 +120,19 @@
 		"damages" : 34,
 		"craft" : [
 		{
-			"idItem" : 10,
-			"qts" : 15
+			"idItem" : 7,
+			"qts" : 5
 		},
 		{
-			"idItem" : 13,
-			"qts" : 8
-		},
-		{
-			"idItem" : 14,
-			"qts" : 3
+			"idItem" : 15,
+			"qts" : 5
 		},
 		{
 			"idItem" : 16,
+			"qts" : 3
+		},
+		{
+			"idItem" : 17,
 			"qts" : 1
 		}]
 	},
