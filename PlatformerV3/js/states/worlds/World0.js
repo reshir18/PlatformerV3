@@ -9,6 +9,7 @@ World0.prototype =
         this.game.load.image('world1Tiles', 'assets/Tiles/world1Tiles.png');
         this.game.load.image('world2Tiles', 'assets/Tiles/world2Tiles.png');
         this.game.load.image('world3Tiles', 'assets/Tiles/world3Tiles.png');
+        game.load.audio('ambient', ['assets/audio/mainWorldAmbient.mp3', 'assets/audio/mainWorldAmbient.ogg']);
         this.game.load.image('sign', 'assets/Objects/sign.png');
         setWorld(6);
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -49,6 +50,8 @@ World0.prototype =
         var lavasTop;
         var signs
         this.loadMap();
+        music = game.add.audio('ambient');
+        music.play('', 0, 1, true);
     },
     update: function () 
     {

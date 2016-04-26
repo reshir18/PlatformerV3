@@ -284,6 +284,7 @@ function deleteGameSave()
 	else
 		deleteSave(optionAction)
 	optionAction = "None";
+	gameOver();
 	showNotific8({title:'Data deleted', content:'Good luck', life:2500, color:'onyx'});
 }
 function deleteSave(option)
