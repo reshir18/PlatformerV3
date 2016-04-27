@@ -15,6 +15,8 @@ World1.prototype =
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.player = new Player(this.game, 140, 140);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
+        this.game.hasEmitter = false;
+
     },
     render : function()
     {
@@ -125,7 +127,7 @@ World1.prototype =
     },
     changeLevel: function(player, portal)
     {
-        if(emitter)
+        if(this.emitter)
             emitter.destroy();
         if(portal.name !== "normalMap")
         {

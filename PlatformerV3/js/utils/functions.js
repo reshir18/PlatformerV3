@@ -237,11 +237,13 @@ function particleBurst(obj, img) {
     emitter.x = obj.x + 17.5;
     emitter.y = obj.y + 17.5;
     emitter.start(true, 4000, null, 10);
+    game.hasEmitter = true;
 
     game.time.events.add(500, destroyEmitter, this);
 }
 
 function destroyEmitter() {
+	game.hasEmitter = false;
     emitter.destroy();
 }
 
