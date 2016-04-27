@@ -123,6 +123,23 @@
 			"idItem" : 17,
 			"qts" : 3
 		}]
+	},
+	{
+		"name" : "Frost shield",
+		"protect" : 21,
+		"craft" : [
+		{
+			"idItem" : 2,
+			"qts" : 5
+		},
+		{
+			"idItem" : 18,
+			"qts" : 3
+		},
+		{
+			"idItem" : 19,
+			"qts" : 5
+		}]
 	}
 
 ]}

@@ -108,5 +108,15 @@
 		"speed": 1,
 		"modifyX" : 20,
 		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Wolf",
+		"imgFoe" : "wolf",
+		"hp" : 30,
+		"attack" : 20,
+		"defense" : 12,
+		"speed": 1,
+		"modifyX" : 20,
+		"modifyY" : 20
 	}
 ]}

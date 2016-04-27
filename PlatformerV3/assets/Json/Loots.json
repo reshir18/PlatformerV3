@@ -119,6 +119,34 @@
 				"id" : 17,
 				"percent" : 100
 			}
+		],
+		"wolf": [
+			{
+				"id" : 2,
+				"percent": 30
+			},
+			{
+				"id" : 18,
+				"percent" : 60
+			},
+			{
+				"id" : 19,
+				"percent" : 100
+			}
+		],
+		"wolf2": [
+			{
+				"id" : 2,
+				"percent": 30
+			},
+			{
+				"id" : 18,
+				"percent" : 60
+			},
+			{
+				"id" : 19,
+				"percent" : 100
+			}
 		]
 
 	}
