@@ -13,13 +13,17 @@ function checkWaterCapacity(player, loop)
 	{
 		player.game.time.events.remove(loop);
 		breathLoop = null;
+        game.airBar.visible = false;
+        game.airMeter.visible = false;
 	}
 	else if(player.water)
 	{
 		player.jumpKey.onDown.remove(player.baseJump,player);
     	player.jumpKey.onDown.remove(player.windJump,player);
-    	if(!breathLoop)
+    	if(!breathLoop && !player.canBreathUnderwater)
+        {
     		breathLoop = player.game.time.events.loop(Phaser.Timer.SECOND * 10, player.playerDrowned, player);
+        }
 	}
 }
 

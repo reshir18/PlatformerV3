@@ -181,11 +181,16 @@ function waterContact (p, w)
         p.groundState = 'waterEnter';
         p.body.y += 10;
         console.log('ENTER WATER');
+        
         p.water = true
         p.jumpKey.onDown.remove(p.baseJump,p);
         p.jumpKey.onDown.add(p.waterJump,p);
         if(!p.canBreathUnderwater)
+        {
+        	this.game.airMeter.visible = true;
+        	this.game.airBar.visible = true;
             breathLoop = this.game.time.events.loop(Phaser.Timer.SECOND * 10, p.playerDrowned, this);
+        }
     }
 }
 
@@ -195,6 +200,8 @@ function waterContactExit (p, w)
         p.groundState = 'ground';
         p.body.y -= 70;
         console.log('EXIT WATER');
+        this.game.airBar.visible = false;
+        this.game.airMeter.visible = false;
         p.water = false;
         if(p.key == 'persoWind')
             p.jumpKey.onDown.add(p.windJump,p);
@@ -202,7 +209,10 @@ function waterContactExit (p, w)
             p.jumpKey.onDown.add(p.baseJump,p);
         p.jumpKey.onDown.remove(p.waterJump,p);
         if(breathLoop)
+        {
             this.game.time.events.remove(breathLoop);
+            breathLoop = null;
+        }
     } 
 }
 

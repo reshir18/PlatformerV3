@@ -12,6 +12,8 @@ var playHud =
     hintTextGroup: 'none',
     indTextSign: 'none',
     worldInfoTextGroup: 'none',
+    currentLevel: 0,
+    currentWorld: 0,
     refreshAll: function()
     {
     	this.refreshHearts();
@@ -122,6 +124,20 @@ var playHud =
         keyImage.name = color;
         keyImage.fixedToCamera = true;
         this.keysGroup.add(keyImage);
+    },
+    refreshAirBar: function()
+    {
+        game.airBar.visible = true;
+        game.airMeter.destroy();
+        var airMeterLength = (breathLoop.timer.duration / 10000) * (game.width / 2);
+        var airBmd = game.add.bitmapData(game.width / 2, 20);
+        var grd = airBmd.ctx.createLinearGradient(0,0,200,0);
+        grd.addColorStop(0,"#000028");
+        grd.addColorStop(1,"#00A0FF");
+        airBmd.ctx.fillStyle = grd;
+        airBmd.ctx.fillRect(2,2, airMeterLength - 4, 16);
+        game.airMeter = game.add.sprite(0 + (game.width / 4), game.height - 50 ,airBmd);
+        game.airMeter.fixedToCamera = true;
     }
 }
 
@@ -132,6 +148,8 @@ var pauseHud =
     isOnSign: false,
     indTextSign: 'none',
     commandGroup: 'none',
+    currentLevel: 0,
+    currentWorld: 'MainWorld',
     showAll: function()
     {
         this.showMasterLayout();
@@ -147,7 +165,11 @@ var pauseHud =
     {
         this.textGroup.removeAll();
         if(!text)
-            text = "Reprendre";
+        {
+            text = "Reprendre\n" + this.currentWorld;
+            if(this.currentLevel > 0)
+                text += " - " + this.currentLevel;
+        }
 
         var textColorFill = "#000000";
         if(hasColor)
@@ -318,6 +340,11 @@ var pauseHud =
         else
             outline.x += (newPosition * 120);
 
+    },
+    refreshAirBar: function()
+    {
+        game.airBar.visible = false;
+        game.airMeter.visible = false;
     }
 }
 
@@ -332,6 +359,7 @@ function setHud(player)
     generateHudDarkCoin(game.add.group());
 	generateHudKeys(game.add.group());
     generateHudHint(game.add.group())
+    generateHudAirBar();
 	
 }
 function unPauseGame()
@@ -339,7 +367,8 @@ function unPauseGame()
     gameHud.showHideAll(false);
     gameHud = playHud;
     gameHud.showHideAll(true);
-    game.paused = false;   
+    game.paused = false;  
+    playHud.refreshAirBar(); 
 }
 
 function setPausedHud()
@@ -350,6 +379,7 @@ function setPausedHud()
     gameHud = pauseHud;
     pauseHud.showAll();
     game.paused = true;
+    pauseHud.refreshAirBar();
 }
 
 
@@ -363,6 +393,25 @@ function showHintOnHud(ind)
 {
     gameHud.indTextSign = ind;
     gameHud.refreshHintInfo();
+}
+
+function generateHudAirBar()
+{
+    var airBarBmd = game.add.bitmapData(game.width / 2, 20);
+    airBarBmd.ctx.fillStyle = '#000';
+    airBarBmd.ctx.fillRect(0,0, game.width, 20);
+    airBarBmd.ctx.fillStyle = '#FFF';
+    airBarBmd.ctx.globalAlpha = 0.5;
+    airBarBmd.ctx.fillRect(2,2, (game.width / 2) - 4, 16);
+    var airBmd = game.add.bitmapData(game.width / 2, 20);
+    airBmd.ctx.fillStyle = '#0000FF';
+    airBmd.ctx.fillRect(2,2, (game.width / 2) - 4, 16);
+    game.airBar = game.add.sprite(0 + (game.width / 4), game.height - 50 , airBarBmd);
+    game.airMeter = game.add.sprite(0 + (game.width / 4), game.height - 50 , airBmd);
+    game.airBar.fixedToCamera = true;
+    game.airBar.visible = false;
+    game.airMeter.fixedToCamera = true;
+    game.airMeter.visible = false;
 }
 
 function generateWorldInfo(group)

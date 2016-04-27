@@ -114,6 +114,7 @@ function setWorld(w)
 
 function gameOver(textDead)
 {
+	breathLoop = null;
 	game.world.removeAll();
 	game.destroy();
 	document.body.innerHTML = '';
@@ -121,8 +122,11 @@ function gameOver(textDead)
 	para.setAttribute("id", "notific8Span");
 	document.body.appendChild(para);
 	createNewGame();
+	
+    console.log(playHud);
 	if(textDead)
 		showNotific8({title:'Game Over', content:textDead, life:2500, color:'cerulean'});
+	pauseHud.refreshAirBar();
 }
 
 function pauseGame()
@@ -134,7 +138,7 @@ function pauseGame()
 
 function setMainWorldPortalCoord(portalObject)
 {
-	portalCoord = [portalObject.body.x - 100 ,portalObject.body.y, true];
+	portalCoord = [portalObject.body.x - 100 ,portalObject.body.y - 40, true];
 }
 
 function returnToMainWorld()

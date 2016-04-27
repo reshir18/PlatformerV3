@@ -18,6 +18,8 @@ World1.prototype =
     },
     render : function()
     {
+        if(breathLoop && !this.player.canBreathUnderwater)
+            gameHud.refreshAirBar();
         this.game.debug.text('render FPS: ' + (this.game.time.fps || '--') , 2, 14, "#00ff00");
         if(enemies.children[0])
         {
@@ -54,6 +56,7 @@ World1.prototype =
         var oldmap = ["map1",0,0,140,140];
         var nbFoes;
         var savePoints;
+        pauseHud.currentLevel = 1;
         this.changeMap('map1', true);
         this.game.miniMap.visible = true;
         
@@ -131,7 +134,10 @@ World1.prototype =
                 this.changeMap('map5')
             }
             else
+            {
+                pauseHud.currentLevel = parseInt(portal.name.substring(3));
                 this.changeMap(portal.name);
+            }
         }
         else
         {
@@ -139,10 +145,9 @@ World1.prototype =
             {
                 foes.children[0].destroy();
             }
+            pauseHud.currentLevel = parseInt(portal.name.substring(3));
             this.changeMap();
         }
-        
-    
     },
     enterBattle: function(player, foe)
     {

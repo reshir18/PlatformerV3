@@ -31,6 +31,8 @@ World0.prototype =
     },
     render : function()
     {
+        if(breathLoop && !this.player.canBreathUnderwater)
+            gameHud.refreshAirBar();
         for (portal of portals.children) 
             game.debug.body(portal);
         game.debug.body(this.player);
@@ -84,8 +86,10 @@ World0.prototype =
     changeLevel: function(player, portal)
     {
     	//game.world.removeAll();
+        gameHud.currentLevel = 0;
         if(portal.name == "mainWorld")
         {
+            gameHud.currentWorld = "MainWorld";
             insertArray(28);
             saveGame();
             loadGame();
@@ -93,6 +97,7 @@ World0.prototype =
         }
         if(portal.name == "OptionWorld")
         {
+            gameHud.currentWorld = portal.name;
             this.game.state.start("OptionWorld");
         }
         else if(getOrbsCount(portal.name.substring(5)))
@@ -101,7 +106,7 @@ World0.prototype =
             this.game.world.removeAll();
             setWorld(portal.name.substring(5));
             this.game.state.start("World1");
-            
+            pauseHud.currentWorld = portal.name;
         }    
     },
     loadMap: function () 
