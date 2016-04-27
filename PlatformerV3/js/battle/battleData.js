@@ -6,6 +6,7 @@ BattleDatas = function() {
     this.isOnBattle = false;
     this.selectedEnemie = -1;
     this.arrayFoe = null;
+    this.arrayProjectiles = [];
     this.minMonster = 0;
     this.maxMonster = this.nbFoes - 1;
     this.selectedTarget = null;
@@ -82,6 +83,7 @@ BattleDatas.prototype.setInfos = function(nbFoes, idPotion, potionMap, arrayFoe)
     this.selectedTarget.visible = false;
     this.selectedEnemie = -1;
     this.attackTurn = 0;
+    //game.add(this.arrayProjectiles);
 
 };
 
@@ -159,11 +161,5 @@ BattleDatas.prototype.battleAction = function()
 
 BattleDatas.prototype.attackPlayer = function(mob)
 {
-    p = gameHud.player;
-    if (mob.body.gravity.y != 0)
-        mob.body.velocity.y -= 120;
-    p.hp -= Math.max(0,(mob.att - p.shield.protect) * p.resistance);
-    gameHud.refreshHearts();
-    if(p.hp < 0)
-        gameOver('Mort au combat');
+    this.potionMap.add(new Projectile(game, mob.body.x, mob.body.y, false));
 }

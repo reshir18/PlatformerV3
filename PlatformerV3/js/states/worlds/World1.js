@@ -7,10 +7,10 @@ World1.prototype =
         tiledmapCommonStart = 'TiledMap/level';
         currentWorldData = getWorldData();
         this.game.load.tilemap('map1', tiledmapCommonStart + currentWorld + '-1.json', null, Phaser.Tilemap.TILED_JSON);
-        /*this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map3', tiledmapCommonStart + currentWorld + '-3.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map4', tiledmapCommonStart + currentWorld + '-4.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);*/
+        this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);
         background = this.game.load.image('plain', 'assets/Background/world' + currentWorld +'.png');
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.player = new Player(this.game, 140, 140);

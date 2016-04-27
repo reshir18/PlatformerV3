@@ -34,6 +34,7 @@ preload.prototype =
 
             //TRAPS**********************************************************************
             this.game.load.image('spikes', 'assets/Traps/spikes.png');
+            this.game.load.image('ball', 'assets/Traps/ball.png');
 
             //HUD**********************************************************************
             this.game.load.image('heart', 'assets/Hud/heart.png');
