@@ -35,6 +35,9 @@ function enemyFactory(idEnemy, game, x, y, positionOfEnemy)
         case 9:
             dropListFoe = dropList.desertSoul;
             break;
+        case 10:
+            dropListFoe = dropList.golem;
+            break;
         default:
             dropListFoe = dropList.skeleton;
             break;

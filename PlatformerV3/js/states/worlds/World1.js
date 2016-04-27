@@ -9,7 +9,7 @@ World1.prototype =
         this.game.load.tilemap('map1', tiledmapCommonStart + currentWorld + '-1.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map3', tiledmapCommonStart + currentWorld + '-3.json', null, Phaser.Tilemap.TILED_JSON);
-        //this.game.load.tilemap('map4', tiledmapCommonStart + currentWorld + '-4.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.tilemap('map4', tiledmapCommonStart + currentWorld + '-4.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);
         background = this.game.load.image('plain', 'assets/Background/world' + currentWorld +'.png');
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -116,7 +116,7 @@ World1.prototype =
         if (this.player.climbKey && this.player.climbKey.isDown && this.game.physics.arcade.overlap(this.player, ladders))
             this.player.climbUp();
     
-        if(this.player.body.onFloor())
+        if(this.player.body.onFloor() || this.player.body.touching.down)
             this.player.jumpCount = 0;
 
     },
@@ -266,8 +266,12 @@ World1.prototype =
         portals = this.game.add.group();
         portals.enableBody = true;
         map.createFromObjects('layerObj', 12, 'portal', 0, true, false, portals);
-        for (portal of portals.children) 
-                portal.body.setSize(30, 30, 20, 15);
+        for (portal of portals.children)
+        {
+            portal.body.setSize(30, 30, 20, 15);
+            if(portal.name == "map5" && !this.player.checkSkyCoins())
+                portal.kill();
+        } 
 
         //SAVES POINTS ************************************************************/
         savePoints = this.game.add.group();

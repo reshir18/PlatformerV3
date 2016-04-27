@@ -77,7 +77,7 @@ World0.prototype =
         if (this.player.climbKey && this.player.climbKey.isDown && this.game.physics.arcade.overlap(this.player, ladders))
             this.player.climbUp();
 
-        if(this.player.body.onFloor())
+        if(this.player.body.onFloor() || this.player.body.touching.down)
             this.player.jumpCount = 0;
 
     },

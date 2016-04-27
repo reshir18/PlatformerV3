@@ -55,7 +55,7 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
     };
 
     this.monsterText.fixedToCamera = true;
-    var shinyNumber = (this.lootList[this.lootList.length - 2].percent > 85 ? this.lootList[this.lootList.length - 2].percent : 101);
+    var shinyNumber = (this.lootList[this.lootList.length - 2].percent >= 85 ? this.lootList[this.lootList.length - 2].percent : 101);
     this.drop = this.setDrop(shinyNumber);
     console.log(getLootItem(this.drop.id).name);
 };
