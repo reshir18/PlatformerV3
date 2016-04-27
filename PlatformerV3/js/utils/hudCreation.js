@@ -341,10 +341,12 @@ var pauseHud =
             outline.x += (newPosition * 120);
 
     },
-    refreshAirBar: function()
+    refreshAirBar: function(visibility)
     {
-        game.airBar.visible = false;
-        game.airMeter.visible = false;
+        if(!visibility || !breathLoop || this.player.canBreathUnderwater )
+            visibility = false
+        game.airBar.visible = visibility;
+        game.airMeter.visible = visibility;
     }
 }
 
@@ -368,7 +370,7 @@ function unPauseGame()
     gameHud = playHud;
     gameHud.showHideAll(true);
     game.paused = false;  
-    playHud.refreshAirBar(); 
+    pauseHud.refreshAirBar(true); 
 }
 
 function setPausedHud()
@@ -379,7 +381,7 @@ function setPausedHud()
     gameHud = pauseHud;
     pauseHud.showAll();
     game.paused = true;
-    pauseHud.refreshAirBar();
+    pauseHud.refreshAirBar(false);
 }
 
 

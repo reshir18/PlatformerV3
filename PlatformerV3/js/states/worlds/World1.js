@@ -125,6 +125,8 @@ World1.prototype =
     },
     changeLevel: function(player, portal)
     {
+        if(emitter)
+            emitter.destroy();
         if(portal.name !== "normalMap")
         {
             maxEnemiesType = parseInt(portal.name.substring(3)) + 1;
