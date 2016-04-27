@@ -84,6 +84,7 @@ BattleDatas.prototype.setInfos = function(nbFoes, idPotion, potionMap, arrayFoe)
     this.selectedEnemie = -1;
     this.attackTurn = 0;
     //game.add(this.arrayProjectiles);
+    game.time.events.loop(Phaser.Timer.SECOND * 1.5, this.dropProjectile, this);
 
 };
 
@@ -162,4 +163,9 @@ BattleDatas.prototype.battleAction = function()
 BattleDatas.prototype.attackPlayer = function(mob)
 {
     this.potionMap.add(new Projectile(game, mob.body.x, mob.body.y, false));
+}
+
+BattleDatas.prototype.dropProjectile = function()
+{
+    this.potionMap.add(new Projectile(game, gameHud.player.body.x, 50, true));
 }
