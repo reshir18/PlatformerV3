@@ -209,6 +209,7 @@ Player = function (game, x, y)
     this.normalStateKey.onDown.add(this.switchPowerUpNormal,this);
     this.powerUpKey.onDown.add(this.saveTheGame,this);
     this.powerUpKey2.onDown.add(this.resetBlockPosition,this);
+    checkWaterCapacity(this, breathLoop);
     //Attribute All Power Ups unlocked
     if(getData(4))
         this.windStateKey.onDown.add(this.switchPowerUpWind,this);

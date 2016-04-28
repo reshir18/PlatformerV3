@@ -67,6 +67,9 @@ function setCoinNumber(children, pos, array)
 function generateBurningBlocks(block) 
 {
     map.createFromObjects('layerObj', 26, 'powerUpBlocks', 0, true, false, block);
+    if(currentWorld == 3)
+        map.createFromObjects('layerObj', 3, 'world3TilesS', 2, true, false, block);
+
     for (var i = 0, len = block.children.length; i < len;i++) { 
         var bl = block.children[i]; 
         bl.body.immovable = true;

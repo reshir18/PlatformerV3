@@ -3041,22 +3041,6 @@
                  "y":2170
                 }, 
                 {
-                 "gid":32,
-                 "height":40,
-                 "id":211,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":42,
-                 "x":210,
-                 "y":700
-                }, 
-                {
                  "gid":13,
                  "height":35,
                  "id":212,

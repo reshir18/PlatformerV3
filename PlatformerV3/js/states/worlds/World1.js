@@ -7,10 +7,10 @@ World1.prototype =
         tiledmapCommonStart = 'TiledMap/level';
         currentWorldData = getWorldData();
         this.game.load.tilemap('map1', tiledmapCommonStart + currentWorld + '-1.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
+        /*this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map3', tiledmapCommonStart + currentWorld + '-3.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map4', tiledmapCommonStart + currentWorld + '-4.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);*/
         background = this.game.load.image('plain', 'assets/Background/world' + currentWorld +'.png');
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.player = new Player(this.game, 140, 140);
@@ -310,10 +310,6 @@ World1.prototype =
 
         generateCoins(goldCoins, darkCoins, skyCoins, this.player, firstGoldCoinPosition, firstDarkCoinPosition);
 
-        blocks = this.game.add.group();
-        blocks.enableBody = true;
-        generateBurningBlocks(blocks)
-
         //SET LADDERS***************************************************************
         ladders = this.game.add.group();
         ladders.enableBody = true;
@@ -333,6 +329,8 @@ World1.prototype =
         for (cage of cages.children) 
                 cage.body.immovable = true;
 
+        
+
         this.player.bringToTop();
 
         watersTop = this.game.add.group();
@@ -350,6 +348,10 @@ World1.prototype =
         generateWaters(watersTop, this.game.add.group(), waterExits);
         generateLavas(lavasTop, this.game.add.group(), lavaExits);
 
+        blocks = this.game.add.group();
+        blocks.enableBody = true;
+        generateBurningBlocks(blocks);
+        
         setHud(this.player);
 
         this.game.map = map;

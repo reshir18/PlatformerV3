@@ -9,6 +9,7 @@ World0.prototype =
         this.game.load.image('world1Tiles', 'assets/Tiles/world1Tiles.png');
         this.game.load.image('world2Tiles', 'assets/Tiles/world2Tiles.png');
         this.game.load.image('world3Tiles', 'assets/Tiles/world3Tiles.png');
+        this.game.load.spritesheet('world3TilesS', 'assets/Tiles/world3Tiles.png', 70, 70);
         game.load.audio('ambient', ['assets/audio/mainWorldAmbient.mp3', 'assets/audio/mainWorldAmbient.ogg']);
         this.game.load.image('sign', 'assets/Objects/sign.png');
         setWorld(6);
@@ -179,6 +180,8 @@ World0.prototype =
         blocks.enableBody = true;
 
         map.createFromObjects('layerObj', 22, 'powerUpBlocks', 0, true, false, blocks);
+
+        map.createFromObjects('layerObj', 9, 'world3TilesS', 2, true, false, blocks);
 
         for (var i = 0, len = blocks.children.length; i < len;i++) 
         {  
