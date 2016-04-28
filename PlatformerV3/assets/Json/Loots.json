@@ -109,7 +109,7 @@
 		"golem": [
 			{
 				"id" : 13,
-				"percent": 50
+				"percent": 65
 			},
 			{
 				"id" : 14,
@@ -161,11 +161,11 @@
 		"iceAnomaly": [
 			{
 				"id" : 22,
-				"percent": 50
+				"percent": 60
 			},
 			{
 				"id" : 19,
-				"percent" : 75
+				"percent" : 85
 			},
 			{
 				"id" : 24,

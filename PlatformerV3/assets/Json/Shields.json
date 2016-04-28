@@ -143,18 +143,18 @@
 	},
 	{
 		"name" : "Pure Ice shield",
-		"protect" : 21,
+		"protect" : 30,
 		"craft" : [
 		{
-			"idItem" : 2,
-			"qts" : 15
+			"idItem" : 19,
+			"qts" : 10
 		},
 		{
-			"idItem" : 18,
+			"idItem" : 22,
 			"qts" : 5
 		},
 		{
-			"idItem" : 20,
+			"idItem" : 24,
 			"qts" : 3
 		}]
 	}

@@ -1,6 +1,6 @@
 function enemyFactory(idEnemy, game, x, y, positionOfEnemy)
 {
-    idEnemy = (2) * 5 + idEnemy;
+    idEnemy = (currentWorld-1) * 5 + idEnemy;
 
     gravity = (idEnemy == 2 || idEnemy == 15) ? 0 : 300;
 

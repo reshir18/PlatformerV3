@@ -23,9 +23,9 @@ Projectile.prototype.update = function()
 Projectile.prototype.hurtPlayer = function() 
 {
     if(this.fromTop)
-        this.target.hp -= 10;
+        this.target.hp -= 10 * this.target.resistance;
     else
-        this.target.hp -= Math.max(0,(mob.att - this.target.shield.protect) * this.target.resistance);
+        this.target.hp -= Math.max(0.5,(mob.att - this.target.shield.protect) * this.target.resistance);
     gameHud.refreshHearts();
     if(this.target.hp < 0)
         gameOver('Mort au combat');
