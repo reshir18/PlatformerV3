@@ -1,8 +1,8 @@
 function enemyFactory(idEnemy, game, x, y, positionOfEnemy)
 {
-    idEnemy = (currentWorld-1) * 5 + idEnemy;
+    idEnemy = (2) * 5 + idEnemy;
 
-    gravity = (idEnemy == 2) ? 0 : 300;
+    gravity = (idEnemy == 2 || idEnemy == 15) ? 0 : 300;
 
 	var dropListFoe = dropList.slime;
 
@@ -39,10 +39,19 @@ function enemyFactory(idEnemy, game, x, y, positionOfEnemy)
             dropListFoe = dropList.golem;
             break;
         case 11:
-            dropListFoe = dropList.wolf;
+            dropListFoe = dropList.iceMonster;
             break;
         case 12:
-            dropListFoe = dropList.wolf2;
+            dropListFoe = dropList.wolf;
+            break;
+        case 13:
+            dropListFoe = dropList.medusa;
+            break;
+        case 14:
+            dropListFoe = dropList.iceAnomaly;
+            break;
+        case 15:
+            dropListFoe = dropList.babyIceDragon;
             break;
         default:
             dropListFoe = dropList.skeleton;

@@ -100,9 +100,19 @@
 		"modifyY" : 20
 	},
 	{
+		"nameMob" : "Ice Monster",
+		"imgFoe" : "iceMonster",
+		"hp" : 30,
+		"attack" : 15,
+		"defense" : 15,
+		"speed": 3,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
 		"nameMob" : "Wolf",
 		"imgFoe" : "wolf",
-		"hp" : 30,
+		"hp" : 40,
 		"attack" : 20,
 		"defense" : 12,
 		"speed": 1,
@@ -110,13 +120,34 @@
 		"modifyY" : 20
 	},
 	{
-		"nameMob" : "Wolf",
-		"imgFoe" : "wolf",
-		"hp" : 30,
-		"attack" : 20,
-		"defense" : 12,
-		"speed": 1,
+		"nameMob" : "Medusa",
+		"imgFoe" : "medusa",
+		"hp" : 50,
+		"attack" : 30,
+		"defense" : 35,
+		"speed": 2,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Ice Anomaly",
+		"imgFoe" : "iceAnomaly",
+		"hp" : 10,
+		"attack" : 50,
+		"defense" : 28,
+		"speed": 2,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Baby Ice Dragon",
+		"imgFoe" : "babyIceDragon",
+		"hp" : 50,
+		"attack" : 50,
+		"defense" : 40,
+		"speed": 5,
 		"modifyX" : 20,
 		"modifyY" : 20
 	}
+
 ]}

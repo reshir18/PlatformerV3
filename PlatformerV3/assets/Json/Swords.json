@@ -141,16 +141,33 @@
 		"damages" : 30,
 		"craft" : [
 		{
-			"idItem" : 2,
-			"qts" : 15
+			"idItem" : 0,
+			"qts" : 20
 		},
 		{
 			"idItem" : 18,
-			"qts" : 3
+			"qts" : 5
 		},
 		{
 			"idItem" : 19,
-			"qts" : 1
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Medusa sword",
+		"damages" : 38,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 20
+		},
+		{
+			"idItem" : 18,
+			"qts" : 5
+		},
+		{
+			"idItem" : 19,
+			"qts" : 3
 		}]
 	}
 ]}

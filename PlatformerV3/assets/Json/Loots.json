@@ -120,13 +120,23 @@
 				"percent" : 100
 			}
 		],
+		"iceMonster": [
+			{
+				"id" : 18,
+				"percent" : 70
+			},
+			{
+				"id" : 19,
+				"percent" : 100
+			}
+		],
 		"wolf": [
 			{
 				"id" : 2,
 				"percent": 30
 			},
 			{
-				"id" : 18,
+				"id" : 20,
 				"percent" : 60
 			},
 			{
@@ -134,17 +144,49 @@
 				"percent" : 100
 			}
 		],
-		"wolf2": [
+		"medusa": [
 			{
-				"id" : 2,
-				"percent": 30
+				"id" : 6,
+				"percent": 45
 			},
 			{
-				"id" : 18,
-				"percent" : 60
+				"id" : 21,
+				"percent" : 90
+			},
+			{
+				"id" : 24,
+				"percent" : 100
+			}
+		],
+		"iceAnomaly": [
+			{
+				"id" : 22,
+				"percent": 50
 			},
 			{
 				"id" : 19,
+				"percent" : 75
+			},
+			{
+				"id" : 24,
+				"percent" : 100
+			}
+		],
+		"babyIceDragon": [
+			{
+				"id" : 18,
+				"percent": 30
+			},
+			{
+				"id" : 20,
+				"percent" : 60
+			},
+			{
+				"id" : 23,
+				"percent" : 95
+			},
+			{
+				"id" : 25,
 				"percent" : 100
 			}
 		]

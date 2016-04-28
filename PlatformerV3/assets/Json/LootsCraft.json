@@ -25,7 +25,7 @@
 	},
 	{
 		"id" : 6,
-		"name" : "zombie eye"
+		"name" : "dead eye"
 	},
 	{
 		"id" : 7,
@@ -73,10 +73,34 @@
 	},
 	{
 		"id" : 18,
-		"name" : "claws"
+		"name" : "ice shards"
 	},
 	{
 		"id" : 19,
 		"name" : "softed snow"
+	},
+	{
+		"id" : 20,
+		"name" : "claws"
+	},
+	{
+		"id" : 21,
+		"name" : "snake cale"
+	},
+	{
+		"id" : 22,
+		"name" : "magnetic water"
+	},
+	{
+		"id" : 23,
+		"name" : "dragon wing"
+	},
+	{
+		"id" : 24,
+		"name" : "never melt ice"
+	},
+	{
+		"id" : 25,
+		"name" : "dragon spirit"
 	}
 ]}

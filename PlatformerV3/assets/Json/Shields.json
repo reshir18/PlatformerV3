@@ -130,15 +130,32 @@
 		"craft" : [
 		{
 			"idItem" : 2,
-			"qts" : 5
+			"qts" : 15
 		},
 		{
 			"idItem" : 18,
-			"qts" : 3
+			"qts" : 5
 		},
 		{
-			"idItem" : 19,
+			"idItem" : 20,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Pure Ice shield",
+		"protect" : 21,
+		"craft" : [
+		{
+			"idItem" : 2,
+			"qts" : 15
+		},
+		{
+			"idItem" : 18,
 			"qts" : 5
+		},
+		{
+			"idItem" : 20,
+			"qts" : 3
 		}]
 	}
 
