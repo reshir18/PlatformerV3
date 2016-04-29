@@ -75,7 +75,7 @@ document.addEventListener('keydown', function(event) {
 	}  
 });
 
-var requiredOrbForWorlds = [0,2,4,6,9];
+var requiredOrbForWorlds = [0,0,0,6,9];
 var currentWorld = 0;
 var game;
 var textTutoHint;

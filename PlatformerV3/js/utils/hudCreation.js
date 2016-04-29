@@ -38,10 +38,16 @@ var playHud =
         else
             this.hintTextGroup.children[0].text = textTutoHint[this.indTextSign];
     },
-    refreshWorldInfo: function(portal)
+    refreshWorldInfo: function(portal, aliasName)
     {
-        var minimumOrbsNeeded = requiredOrbForWorlds[portal.name.substring(5) - 1];
-        txtNameWorld = (minimumOrbsNeeded <= getOrbsCount()) ? portal.name : "Manque " + (minimumOrbsNeeded - getOrbsCount()) + " orb(s)";
+        if(aliasName)
+            txtNameWorld = aliasName
+        else
+        {
+           var minimumOrbsNeeded = requiredOrbForWorlds[portal.name.substring(5) - 1];
+            txtNameWorld = (minimumOrbsNeeded <= getOrbsCount()) ? portal.name : "Manque " + (minimumOrbsNeeded - getOrbsCount()) + " orb(s)"; 
+        }
+        
         var portalText = game.add.text(portal.body.x , portal.body.y - 40, txtNameWorld, { font: "30px mecharegular"} );
     },
     refreshHearts: function()

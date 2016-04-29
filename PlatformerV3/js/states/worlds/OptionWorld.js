@@ -75,6 +75,11 @@ OptionWorld.prototype =
 
         setHud(this.player);
 
+        for (optP of optionPoints.children) 
+        {    
+            gameHud.refreshWorldInfo(optP, optP.name);
+        }
+
         this.game.map = map;
         var miniMapBmd = this.game.add.bitmapData((this.game.map.width + 2)* this.game.miniMapSize, (this.game.map.height + 2) * this.game.miniMapSize);
         miniMapBmd.ctx.fillStyle = '#FFF';

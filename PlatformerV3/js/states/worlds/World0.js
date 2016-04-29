@@ -227,6 +227,9 @@ World0.prototype =
                 portal.body.setSize(30, 30, 20, 15);
                 if(portal.name != "OptionWorld")  
                     gameHud.refreshWorldInfo(portal);
+                else
+                    gameHud.refreshWorldInfo(portal, "Option World");
+
             }
         }
         this.game.map = map;

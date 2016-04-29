@@ -229,8 +229,8 @@ function lavaContactExit (p, l)
     p.lava = false;
 }
 
-function particleBurst(obj, img) {
-
+function particleBurst(obj, img) 
+{
 	emitter = game.add.emitter(0, 0, 100);
     emitter.makeParticles(img);
     emitter.gravity = 200;
