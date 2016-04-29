@@ -10,6 +10,7 @@ World1.prototype =
         /*this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map3', tiledmapCommonStart + currentWorld + '-3.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map4', tiledmapCommonStart + currentWorld + '-4.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.tilemap('map5', tiledmapCommonStart + currentWorld + '-5.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);*/
         background = this.game.load.image('plain', 'assets/Background/world' + currentWorld +'.png');
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -278,7 +279,7 @@ World1.prototype =
         for (portal of portals.children)
         {
             portal.body.setSize(30, 30, 20, 15);
-            if(portal.name == "map5" && !this.player.checkSkyCoins())
+            if(portal.name == "map5" && (!getData(29) || !this.player.checkSkyCoins()))
                 portal.kill();
         } 
 

@@ -40,7 +40,7 @@
 		"modifyY" : 20
 	},
 	{
-		"nameMob" : "Carnivor Plant",
+		"nameMob" : "Carnivore Plant",
 		"imgFoe" : "carnivorPlant",
 		"hp" : 15,
 		"attack" : 12,

@@ -126,7 +126,7 @@ function getOrbs(p, d)
 		insertArray(((currentWorld-1) * 5) + 2)
 		d.kill();
 	}
-	else if(d.name == enums.orbsName.Sky)
+	else if(d.name == enums.orbsName.Sky && p.checkSkyCoins())
 	{
 		insertArray(((currentWorld-1) * 5) + 3)
 		d.kill();
