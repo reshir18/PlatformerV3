@@ -6,6 +6,7 @@ function setPlayerInputs(player)
     player.rightKey = player.game.input.keyboard.addKey(Phaser.Keyboard.D);
     player.powerUpKey = player.game.input.keyboard.addKey(Phaser.Keyboard.Q);
     player.powerUpKey2 = player.game.input.keyboard.addKey(Phaser.Keyboard.E);
+    player.muteSound = player.game.input.keyboard.addKey(Phaser.Keyboard.M);
     player.normalStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
     player.windStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.TWO);
     player.fireStateKey = player.game.input.keyboard.addKey(Phaser.Keyboard.THREE);

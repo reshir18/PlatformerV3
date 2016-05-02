@@ -7,11 +7,11 @@ World1.prototype =
         tiledmapCommonStart = 'TiledMap/level';
         currentWorldData = getWorldData();
         this.game.load.tilemap('map1', tiledmapCommonStart + currentWorld + '-1.json', null, Phaser.Tilemap.TILED_JSON);
-        /*this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.tilemap('map2', tiledmapCommonStart + currentWorld + '-2.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map3', tiledmapCommonStart + currentWorld + '-3.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map4', tiledmapCommonStart + currentWorld + '-4.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('map5', tiledmapCommonStart + currentWorld + '-5.json', null, Phaser.Tilemap.TILED_JSON);
-        this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);*/
+        this.game.load.tilemap('mapBattle', tiledmapCommonStart + currentWorld + '-battle.json', null, Phaser.Tilemap.TILED_JSON);
         background = this.game.load.image('plain', 'assets/Background/world' + currentWorld +'.png');
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.player = new Player(this.game, 140, 140);
@@ -279,8 +279,8 @@ World1.prototype =
         for (portal of portals.children)
         {
             portal.body.setSize(30, 30, 20, 15);
-            if(portal.name == "map5" && (!getData(29) || !this.player.checkSkyCoins()))
-                portal.kill();
+            /*if(portal.name == "map5" && (!getData(29) || !this.player.checkSkyCoins()))
+                portal.kill();*/
         } 
 
         //SAVES POINTS ************************************************************/
@@ -300,13 +300,25 @@ World1.prototype =
         orbs.enableBody = true;
         //currentWorldData.powerUpSpawnInfo[].valueOf()
         powerUp = this.game.add.group();
-        if(mapDraw.valueOf() === currentWorldData.powerUpSpawnInfo[0].valueOf() && !getData(currentWorldData.powerUpSpawnInfo[1].valueOf()))
+        var mapDrawPU = currentWorldData.powerUpSpawnInfo[0].valueOf();
+        var requiredGameDataPU = currentWorldData.powerUpSpawnInfo[1].valueOf();
+        var spriteIndexPU = currentWorldData.powerUpSpawnInfo[3].valueOf();
+        
+        if(currentWorld == 5 && currentMap != 'mapBattle')
         {
-            powerUp.enableBody = true;
-            map.createFromObjects('layerObj', currentWorldData.powerUpSpawnInfo[2].valueOf(), 'powersUp', currentWorldData.powerUpSpawnInfo[3].valueOf(), true, false, powerUp);
-            powerUp.children[0].indexSaveArray = currentWorldData.powerUpSpawnInfo[1].valueOf();
+            mapDrawPU = currentMap;
+            requiredGameDataPU = currentWorldData.powerUpSpawnInfo[1].valueOf() + parseInt(currentMap.substring(3)) - 1;
+            spriteIndexPU = parseInt(currentMap.substring(3)) - 1;
         }
 
+        if(mapDraw.valueOf() === mapDrawPU && !getData(requiredGameDataPU))
+        {
+            powerUp.enableBody = true;
+            map.createFromObjects('layerObj', currentWorldData.powerUpSpawnInfo[2].valueOf(), 'powersUp', spriteIndexPU, true, false, powerUp);
+            powerUp.children[0].indexSaveArray = requiredGameDataPU;
+        }
+        
+        
         generateOrbs(orbs, this.player);
 
         generateCoins(goldCoins, darkCoins, skyCoins, this.player, firstGoldCoinPosition, firstDarkCoinPosition);

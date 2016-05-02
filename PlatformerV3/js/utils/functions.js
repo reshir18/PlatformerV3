@@ -126,7 +126,7 @@ function getOrbs(p, d)
 		insertArray(((currentWorld-1) * 5) + 2)
 		d.kill();
 	}
-	else if(d.name == enums.orbsName.Sky && p.checkSkyCoins())
+	else if(d.name == enums.orbsName.Sky /*&& p.checkSkyCoins()*/)
 	{
 		insertArray(((currentWorld-1) * 5) + 3)
 		d.kill();
@@ -258,4 +258,9 @@ function showNotific8(notifParam)
 	},
 	text = notifParam.content;
 	$.notific8(text, paramsNotific8);
+}
+
+function muteGame()
+{
+	game.sound.mute = !game.sound.mute;
 }
