@@ -17,7 +17,6 @@ var gameDataArray = null;
 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 if(isChrome)
 {
-	//chrome.storage.sync.clear(function (){});
 	var objectKey1 = 'OrbOfGodsDatas';
 	var objectKey2 = 'inventoryPlayer';
 

@@ -179,6 +179,7 @@ World1.prototype =
         if(!mapDraw)
         {
             returnFromBattle = true;
+            this.game.time.events.removeAll();
             battleDatas.isOnBattle = false;
             mapDraw = oldmap[0];
             firstGoldCoinPosition = oldmap[1];
