@@ -41,7 +41,8 @@ function removePowerUp(player)
     player.canSwimLava = false;
     player.magnetMode = false;
     player.canBreathUnderwater = false; 
-    this.game.miniMap.visible = false; 
+    this.game.miniMap.visible = false;
+    this.game.miniMapPlayerPosition.visible = false;
     player.jumpKey.onDown.remove(player.windJump,player);
     player.powerUpKey.onDown.remove(player.switchFlyMode,player);
     player.powerUpKey.onDown.remove(player.switchGhostMode,player);

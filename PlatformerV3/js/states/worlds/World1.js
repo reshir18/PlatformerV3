@@ -125,6 +125,9 @@ World1.prototype =
         if(this.player.body.onFloor() || this.player.body.touching.down)
             this.player.jumpCount = 0;
 
+        movePlayerMinimap(this.player);
+
+
     },
     changeLevel: function(player, portal)
     {
@@ -371,5 +374,7 @@ World1.prototype =
         this.game.map = map;
         generateMinimap(this.game, this.player.body, currentWorldData.minimapTileColor);
         this.game.miniMap.visible = this.player.key == 'perso';
+        
+
     }
 }

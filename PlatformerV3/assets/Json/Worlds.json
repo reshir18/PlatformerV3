@@ -1,6 +1,6 @@
 {"Worlds":[
 	{
-		"name" : "World1",
+		"name" : "Windy Valley",
 		"darkCoin" : [0,2,5,6,8],
 		"goldCoin" : [0,50,47,12,53],
 		"mobWorldMap" : "slime",
@@ -8,7 +8,7 @@
 		"minimapTileColor" : "#009900"
 	},
 	{
-		"name" : "World2",
+		"name" : "Inferno Desert",
 		"darkCoin" : [0,2,3,5,8],
 		"goldCoin" : [0,62,21,35,34],
 		"mobWorldMap" : "skeleton",
@@ -16,7 +16,7 @@
 		"minimapTileColor" : "#dfc163"
 	},
 	{
-		"name" : "World3",
+		"name" : "Icy Tundra ",
 		"darkCoin" : [0,2,5,6,8],
 		"goldCoin" : [0,50,47,12,53],
 		"mobWorldMap" : "iceMonster",
@@ -24,7 +24,7 @@
 		"minimapTileColor" : "#00ccff"
 	},
 	{
-		"name" : "World4",
+		"name" : "Ruined Factory",
 		"darkCoin" : [0,2,5,6,8],
 		"goldCoin" : [0,50,47,12,53],
 		"mobWorldMap" : "skeleton",
@@ -32,7 +32,7 @@
 		"minimapTileColor" : "#009900"
 	},
 	{
-		"name" : "World5",
+		"name" : "Karkaz's Castle",
 		"darkCoin" : [0,2,5,6,8],
 		"goldCoin" : [0,50,47,12,53],
 		"mobWorldMap" : "skeleton",

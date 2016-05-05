@@ -44,8 +44,8 @@ var playHud =
             txtNameWorld = aliasName
         else
         {
-           var minimumOrbsNeeded = requiredOrbForWorlds[portal.name.substring(5) - 1];
-            txtNameWorld = (minimumOrbsNeeded <= getOrbsCount()) ? portal.name : "Manque " + (minimumOrbsNeeded - getOrbsCount()) + " orb(s)"; 
+            var minimumOrbsNeeded = requiredOrbForWorlds[portal.name.substring(5) - 1];
+            txtNameWorld = (minimumOrbsNeeded <= getOrbsCount()) ? getSpecificWorldData(parseInt(portal.name.substring(5)) - 1).name : "Manque " + (minimumOrbsNeeded - getOrbsCount()) + " orb(s)"; 
         }
         
         var portalText = game.add.text(portal.body.x , portal.body.y - 40, txtNameWorld, { font: "30px mecharegular"} );

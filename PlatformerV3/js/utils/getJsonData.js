@@ -50,3 +50,9 @@ function getWorldData()
 {
   return worldData.Worlds[currentWorld - 1];
 }
+
+function getSpecificWorldData(index)
+{
+  console.log(worldData.Worlds[index].name);
+  return worldData.Worlds[index];
+}

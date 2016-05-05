@@ -54,7 +54,7 @@ World0.prototype =
         var signs
         this.loadMap();
         music = game.add.audio('ambient');
-        music.play('', 0, 1, true);
+        //music.play('', 0, 1, true);
     },
     update: function () 
     {
@@ -83,6 +83,9 @@ World0.prototype =
         if(this.player.body.onFloor() || this.player.body.touching.down)
             this.player.jumpCount = 0;
 
+        movePlayerMinimap(this.player);
+
+
     },
     changeLevel: function(player, portal)
     {
@@ -107,7 +110,7 @@ World0.prototype =
             this.game.world.removeAll();
             setWorld(portal.name.substring(5));
             this.game.state.start("World1");
-            pauseHud.currentWorld = portal.name;
+            pauseHud.currentWorld = getSpecificWorldData(parseInt(portal.name.substring(5)) - 1).name;
         }    
     },
     loadMap: function () 
@@ -235,6 +238,7 @@ World0.prototype =
         this.game.map = map;
         generateMinimap(this.game, this.player.body, '#808080');
         this.game.miniMap.visible = this.player.key == 'perso';
+        this.game.miniMapPlayerPosition.visible = this.player.key == 'perso';
             
     }
 }

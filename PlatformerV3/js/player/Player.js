@@ -156,6 +156,7 @@ Player = function (game, x, y)
         this.setPowerModeToNormal('perso');
         this.powerUpKey.onDown.add(this.saveTheGame,this);
         this.game.miniMap.visible = true;
+        this.game.miniMapPlayerPosition.visible = true;
         checkWaterCapacity(this, breathLoop);
 
     };
@@ -234,8 +235,8 @@ Player.prototype.update = function()
         //  Move to the left
         this.lastDirection = this.leftDirection;
         this.body.velocity.x = -250;
-
         this.animations.play('left');
+        
 
     }
     else if (this.rightKey.isDown)
@@ -243,7 +244,6 @@ Player.prototype.update = function()
         //  Move to the right
         this.lastDirection = this.rightDirection;
         this.body.velocity.x = 250;
-
         this.animations.play('right');
     }
     else
@@ -251,7 +251,6 @@ Player.prototype.update = function()
         this.animations.stop();
         this.frame = 2;
     }
-
     this.body.gravity.y = this.fly ? 0 : this.normalGravity;
     if(!this.fly)  
         this.body.gravity.y = this.water ? this.waterGravity : this.normalGravity;  

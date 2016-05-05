@@ -1,6 +1,7 @@
 
 var map;
 var layer;
+var gameDatas;
 var fisrtKeyId = 4;
 var fisrtLockId = fisrtKeyId + 4;
 
@@ -16,6 +17,7 @@ function setMapAndLayer(m,l)
 
 function generateMinimap(gameData, playerBody, mapMainColor)
 {
+    gameDatas = gameData;
     var miniMapBmd = gameData.add.bitmapData((gameData.map.width + 2)* gameData.miniMapSize, (gameData.map.height + 2) * gameData.miniMapSize);
     miniMapBmd.ctx.fillStyle = '#FFF';
     miniMapBmd.ctx.globalAlpha = 0.5;
@@ -46,14 +48,27 @@ function generateMinimap(gameData, playerBody, mapMainColor)
         }   
     }
     //Set the spwan place of the player
-    miniMapBmd.ctx.fillStyle = '#f06';
-    miniMapBmd.ctx.fillRect((playerBody.x + 70) / 70  * gameData.miniMapSize, (playerBody.y + 70) / 70 * gameData.miniMapSize, gameData.miniMapSize, gameData.miniMapSize);
+    
     //gameData.miniMap = gameData.add.sprite(x, y, miniMapBmd);
     gameData.miniMap = gameData.add.sprite(x, gameData.height - (y * gameData.miniMapSize) - 20 , miniMapBmd);
     // dynamic bmd where I draw mobile stuff like friends and enemies 
-    gameData.miniMapOverlay = gameData.add.bitmapData(gameData.map.width*gameData.miniMapSize, gameData.map.height*gameData.miniMapSize);
-    //gameData.add.sprite(gameData.miniMap.x, gameData.miniMap.y, gameData.miniMapOverlay);
     gameData.miniMap.fixedToCamera = true;
+    gameDatas.miniMapOverlay = gameDatas.add.bitmapData(gameDatas.map.width*gameDatas.miniMapSize, gameDatas.map.height*gameDatas.miniMapSize);
+    gameDatas.miniMapOverlay.ctx.fillStyle = '#f06';
+    gameDatas.miniMapOverlay.ctx.fillRect((playerBody.x + 70) / 70  * gameDatas.miniMapSize, (playerBody.y + 70) / 70 * gameDatas.miniMapSize, gameDatas.miniMapSize, gameDatas.miniMapSize);
+    gameDatas.miniMapPlayerPosition = gameDatas.add.sprite(x, gameData.height - (y * gameData.miniMapSize) - 20 , gameDatas.miniMapOverlay);
+    gameDatas.miniMapPlayerPosition.fixedToCamera = true;
+}
+
+function movePlayerMinimap(pBody)
+{
+    gameDatas.miniMapPlayerPosition.destroy();
+    gameDatas.miniMapOverlay = gameDatas.add.bitmapData((gameDatas.map.width + 2)* gameDatas.miniMapSize, (gameDatas.map.height + 2) * gameDatas.miniMapSize);
+    gameDatas.miniMapOverlay.ctx.fillStyle = '#f06';
+    gameDatas.miniMapOverlay.ctx.fillRect((pBody.body.x + 70) / 70  * gameDatas.miniMapSize, (pBody.body.y + 70) / 70 * gameDatas.miniMapSize, gameDatas.miniMapSize, gameDatas.miniMapSize);
+    gameDatas.miniMapPlayerPosition = gameDatas.add.sprite(gameDatas.map.width , gameDatas.height - (gameDatas.map.height * gameDatas.miniMapSize) - 20 , gameDatas.miniMapOverlay);
+    gameDatas.miniMapPlayerPosition.fixedToCamera = true;
+    this.game.miniMapPlayerPosition.visible = pBody.key == 'perso';
 }
 
 function setCoinNumber(children, pos, array)
