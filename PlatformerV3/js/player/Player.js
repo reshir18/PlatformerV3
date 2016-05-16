@@ -236,8 +236,6 @@ Player.prototype.update = function()
         this.lastDirection = this.leftDirection;
         this.body.velocity.x = -250;
         this.animations.play('left');
-        
-
     }
     else if (this.rightKey.isDown)
     {
