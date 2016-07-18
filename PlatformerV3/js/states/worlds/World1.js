@@ -3,7 +3,7 @@ var World1 = function (game) { }
 
 World1.prototype =
 {
-    preload: function () { 
+    preload: function () {
         tiledmapCommonStart = 'TiledMap/level';
         currentWorldData = getWorldData();
         this.game.load.tilemap('map1', tiledmapCommonStart + currentWorld + '-1.json', null, Phaser.Tilemap.TILED_JSON);
@@ -31,7 +31,7 @@ World1.prototype =
                 this.game.debug.geom(en.seeLineFloor);
                 this.game.debug.geom(en.seeLineWall);
             }
-        }  
+        }
     },
     create: function () {
         this.game.miniMapSize = 4;
@@ -62,25 +62,25 @@ World1.prototype =
         pauseHud.currentLevel = 1;
         this.changeMap('map1', true);
         this.game.miniMap.visible = true;
-        
+
 
     },
     update: function () {
-        
+
         this.game.physics.arcade.collide(this.player, layer);
-        
+
         this.game.physics.arcade.collide(blocks, layer);
-        
+
         this.game.physics.arcade.collide(enemies, layer);
-        
+
         this.game.physics.arcade.collide(foes, layer);
 
         for(en of enemies.children)
             if(layer)
                 moveEnemy(en, layer);
-        
+
         this.player.canSaveGame = this.game.physics.arcade.overlap(this.player, savePoints);
-    
+
         this.game.physics.arcade.overlap(this.player, keys, collectKeys, null, this);
 
         this.game.physics.arcade.overlap(this.player, orbs, getOrbs, null, this);
@@ -92,17 +92,17 @@ World1.prototype =
         this.game.physics.arcade.overlap(this.player, goldCoins, collectGoldCoins, null, this);
 
         this.game.physics.arcade.overlap(this.player, watersTop, waterContact, null, this);
-        
+
         this.game.physics.arcade.overlap(this.player, lavasTop, lavaContact, null, this);
 
         this.game.physics.arcade.overlap(this.player, potions, collectPotions, null, this);
-            
-        if(this.player.water)    
+
+        if(this.player.water)
             this.game.physics.arcade.overlap(this.player, waterExits, waterContactExit, null, this);
 
-        if(this.player.lava)    
+        if(this.player.lava)
             this.game.physics.arcade.overlap(this.player, lavaExits, lavaContactExit, null, this);
-   
+
         this.game.physics.arcade.overlap(this.player, blocks, moveBlock, null, this);
 
         //POWER UP + WATER
@@ -114,14 +114,14 @@ World1.prototype =
             this.game.physics.arcade.overlap(this.player, portals, this.changeLevel, null, this);
             this.game.physics.arcade.overlap(this.player, enemies, this.enterBattle, null, this);
         }
-        
+
         this.game.physics.arcade.collide(this.player, blocks, burnBlock, null, this);
-        
+
         this.game.physics.arcade.collide(this.player, powerUp, getPowersUp, null, this);
-            
+
         if (this.player.climbKey && this.player.climbKey.isDown && this.game.physics.arcade.overlap(this.player, ladders))
             this.player.climbUp();
-    
+
         if(this.player.body.onFloor() || this.player.body.touching.down)
             this.player.jumpCount = 0;
 
@@ -163,10 +163,10 @@ World1.prototype =
         this.game.time.events.removeAll();
         foe.destroy();
         this.changeMap('mapBattle');
-        
+
     },
     changeMap: function (mapDraw, firstTime) {
-        
+
         firstGoldCoinPosition = 0;
         firstDarkCoinPosition = 0;
         currentMap = "map0";
@@ -193,14 +193,14 @@ World1.prototype =
         else if(mapDraw !== "mapBattle")
         {
             currentMap = mapDraw.substring(3);
-            for (var i = 0; i < parseInt(currentMap) ; i++) 
+            for (var i = 0; i < parseInt(currentMap) ; i++)
             {
                firstGoldCoinPosition += currentWorldData.goldCoin[i].valueOf();
             };
             firstDarkCoinPosition = currentWorldData.darkCoin[currentMap-1];
             oldmap = [mapDraw,firstGoldCoinPosition,firstDarkCoinPosition,0,0,0];
         }
-        
+
         map = this.game.add.tilemap(mapDraw);
         background = game.add.sprite(0, 0, 'plain');
 
@@ -219,10 +219,10 @@ World1.prototype =
         background.smoothed = false;
 
         setMapAndLayer(map,layer);
-        
+
         foes = this.game.add.group();
         foes.enableBody = true;
-        
+
         enemies = this.game.add.group();
         enemies.enableBody = true;
 
@@ -244,7 +244,7 @@ World1.prototype =
                 posY = 280 - (70 * i);
                 foes.add(enemyFactory(foeType, this.game, posX, posY, i))
             }
-            battleDatas.setInfos(nbFoes, potionGift, potions, foes.children);     
+            battleDatas.setInfos(nbFoes, potionGift, potions, foes.children);
         }
         else
         {
@@ -260,10 +260,10 @@ World1.prototype =
                     e.anchor.setTo(.5,0);
                     layer.getRayCastTiles(e.seeLineFloor, 4, false, false);
                     e.mobPositionInWorld = mobPos;
-                    mobPos++;   
+                    mobPos++;
             }
             if(returnFromBattle)
-                enemies.children[oldmap[5]].destroy();  
+                enemies.children[oldmap[5]].destroy();
         }
 
         //SET KEYS ***********************************************************
@@ -285,7 +285,7 @@ World1.prototype =
             portal.body.setSize(30, 30, 20, 15);
             /*if(portal.name == "map5" && (!getData(29) || !this.player.checkSkyCoins()))
                 portal.kill();*/
-        } 
+        }
 
         //SAVES POINTS ************************************************************/
         savePoints = this.game.add.group();
@@ -307,7 +307,7 @@ World1.prototype =
         var mapDrawPU = currentWorldData.powerUpSpawnInfo[0].valueOf();
         var requiredGameDataPU = currentWorldData.powerUpSpawnInfo[1].valueOf();
         var spriteIndexPU = currentWorldData.powerUpSpawnInfo[3].valueOf();
-        
+
         if(currentWorld == 5 && currentMap != 'mapBattle')
         {
             mapDrawPU = currentMap;
@@ -321,8 +321,7 @@ World1.prototype =
             map.createFromObjects('layerObj', currentWorldData.powerUpSpawnInfo[2].valueOf(), 'powersUp', spriteIndexPU, true, false, powerUp);
             powerUp.children[0].indexSaveArray = requiredGameDataPU;
         }
-        
-        
+
         generateOrbs(orbs, this.player);
 
         generateCoins(goldCoins, darkCoins, skyCoins, this.player, firstGoldCoinPosition, firstDarkCoinPosition);
@@ -331,7 +330,7 @@ World1.prototype =
         ladders = this.game.add.group();
         ladders.enableBody = true;
         map.createFromObjects('layerObj', 20, 'ladder', 1, true, false, ladders);
-         for (ladder of ladders.children) 
+         for (ladder of ladders.children)
                 if(ladder.name == 'top')
                     ladder.frame = 0;
 
@@ -343,10 +342,8 @@ World1.prototype =
         cages = this.game.add.group();
         cages.enableBody = true;
         map.createFromObjects('layerObj', 27, 'powerUpBlocks', 2, true, false, cages);
-        for (cage of cages.children) 
+        for (cage of cages.children)
                 cage.body.immovable = true;
-
-        
 
         this.player.bringToTop();
 
@@ -368,13 +365,11 @@ World1.prototype =
         blocks = this.game.add.group();
         blocks.enableBody = true;
         generateBurningBlocks(blocks);
-        
+
         setHud(this.player);
 
         this.game.map = map;
         generateMinimap(this.game, this.player.body, currentWorldData.minimapTileColor);
         this.game.miniMap.visible = this.player.key == 'perso';
-        
-
     }
 }

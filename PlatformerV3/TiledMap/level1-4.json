@@ -2193,51 +2193,6 @@
                  "y":140
                 }, 
                 {
-                 "height":70,
-                 "id":154,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":70,
-                 "x":2730,
-                 "y":2030
-                }, 
-                {
-                 "height":70,
-                 "id":155,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":70,
-                 "x":2730,
-                 "y":2030
-                }, 
-                {
-                 "height":70,
-                 "id":156,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":70,
-                 "x":1050,
-                 "y":700
-                }, 
-                {
                  "gid":33,
                  "height":70,
                  "id":157,
