@@ -7,40 +7,31 @@ BattleDatas = function() {
     this.selectedEnemie = -1;
     this.arrayFoe = null;
     this.arrayProjectiles = [];
-    this.minMonster = 0;
-    this.maxMonster = this.nbFoes - 1;
-    this.selectedTarget = null;
     this.attackTurn = 0;
 };
- 
+
 BattleDatas.prototype.constructor = BattleDatas;
 
-BattleDatas.prototype.killMonster = function(x, y) 
+BattleDatas.prototype.killMonster = function(x, y)
 {
     this.nbFoes --;
 
     if(this.nbFoes == 0)
     {
         this.isOnBattle = false;
-        this.selectedTarget.visible = false;
         if(this.potion !== "---")
             this.makePotion(x, y);
     }
-    else
-    {
-        this.maxMonster = this.nbFoes - 1;
-        this.setEnemie(1);
-    }
 };
 
-BattleDatas.prototype.getPotionName = function() 
+BattleDatas.prototype.getPotionName = function()
 {
     return this.potion;
 };
 
-BattleDatas.prototype.setPotion = function(idPotion) 
+BattleDatas.prototype.setPotion = function(idPotion)
 {
-	switch(idPotion) 
+	switch(idPotion)
     {
         case 1:
         case 2:
@@ -71,7 +62,7 @@ BattleDatas.prototype.setPotion = function(idPotion)
     }
 };
 
-BattleDatas.prototype.setInfos = function(nbFoes, idPotion, potionMap, arrayFoe) 
+BattleDatas.prototype.setInfos = function(nbFoes, idPotion, potionMap, arrayFoe)
 {
     this.nbFoes = nbFoes;
     this.potion = this.setPotion(idPotion);
@@ -79,93 +70,51 @@ BattleDatas.prototype.setInfos = function(nbFoes, idPotion, potionMap, arrayFoe)
     this.isOnBattle = true;
     this.arrayFoe = arrayFoe;
     this.maxMonster = this.nbFoes - 1;
-    this.selectedTarget = game.add.sprite(0 , 0 , 'outline');
-    this.selectedTarget.visible = false;
-    this.selectedEnemie = -1;
     this.attackTurn = 0;
     //game.add(this.arrayProjectiles);
-    game.time.events.loop(Phaser.Timer.SECOND * 1.5, this.dropProjectile, this);
+    //game.time.events.loop(Phaser.Timer.SECOND * 1.5, this.dropProjectile, this);
 
 };
 
-BattleDatas.prototype.makePotion = function(x, y) 
+BattleDatas.prototype.makePotion = function(x, y)
 {
     p = game.add.sprite(x , y, 'potions', this.potionSpriteId);
     this.potionMap.add(p);
 };
 
-BattleDatas.prototype.setTargetPosition = function() 
-{
-   this.selectedTarget.x = this.arrayFoe[this.selectedEnemie].body.x - this.arrayFoe[this.selectedEnemie].modifyX;
-   this.selectedTarget.y = this.arrayFoe[this.selectedEnemie].body.y - this.arrayFoe[this.selectedEnemie].modifyY;
-};
-
-BattleDatas.prototype.setEnemie =  function (direction)
-{
-    if(direction == 0 && this.selectedEnemie >= 0)
-    {   
-        this.battleAction();  
-        return;
-    }
-    if(this.selectedEnemie == -1)
-    {
-        this.selectedTarget.visible = true;
-        this.selectedEnemie = 0;
-
-    }
-    else
-        this.selectedEnemie += direction;
-    
-    
-    if(this.selectedEnemie < this.minMonster)
-    {
-        this.selectedEnemie = this.maxMonster;
-    }
-    else if(this.selectedEnemie > this.maxMonster)
-    {
-        this.selectedEnemie = 0;
-    }
-    if(!this.arrayFoe[this.selectedEnemie])
-    {
-        this.setEnemie(direction);
-    }
-    this.setTargetPosition(); 
-}
-
-
-
 BattleDatas.prototype.battleAction = function()
 {
 	player = gameHud.player;
-    selectedFoe = this.arrayFoe[this.selectedEnemie];
-	if(selectedFoe && selectedFoe.takeDamagesAndDie(player.sword.damages))
-	{
-		player.loot[selectedFoe.drop.id] ++;
-        foePotionX = selectedFoe.body.x;
-        foePotionY = selectedFoe.body.y - 70;
-        selectedFoe.destroy();
-
-		this.killMonster(foePotionX, foePotionY);
-        console.log(this.arrayFoe);
-		var jsonV = JSON.stringify(player.inventory);
-		var vJson = JSON.parse(jsonV);
-		console.log(this);
-	}
-    else if(selectedFoe)
-    {
-        this.attackTurn++;
-            for(mob of this.arrayFoe)
-                if(mob.canAttack(this.attackTurn))
-                    this.attackPlayer(mob);
-    }
+    this.potionMap.add(new Projectile(game, gameHud.player.body.x, gameHud.player.body.y, false, this.arrayFoe, this));
+    this.hurtMobStillAlive();
 };
 
 BattleDatas.prototype.attackPlayer = function(mob)
 {
-    this.potionMap.add(new Projectile(game, mob.body.x, mob.body.y, false));
+    this.potionMap.add(new Projectile(game, mob.body.x, mob.body.y, true, null, null));
 }
 
-BattleDatas.prototype.dropProjectile = function()
+/*BattleDatas.prototype.dropProjectile = function()
 {
-    this.potionMap.add(new Projectile(game, gameHud.player.body.x, 50, true));
+    //this.potionMap.add(new Projectile(game, gameHud.player.body.x, 50, true, true, null, null));
+}*/
+
+BattleDatas.prototype.hurtMobToDeath = function(mobT)
+{
+    player.loot[mobT.drop.id] ++;
+    foePotionX = mobT.body.x;
+    foePotionY = mobT.body.y - 70;
+    mobT.destroy();
+
+    this.killMonster(foePotionX, foePotionY);
+    var jsonV = JSON.stringify(player.inventory);
+    var vJson = JSON.parse(jsonV);
+}
+
+BattleDatas.prototype.hurtMobStillAlive = function()
+{
+    this.attackTurn++;
+        for(mob of this.arrayFoe)
+            if(mob.canAttack(this.attackTurn))
+                this.attackPlayer(mob);
 }

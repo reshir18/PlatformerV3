@@ -5,7 +5,7 @@ var menuTexts = ["Reprendre", "Crafting", "Inventaire", "Main World", "Retour", 
 function menuNavigation(direction)
 {
     if(direction == 0 && currentMenuLayout == 0)
-    {   
+    {
         if(setSecondMenu(menuChoice))
             currentMenuLayout = 1;
         else
@@ -43,9 +43,9 @@ function menuNavigation(direction)
         }
         return;
     }
-    
+
     menuChoice += direction;
-    
+
     var minM = 0;
     if(currentMenuLayout == 0)
         maxM = 3;
@@ -78,7 +78,7 @@ function menuNavigation(direction)
     else if(currentMenuLayout < 4)
         changeWeapon(currentMenuLayout == 2, menuChoice);
     else if(currentMenuLayout == 4)
-        gameHud.showLayout3(menuChoice);   
+        gameHud.showLayout3(menuChoice);
 }
 
 function setSecondMenu(c)
@@ -101,7 +101,7 @@ function setSecondMenu(c)
         //alert(game);
     }
 
-    return true; 
+    return true;
 }
 function setThirdMenu(c)
 {
@@ -127,7 +127,7 @@ function buyItem(c, sword)
         showNotific8({title:'Achat impossible', content:"Manque de ressources", life:2500, color:'tomato'});
         return true;
     }
-   
+
     else if(sword && gameHud.player.sword.damages < getSword(c).damages)
     {
         gameHud.player.sword = getSword(c);

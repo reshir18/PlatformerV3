@@ -47,7 +47,6 @@ var playHud =
             var minimumOrbsNeeded = requiredOrbForWorlds[portal.name.substring(5) - 1];
             txtNameWorld = (minimumOrbsNeeded <= getOrbsCount()) ? getSpecificWorldData(parseInt(portal.name.substring(5)) - 1).name : "Manque " + (minimumOrbsNeeded - getOrbsCount()) + " orb(s)"; 
         }
-        
         var portalText = game.add.text(portal.body.x , portal.body.y - 40, txtNameWorld, { font: "30px mecharegular"} );
     },
     refreshHearts: function()
@@ -113,7 +112,6 @@ var playHud =
             if(this.player.keysArray[key])
                 this.refreshKeysAdd(key);
        }
-            
     },
     refreshKeysAdd: function(color)
     {
@@ -147,7 +145,7 @@ var playHud =
     }
 }
 
-var pauseHud = 
+var pauseHud =
 {
     player: 'none',
     textGroup: 'none',
@@ -190,7 +188,7 @@ var pauseHud =
             var bmpTextInfoWeapon = game.add.text(game.camera.x + 200 , game.camera.y + 350,  hasWeapon, { font: textWeigthFont} );
             bmpTextInfoWeapon.fixedToCamera = true;
             this.textGroup.add(bmpTextInfoWeapon);
-        } 
+        }
     },
     showLayout0: function()
     {
@@ -208,7 +206,6 @@ var pauseHud =
     },
     showLayout1: function()
     {
-        
         this.showMasterLayout();
         this.showText("Retour");
         var img = game.add.sprite(game.camera.x + 240 , game.camera.y + 250, 'commandsHud',1);
@@ -247,7 +244,6 @@ var pauseHud =
         var textColorFill = "#000000";
         if(isSword)
         {
-            
             var itemShow = getSword(idItem);
             img = game.add.sprite(game.camera.x + 382 , game.camera.y + 267, 'swordChoices',idItem - 1);
             img.fixedToCamera = true;
@@ -289,7 +285,6 @@ var pauseHud =
                 resCount++;
                 //textColorFill = "#FF0000";
             }
-            
         }
         this.player.canBuyItem = resCount == 0;
 
@@ -324,7 +319,6 @@ var pauseHud =
             lootText += "Orb obscur: " + getData((currentWorldDataCheck - 1) * 5 + 1) + "\n";
             lootText += "Orb venom: " + getData((currentWorldDataCheck - 1) * 5 + 2) + "\n";
         }
-        
         this.showText("Retour", lootText);
     },
     showMasterLayout: function()
@@ -368,15 +362,14 @@ function setHud(player)
 	generateHudKeys(game.add.group());
     generateHudHint(game.add.group())
     generateHudAirBar();
-	
 }
 function unPauseGame()
 {
     gameHud.showHideAll(false);
     gameHud = playHud;
     gameHud.showHideAll(true);
-    game.paused = false;  
-    pauseHud.refreshAirBar(true); 
+    game.paused = false;
+    pauseHud.refreshAirBar(true);
 }
 
 function setPausedHud()
@@ -430,7 +423,6 @@ function generateWorldInfo(group)
 function generateHudHealth(group)
 {
 	playHud.heartGroup = group;
-    
     var nbLive = Math.floor(gameHud.player.hp/50);
     var firstLife = gameHud.player.hp % 50;
     for(var i = 0; i < nbLive; i++)
@@ -467,10 +459,9 @@ function generateHudGoldCoin(group)
 
 	var coinImage = game.add.sprite(game.width - 340 , 35, 'coins', 0);
 	var numberText = game.add.text(game.width - 300 , 35, gameHud.player.goldCoinsNumber.toString(), { font: "30px mecharegular"} );
-    
     coinImage.fixedToCamera = true;
     numberText.fixedToCamera = true;
-    
+
     group.add(coinImage);
     group.add(numberText);
 }
@@ -481,10 +472,10 @@ function generateHudDarkCoin(group)
 
 	var coinImage = game.add.sprite(game.width - 260 , 35, 'coins', 1);
 	var numberText = game.add.text(game.width - 220 , 35, gameHud.player.darkCoinsNumber.toString(), { font: "30px mecharegular"} );
-    
+
     coinImage.fixedToCamera = true;
     numberText.fixedToCamera = true;
-    
+
     group.add(coinImage);
     group.add(numberText);
 }
@@ -503,5 +494,5 @@ function generateHudHint(group)
             playHud.indTextSign = 9;
     var hintText = game.add.text(50, 100,  textTutoHint[playHud.indTextSign], { font: "32px mecharegular"} );
     hintText.fixedToCamera = true;
-    group.add(hintText); 
+    group.add(hintText);
 }

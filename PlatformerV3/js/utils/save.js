@@ -10,8 +10,8 @@
 27 = power up + terre
 28 = Fini tutoriel
 29 = Boss World 5 mort
-30 = 
-31 = 
+30 =
+31 =
 */
 var gameDataArray = null;
 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
@@ -24,7 +24,7 @@ if(isChrome)
 	gameDataArray = getGameSave();
 	loadGameChrome();
 }
-      
+
 document.addEventListener('DOMContentLoaded', function () {
   createNewGame();
 });
@@ -37,7 +37,7 @@ document.addEventListener('keydown', function(event) {
 	}
 	else if(game.paused)
 	{
-		switch(event.keyCode) 
+		switch(event.keyCode)
     	{
 		    case 27:
 		        unPauseGame();
@@ -57,21 +57,15 @@ document.addEventListener('keydown', function(event) {
 	}
 	else if(battleDatas.isOnBattle)
 	{
-		switch(event.keyCode) 
+		switch(event.keyCode)
     	{
-		    case 37:
-		    	battleDatas.setEnemie(-1);
-		        break;
-		    case 39:
-		    	battleDatas.setEnemie(1);
-		        break;
 		    case 13:
-		    	battleDatas.setEnemie(0);
+		    	battleDatas.battleAction();
 		        break;
 		    default:
 		        break;
 		}
-	}  
+	}
 });
 
 var requiredOrbForWorlds = [0,2,4,6,9];
