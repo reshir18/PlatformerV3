@@ -71,6 +71,7 @@ BattleDatas.prototype.setInfos = function(nbFoes, idPotion, potionMap, arrayFoe)
     this.arrayFoe = arrayFoe;
     this.maxMonster = this.nbFoes - 1;
     this.attackTurn = 0;
+    this.projectileGroup = game.add.group();
     //game.add(this.arrayProjectiles);
     //game.time.events.loop(Phaser.Timer.SECOND * 1.5, this.dropProjectile, this);
 
@@ -85,13 +86,13 @@ BattleDatas.prototype.makePotion = function(x, y)
 BattleDatas.prototype.battleAction = function()
 {
 	player = gameHud.player;
-    this.potionMap.add(new Projectile(game, gameHud.player.body.x, gameHud.player.body.y, false, this.arrayFoe, this));
+    this.projectileGroup.add(new Projectile(game, gameHud.player.body.x, gameHud.player.body.y, false, this.arrayFoe, this));
     this.hurtMobStillAlive();
 };
 
 BattleDatas.prototype.attackPlayer = function(mob)
 {
-    this.potionMap.add(new Projectile(game, mob.body.x, mob.body.y, true, null, null));
+    this.projectileGroup.add(new Projectile(game, mob.body.x, mob.body.y, true, null, null));
 }
 
 /*BattleDatas.prototype.dropProjectile = function()

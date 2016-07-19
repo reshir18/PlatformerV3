@@ -1,7 +1,7 @@
-Enemy = function (game, x, y, stats, pos, hasGravity, lootList) 
+Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
 {
     Phaser.Sprite.call(this, game, x, y, stats.imgFoe);
-    
+
     this.enableBody = true;
     this.game.physics.arcade.enable(this);
     this.body.gravity.y = hasGravity;
@@ -9,7 +9,7 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
     this.stats = stats;
     this.lootList = lootList;
     this.maxHp = Math.floor((Math.random() * (this.stats.hp * 2)) + this.stats.hp - 2);
-    this.hp = this.maxHp; 
+    this.hp = this.maxHp;
     this.att = this.stats.attack;
     this.def = this.stats.defense;
     this.speed = this.stats.speed;
@@ -29,7 +29,7 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
             strMonster = this.stats.nameMob + " " + this.hp + " / " + this.maxHp;
             this.monsterText.setText(strMonster);
         }
-        return this.hp <= 0;   
+        return this.hp <= 0;
     };
 
     this.canAttack = function(turn)
@@ -40,13 +40,13 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
     this.setDrop = function(shinyNumber)
     {
         var rdn = Math.floor((Math.random() * 100) + 1);
-        
+
         for (item of this.lootList)
         {
             if(rdn <= item.percent)
             {
                 if(rdn >= shinyNumber)
-                { 
+                {
                     this.alpha = 0.5;
                 }
                 return item;
@@ -63,22 +63,22 @@ Enemy = function (game, x, y, stats, pos, hasGravity, lootList)
 Enemy.prototype = Object.create(Phaser.Sprite.prototype);
 Enemy.prototype.constructor = Enemy;
 
-Enemy.prototype.update = function() 
+Enemy.prototype.update = function()
 {
-    
+
 };
 //Enemys in world map NOT in battle ************************************************************************************
 moveEnemy = function(mob, layer)
-{ 
+{
     if(checkEnemycollide(mob))
     {
         mob.moveDirection = mob.moveDirection * -1;
-        
+
         if(mob.moveDirection > 0)
         {
             mob.scale.x =-1;
             mob.mobDirection = 48;
-        } 
+        }
         else
         {
             mob.scale.x =1;
