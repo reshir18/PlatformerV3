@@ -1,6 +1,6 @@
 Projectile = function (game, x, y, isfromMob, mobTarget, bd)
 {
-    Phaser.Sprite.call(this, game, x, y, 'ball');
+    Phaser.Sprite.call(this, game, x, y, 'ball', isfromMob ? 0 : 1);
     this.enableBody = true;
     this.game.physics.arcade.enable(this);
     this.body.gravity.y = 50;
@@ -36,6 +36,7 @@ Projectile.prototype.hurtMob = function(projectile, mobT)
 {
     if(mobT.takeDamagesAndDie(this.target.sword.damages))
         this.battle.hurtMobToDeath(mobT);
+    this.destroy();
 };
 
 Projectile.prototype.setBallDirection = function()
