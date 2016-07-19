@@ -18,7 +18,8 @@ Projectile.prototype.constructor = Projectile;
 Projectile.prototype.update = function()
 {
     this.body.velocity.x = 0;
-    this.body.velocity.x = (200 + Math.floor((Math.random() * 150) + 1)) * this.dirProjectile;
+    this.body.velocity.y = 50;
+    this.body.velocity.x = ((100 + player.level * 25) + Math.floor((Math.random() * 150) + 1)) * this.dirProjectile;
     game.physics.arcade.overlap(this, this.isfromMob ? this.target : this.mobTarget, this.attFunction, null, this);
 };
 

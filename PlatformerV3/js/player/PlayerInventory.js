@@ -12,6 +12,7 @@ function setPlayerInventory(player)
         console.log(player.shield.protect);
         player.loot = player.inventory.Inventory[0].loot;
         console.log(player.loot);
+        player.level = player.inventory.Inventory[0].level;
     }
     else
  	loadJSON("assets/Json/PlayerInventory.json",function(response) {
@@ -24,7 +25,6 @@ function setPlayerInventory(player)
         console.log(player.shield.protect);
         player.loot = player.inventory.Inventory[0].loot;
         console.log(player.loot);
+        player.level = player.inventory.Inventory[0].level;
  	});
-
-    	
 }

@@ -5,7 +5,7 @@ var lootInfo = 'TEMP';
 var enemiesList = 'TEMP';
 var worldData = 'TEMP';
 function InitializeJson()
-{	
+{
 	loadJSON("assets/Json/Swords.json",function(response) {
     	swordList = JSON.parse(response);
  	});
@@ -20,7 +20,7 @@ function InitializeJson()
 
   loadJSON("assets/Json/Shields.json",function(response) {
   	shieldList = JSON.parse(response);
- 	});	
+ 	});
 
   loadJSON("assets/Json/Enemies.json",function(response) {
       enemiesList = JSON.parse(response);

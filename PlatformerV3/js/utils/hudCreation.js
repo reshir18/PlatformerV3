@@ -14,6 +14,7 @@ var playHud =
     worldInfoTextGroup: 'none',
     currentLevel: 0,
     currentWorld: 0,
+    lineMaxHearth : 6,
     refreshAll: function()
     {
     	this.refreshHearts();
@@ -59,7 +60,7 @@ var playHud =
 		var tempHeart = this.heartGroup.children[len - 1];
 		if(nbLive > len)
         {
-            for (heart of this.heartGroup.children) 
+            for (heart of this.heartGroup.children)
                 heart.alpha = 1;
             for(var i = len ; i < nbLive ; i++)
             {

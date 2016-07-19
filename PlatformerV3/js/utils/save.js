@@ -78,9 +78,9 @@ var optionAction = "None";
 
 function createNewGame()
 {
-	game = new Phaser.Game(800, 600, Phaser.CANVAS, "game");        
+	game = new Phaser.Game(800, 600, Phaser.CANVAS, "game");
     InitializeJson();
-    
+
     game.state.add('Boot', boot, false);
     game.state.add('Preloader', preload, false);
     game.state.add('World0', World0, false);
@@ -90,7 +90,7 @@ function createNewGame()
     //showNotific8({title:'Start game', content:'Go !', life:2500, color:'cerulean'});
 }
 
-function loadGame() 
+function loadGame()
 {
 	gameDataArray = getGameSave();
 	if(isChrome)
@@ -115,7 +115,7 @@ function gameOver(textDead)
 	para.setAttribute("id", "notific8Span");
 	document.body.appendChild(para);
 	createNewGame();
-	
+
     console.log(playHud);
 	if(textDead)
 		showNotific8({title:'Game Over', content:textDead, life:2500, color:'cerulean'});
@@ -146,7 +146,7 @@ function returnToMainWorld()
 	}
 }
 
-function setCookie(cname,cvalue) 
+function setCookie(cname,cvalue)
 {
 	if(isChrome)
 	{
@@ -163,7 +163,7 @@ function setCookie(cname,cvalue)
 	document.cookie = cname+"="+cvalue+"; "+expires;
 }
 
-function getCookie(cname) 
+function getCookie(cname)
 {
 	if(isChrome)
 	{
@@ -182,7 +182,7 @@ function getCookie(cname)
     return "";
 }
 
-function checkCookie(cname) 
+function checkCookie(cname)
 {
     return getCookie(cname.valueOf());
 }
@@ -202,12 +202,12 @@ function getGameSave()
 	{
 		//return ["0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0"];
 		var temp = [];
-		var posTemp = 32	
+		var posTemp = 32
 		while(posTemp--)
 		{
 			temp[posTemp] = "0";
 		}
-		return temp; 
+		return temp;
 	}
 }
 
@@ -216,7 +216,7 @@ function getInventory()
 	if (checkCookie("inventoryPlayer"))
 	{
 		return getCookie("inventoryPlayer");
-	} 
+	}
 	return false;
 }
 function insertArray(pos)
@@ -254,7 +254,7 @@ function getOrbsCount(min)
 	return orbCount >= requiredOrbForWorlds[min - 1];
 }
 
-function loadJSON(file, callback) {   
+function loadJSON(file, callback) {
 
 
     	var xobj = new XMLHttpRequest();
@@ -266,7 +266,7 @@ function loadJSON(file, callback) {
             callback(xobj.responseText);
           }
     };
-    xobj.send(null);  
+    xobj.send(null);
 }
 
 function setOptionAction(player,option)
@@ -323,23 +323,23 @@ function deleteSaveChrome(option)
 function loadGameChrome()
 {
 	var gameSaveChrome = '';
-	chrome.storage.sync.get('OrbOfGodsDatas', function(items) 
+	chrome.storage.sync.get('OrbOfGodsDatas', function(items)
 	{
 		gameSaveChrome = items['OrbOfGodsDatas'];
 		objSaveChrome[objectKey1] = gameSaveChrome;
 	});
 
 	var inventorySaveChrome = '';
-	chrome.storage.sync.get('inventoryPlayer', function(items) 
+	chrome.storage.sync.get('inventoryPlayer', function(items)
 	{
 		inventorySaveChrome = items['inventoryPlayer'];
 		objSaveChrome[objectKey2] = inventorySaveChrome;
 
 	});
 
-	chrome.storage.onChanged.addListener(function(changes, namespace) 
+	chrome.storage.onChanged.addListener(function(changes, namespace)
 	{
-        for (key in changes) 
+        for (key in changes)
         {
           var storageChange = changes[key];
           console.log('Storage key "%s" in namespace "%s" changed. ' +

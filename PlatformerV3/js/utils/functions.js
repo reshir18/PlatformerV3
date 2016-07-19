@@ -1,4 +1,4 @@
-function collectKeys (player, keys) 
+function collectKeys (player, keys)
 {
 	var res = keys.name.substring(0, keys.name.length - 3);
 	if(!player.keysArray[res.valueOf()])
@@ -8,7 +8,7 @@ function collectKeys (player, keys)
 		keys.kill();
 	}
 }
-function openLocks (player, locks) 
+function openLocks (player, locks)
 {
 	var res = locks.name.substring(0, locks.name.length - 5);
 	if(player.keysArray[res.valueOf()])
@@ -19,7 +19,7 @@ function openLocks (player, locks)
 		gameHud.refreshKeys();
 	}
 }
-function collectGoldCoins (player, coin) 
+function collectGoldCoins (player, coin)
 {
 	player.goldCoinsNumber++;
 	player.goldCoinsArray[coin.coinNumber] = true;
@@ -28,7 +28,7 @@ function collectGoldCoins (player, coin)
 	particleBurst(coin, 'stars');
 }
 
-function collectDarkCoins (player, coin) 
+function collectDarkCoins (player, coin)
 {
 	player.darkCoinsNumber++;
 	player.goldCoinsNumber+=2;
@@ -38,7 +38,7 @@ function collectDarkCoins (player, coin)
 	particleBurst(coin, 'starsDark');
 }
 
-function collectSkyCoins (player, coin) 
+function collectSkyCoins (player, coin)
 {
 	player.goldCoinsNumber+=5;
 	player.skyCoinsNumber++;
@@ -62,9 +62,9 @@ function collectPotions(player, potion)
 	killCollectedObject(potion, player.heal(amount));
 }
 
-function getPowersUp (player, power) 
+function getPowersUp (player, power)
 {
-	switch(power.name) 
+	switch(power.name)
 	{
 	    case "Wind":
 	        player.switchPowerUpWind();
@@ -181,7 +181,7 @@ function waterContact (p, w)
         p.groundState = 'waterEnter';
         p.body.y += 10;
         console.log('ENTER WATER');
-        
+
         p.water = true
         p.jumpKey.onDown.remove(p.baseJump,p);
         p.jumpKey.onDown.add(p.waterJump,p);
@@ -213,7 +213,7 @@ function waterContactExit (p, w)
             this.game.time.events.remove(breathLoop);
             breathLoop = null;
         }
-    } 
+    }
 }
 
 function lavaContact (p, l)
@@ -229,7 +229,7 @@ function lavaContactExit (p, l)
     p.lava = false;
 }
 
-function particleBurst(obj, img) 
+function particleBurst(obj, img)
 {
 	emitter = game.add.emitter(0, 0, 100);
     emitter.makeParticles(img);
@@ -249,7 +249,7 @@ function destroyEmitter() {
 
 function showNotific8(notifParam)
 {
-	var paramsNotific8 = 
+	var paramsNotific8 =
 	{
 		life: (notifParam.life),
 		theme: (notifParam.color),

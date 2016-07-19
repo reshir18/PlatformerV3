@@ -81,6 +81,8 @@ BattleDatas.prototype.makePotion = function(x, y)
 {
     p = game.add.sprite(x , y, 'potions', this.potionSpriteId);
     this.potionMap.add(p);
+    gameHud.player.level++;
+    gameHud.player.inventory.Inventory[0].level = gameHud.player.level;
 };
 
 BattleDatas.prototype.battleAction = function()
