@@ -1,11 +1,11 @@
 var preload = function(game){}
- 
-preload.prototype = 
+
+preload.prototype =
 {
     preload: function()
-    { 
+    {
             playerHeight = 47.5;
-            
+
             //PERSONNAGES************************************************************
             this.game.load.spritesheet('perso', 'assets/character/Perso.png', 32, playerHeight);
             this.game.load.spritesheet('persoWind', 'assets/character/PersoWind.png', 32, playerHeight);
@@ -34,7 +34,7 @@ preload.prototype =
 
             //TRAPS**********************************************************************
             this.game.load.image('spikes', 'assets/Traps/spikes.png');
-            this.game.load.image('ball', 'assets/Traps/ball.png');
+            this.game.load.spritesheet('ball', 'assets/Traps/ball.png', 20, 20);
 
             //HUD**********************************************************************
             this.game.load.image('heart', 'assets/Hud/heart.png');
