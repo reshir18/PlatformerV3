@@ -184,8 +184,8 @@ Player.prototype.switchPowerUpEarth = function()
 {
     this.setPowerModeToNormal('persoEarth');
     this.powerUpKey.onDown.add(this.switchMagnetMode,this);
+    this.projectilHasGravity = false;
     checkWaterCapacity(this, breathLoop);
-
     if(!getData(27))
         this.resistance = 0.25;
 };
@@ -194,6 +194,7 @@ Player.prototype.switchPowerUpWater = function()
 {
     this.setPowerModeToNormal('persoWater');
     this.canBreathUnderwater = true;
+    this.nbProjectilesSameTime = 5;
     checkWaterCapacity(this, breathLoop);
     if(!getData(26))
         this.powerUpKey.onDown.add(this.switchGhostMode,this);
@@ -212,6 +213,7 @@ Player.prototype.switchPowerUpFire = function()
 Player.prototype.switchPowerUpWind = function()
 {
     this.setPowerModeToNormal('persoWind');
+    this.speedProjectile = 400;
     this.jumpKey.onDown.add(this.windJump,this);
     checkWaterCapacity(this, breathLoop);
 
@@ -239,6 +241,7 @@ Player.prototype.setPowerModeToNormal = function(texture)
     this.fly = false;
     removePowerUp(this);
     gameHud.refreshPowerUpInfos();
+
 };
 
 Player.prototype.saveTheGame = function()

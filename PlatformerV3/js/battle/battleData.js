@@ -88,7 +88,14 @@ BattleDatas.prototype.makePotion = function(x, y)
 BattleDatas.prototype.battleAction = function()
 {
 	player = gameHud.player;
-    this.projectileGroup.add(new Projectile(game, gameHud.player.body.x, gameHud.player.body.y, false, this.arrayFoe, this));
+    var positionYProjectile = gameHud.player.body.y + gameHud.player.body.height / 2;
+    this.projectileGroup.add(new Projectile(game, gameHud.player.body.x, positionYProjectile, false, this.arrayFoe, this));
+    var p = player.nbProjectilesSameTime - 1;
+    while(p > 0)
+    {
+        p--;
+        this.projectileGroup.add(new Projectile(game, gameHud.player.body.x, positionYProjectile, false, this.arrayFoe, this));
+    }
     this.hurtMobStillAlive();
 };
 

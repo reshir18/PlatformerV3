@@ -40,7 +40,7 @@ function removePowerUp(player)
     player.burnMode = false;
     player.canSwimLava = false;
     player.magnetMode = false;
-    player.canBreathUnderwater = false; 
+    player.canBreathUnderwater = false;
     this.game.miniMap.visible = false;
     this.game.miniMapPlayerPosition.visible = false;
     player.jumpKey.onDown.remove(player.windJump,player);
@@ -51,6 +51,9 @@ function removePowerUp(player)
     player.powerUpKey.onDown.remove(player.saveTheGame,player);
     player.jumpKey.onDown.add(player.baseJump,player);
     player.magnetBlock = null;
+    player.speedProjectile = 200;
+    player.nbProjectilesSameTime = 1;
+    player.projectilHasGravity = true;
 }
 
 function setPlayerPowerUp(player)
@@ -66,7 +69,7 @@ function setPlayerPowerUp(player)
     player.rockMode = false;
     player.canSwimLava = false;
     player.canBreathUnderwater = false;
+    player.nbProjectilesSameTime = 1;
+    player.speedProjectile = 200;
+    player.projectilHasGravity = true;
 }
-
-
-    

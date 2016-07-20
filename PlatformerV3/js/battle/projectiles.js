@@ -18,8 +18,7 @@ Projectile.prototype.constructor = Projectile;
 Projectile.prototype.update = function()
 {
     this.body.velocity.x = 0;
-    this.body.velocity.y = 50;
-    this.body.velocity.x = ((100 + player.level * 25) + Math.floor((Math.random() * 150) + 1)) * this.dirProjectile;
+    this.body.velocity.x = (this.isfromMob ? 200 : this.target.speedProjectile + Math.floor((Math.random() * 150) + 1)) * this.dirProjectile;
     game.physics.arcade.overlap(this, this.isfromMob ? this.target : this.mobTarget, this.attFunction, null, this);
 };
 
@@ -42,8 +41,15 @@ Projectile.prototype.hurtMob = function(projectile, mobT)
 
 Projectile.prototype.setBallDirection = function()
 {
+    this.body.velocity.y =  Math.floor((Math.random() * 300) + 1);
     if(!this.isfromMob && this.mobTarget.length > 0)
     {
+        if(!this.target.projectilHasGravity)
+        {
+            this.body.gravity.y = 0;
+            this.body.velocity.y =  0;
+
+        }
         var idxLastMobPositionX = this.mobTarget[this.mobTarget.length -1].body.x;
     }
     this.dirProjectile = 1;
