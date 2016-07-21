@@ -15,6 +15,7 @@ Player = function (game, x, y)
 
     setPlayerInputs(this);
     setPlayerPhysics(this);
+    loadGame();
 
     this.canSaveGame = false;
     this.canExecuteOptionAction = false;

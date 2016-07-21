@@ -2,7 +2,7 @@ var World0 = function (game) { }
 
 World0.prototype =
 {
-    preload: function () { 
+    preload: function () {
 
         this.game.load.tilemap('map', 'TiledMap/mainWorld.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('tutoMap', 'TiledMap/tutoWorld.json', null, Phaser.Tilemap.TILED_JSON);
@@ -21,20 +21,22 @@ World0.prototype =
             portalCoord = [0,0,false];
         }
         else if(getData(28))
+        {
             this.player = new Player(this.game, 140, 1900);
+        }
         else
             this.player = new Player(this.game, 140, 140);
-        
+
         this.game.add.existing(this.player);
 
-        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);        
+        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
     },
     render : function()
     {
         if(breathLoop && !this.player.canBreathUnderwater)
             gameHud.refreshAirBar();
-        for (portal of portals.children) 
+        for (portal of portals.children)
             game.debug.body(portal);
         game.debug.body(this.player);
     },
@@ -56,27 +58,27 @@ World0.prototype =
         music = game.add.audio('ambient');
         //music.play('', 0, 1, true);
     },
-    update: function () 
+    update: function ()
     {
         this.game.physics.arcade.collide(this.player, layer);
 
         this.game.physics.arcade.overlap(this.player, keys, collectKeys, null, this);
-        
+
         this.game.physics.arcade.overlap(this.player, signs, showInfos, null, this);
 
         this.game.physics.arcade.overlap(this.player, watersTop, waterContact, null, this);
-            
+
         if(this.player.water)
             this.game.physics.arcade.overlap(this.player, waterExits, waterContactExit, null, this);
 
         //POWER UP + WATER
         if(!this.player.ghostMode)
             this.game.physics.arcade.collide(this.player, locks, openLocks, null, this);
-        
+
         this.game.physics.arcade.collide(this.player, blocks, burnBlock, null, this);
 
         this.game.physics.arcade.overlap(this.player, portals, this.changeLevel, null, this);
-            
+
         if (this.player.climbKey && this.player.climbKey.isDown && this.game.physics.arcade.overlap(this.player, ladders))
             this.player.climbUp();
 
@@ -111,9 +113,9 @@ World0.prototype =
             setWorld(portal.name.substring(5));
             this.game.state.start("World1");
             pauseHud.currentWorld = getSpecificWorldData(parseInt(portal.name.substring(5)) - 1).name;
-        }    
+        }
     },
-    loadMap: function () 
+    loadMap: function ()
     {
         game.world.removeAll();
         this.game.add.existing(this.player);
@@ -135,7 +137,7 @@ World0.prototype =
 
         setMapAndLayer(map,layer);
 
-        
+
 
         //SET KEYS ***********************************************************
         keys = this.game.add.group();
@@ -145,7 +147,7 @@ World0.prototype =
         map.createFromObjects('layerObj', 10 + 2, 'keys', 2, true, false, keys);
         map.createFromObjects('layerObj', 10 + 3, 'keys', 3, true, false, keys);
 
-        for (var i = 0, len = keys.children.length; i < len; i++) 
+        for (var i = 0, len = keys.children.length; i < len; i++)
         {
             var res = keys.children[i].name.substring(0, keys.children[i].name.length - 3);
             killCollectedObject(keys.children[i], this.player.keysArray[res.valueOf()]);
@@ -158,10 +160,10 @@ World0.prototype =
         map.createFromObjects('layerObj', 14 + 1, 'locks', 1, true, false, locks);
         map.createFromObjects('layerObj', 14 + 2, 'locks', 2, true, false, locks);
         map.createFromObjects('layerObj', 14 + 3, 'locks', 3, true, false, locks);
-        
-        for (var i = 0, len = locks.children.length; i < len;i++) 
+
+        for (var i = 0, len = locks.children.length; i < len;i++)
         {
-            var l = locks.children[i];  
+            var l = locks.children[i];
             l.body.immovable = true;
             var res = l.name.substring(0, l.name.length - 5);
             killCollectedObject(l, this.player.locksArray[res.valueOf() + l.name.substring(l.name.length - 1)] );
@@ -186,8 +188,8 @@ World0.prototype =
 
         map.createFromObjects('layerObj', 9, 'world3TilesS', 2, true, false, blocks);
 
-        for (var i = 0, len = blocks.children.length; i < len;i++) 
-        {  
+        for (var i = 0, len = blocks.children.length; i < len;i++)
+        {
             blocks.children[i].body.immovable = true;
         }
 
@@ -200,7 +202,7 @@ World0.prototype =
         ladders = this.game.add.group();
         ladders.enableBody = true;
         map.createFromObjects('layerObj', 28, 'ladder', 1, true, false, ladders);
-        for (ladder of ladders.children) 
+        for (ladder of ladders.children)
             if(ladder.name == 'top')
                 ladder.frame = 0;
 
@@ -211,11 +213,11 @@ World0.prototype =
 
         waterExits = this.game.add.group();
         waterExits.enableBody = true;
-        
+
         map.createFromObjects('layerObj', 23, 'liquidTop', 0, true, false, watersTop);
         map.createFromObjects('layerObj', 25, 'liquid', 0, true, false, this.game.add.group());
 
-        for (var i = 0, len = watersTop.children.length; i < len;i++) {  
+        for (var i = 0, len = watersTop.children.length; i < len;i++) {
             watersTop.children[i].body.immovable = true;
             var exitBlock = game.add.sprite(watersTop.children[i].body.x , watersTop.children[i].body.y - 60, 'cloud_2');
             exitBlock.alpha = 0;
@@ -225,10 +227,10 @@ World0.prototype =
         setHud(this.player);
         if(getData(28))
         {
-            for (portal of portals.children) 
+            for (portal of portals.children)
             {
                 portal.body.setSize(30, 30, 20, 15);
-                if(portal.name != "OptionWorld")  
+                if(portal.name != "OptionWorld")
                     gameHud.refreshWorldInfo(portal);
                 else
                     gameHud.refreshWorldInfo(portal, "Option World");
@@ -239,6 +241,6 @@ World0.prototype =
         generateMinimap(this.game, this.player.body, '#808080');
         this.game.miniMap.visible = this.player.key == 'perso';
         this.game.miniMapPlayerPosition.visible = this.player.key == 'perso';
-            
+
     }
 }
