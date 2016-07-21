@@ -29,6 +29,7 @@ Player = function (game, x, y)
     this.rightDirection = 1;
     this.lastDirection = this.leftDirection;
 
+    this.orbsArray = [];
     this.keysArray = [];
     this.locksArray = [];
     this.darkCoinsArray = [];

@@ -34,6 +34,7 @@ function collectDarkCoins (player, coin)
 	player.goldCoinsNumber+=2;
 	player.darkCoinsArray[coin.coinNumber] = true;
 	coin.kill();
+	gameHud.refreshGoldCoinNumber();
 	gameHud.refreshDarkCoinNumber();
 	particleBurst(coin, 'starsDark');
 }
@@ -44,6 +45,7 @@ function collectSkyCoins (player, coin)
 	player.skyCoinsNumber++;
 	player.skyCoinsArray[coin.coinNumber - 1] = true;
 	coin.kill();
+	gameHud.refreshGoldCoinNumber();
 	particleBurst(coin, 'starsSky');
 }
 
