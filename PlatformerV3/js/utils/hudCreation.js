@@ -226,7 +226,7 @@ var pauseHud =
     showLayout2: function(isSword, idItem)
     {
         this.player.canBuyItem = false;
-        if(!idItem || idItem == 0 )
+        if(idItem == 0)
         {
             this.showMasterLayout();
             this.showText("Retour");
@@ -237,6 +237,13 @@ var pauseHud =
             img.fixedToCamera = true;
             this.commandGroup.add(img);
             return;
+        }
+        if(!idItem)
+        {
+            if(isSword)
+                idItem = this.player.inventory.Inventory[0].sword;
+            else
+                idItem = this.player.inventory.Inventory[0].shield;
         }
         this.showMasterLayout();
         img = game.add.image(game.camera.x + 350 , game.camera.y + 250, 'baseEquipement');

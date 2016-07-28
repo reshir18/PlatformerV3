@@ -15,15 +15,16 @@ function menuNavigation(direction)
     }
     else if(direction == 0 && currentMenuLayout == 1)
     {
-        if(!setThirdMenu(menuChoice))
+        if(!setThirdMenu(menuChoice, 1 + menuChoice == 2))
         {
             currentMenuLayout = 0;
+            menuChoice = 0;
         }
         else
         {
             currentMenuLayout = 1 + menuChoice;
+            menuChoice = gameHud.player.inventory.Inventory[0].sword;
         }
-        menuChoice = 0;
         return;
     }
     else if(direction == 0 && currentMenuLayout == 4)
@@ -103,7 +104,7 @@ function setSecondMenu(c)
 
     return true;
 }
-function setThirdMenu(c)
+function setThirdMenu(c, isSword)
 {
     if(c == 0)
     {
@@ -111,7 +112,7 @@ function setThirdMenu(c)
         return false;
     }
     else
-        gameHud.showLayout2();
+        gameHud.showLayout2(isSword);
     return true;
 }
 

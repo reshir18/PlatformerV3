@@ -6,7 +6,6 @@ Player = function (game, x, y)
 {
     Phaser.Sprite.call(this, game, x, y, 'perso');
 
-    this.magnetBlock = null;
     this.inventoryAfterPurchase = "Data";
     this.canBuyItem = "Data";
     this.enableBody = true;
@@ -48,7 +47,6 @@ Player = function (game, x, y)
     this.jumpKey.onDown.add(this.baseJump,this);
     this.normalStateKey.onDown.add(this.switchPowerUpNormal,this);
     this.powerUpKey.onDown.add(this.saveTheGame,this);
-    this.powerUpKey2.onDown.add(this.resetBlockPosition,this);
     this.muteSound.onDown.add(muteGame,this);
     checkWaterCapacity(this, breathLoop);
     //Attribute All Power Ups unlocked
@@ -255,13 +253,6 @@ Player.prototype.saveTheGame = function()
     }
     else if(this.canExecuteOptionAction && optionAction != "None")
         deleteGameSave();
-};
-
-Player.prototype.resetBlockPosition = function()
-{
-    if(!this.magnetBlock)
-        return;
-    this.magnetBlock.reset(this.magnetBlock.defaultPosX, this.magnetBlock.defaultPosY);
 };
 
 Player.prototype.playerDrowned = function(p, w)

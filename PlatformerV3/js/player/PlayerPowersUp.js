@@ -50,7 +50,6 @@ function removePowerUp(player)
     player.powerUpKey.onDown.remove(player.switchMagnetMode,player);
     player.powerUpKey.onDown.remove(player.saveTheGame,player);
     player.jumpKey.onDown.add(player.baseJump,player);
-    player.magnetBlock = null;
     player.speedProjectile = 200;
     player.nbProjectilesSameTime = 1;
     player.projectilHasGravity = true;
@@ -66,7 +65,7 @@ function setPlayerPowerUp(player)
     player.jumpCount = 0;
     player.ghostMode = false;
     player.burnMode = false;
-    player.rockMode = false;
+    player.magnetMode = false;
     player.canSwimLava = false;
     player.canBreathUnderwater = false;
     player.nbProjectilesSameTime = 1;

@@ -36,9 +36,9 @@ World0.prototype =
     {
         if(breathLoop && !this.player.canBreathUnderwater)
             gameHud.refreshAirBar();
-        for (portal of portals.children)
+        /*for (portal of portals.children)
             game.debug.body(portal);
-        game.debug.body(this.player);
+        game.debug.body(this.player);*/
     },
     create: function () {
         this.game.miniMapSize = 4;

@@ -89,8 +89,6 @@ function generateBurningBlocks(block)
         var bl = block.children[i];
         bl.body.immovable = true;
         bl.body.collideWorldBounds = true;
-        bl.defaultPosY = bl.body.y;
-        bl.defaultPosX = bl.body.x;
     }
 }
 

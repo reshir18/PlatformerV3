@@ -53,6 +53,7 @@ World1.prototype =
         var watersTop;
         var lavasTop;
         var cages;
+        var magnetBlock;
         var enemies;
         var foes;
         var maxEnemiesType = 2;
@@ -103,7 +104,8 @@ World1.prototype =
         if(this.player.lava)
             this.game.physics.arcade.overlap(this.player, lavaExits, lavaContactExit, null, this);
 
-        this.game.physics.arcade.overlap(this.player, blocks, moveBlock, null, this);
+        /*if(this.player.magnetMode)
+            this.game.physics.arcade.collide(this.player, magnetBlock);*/
 
         //POWER UP + WATER
         if(!this.player.ghostMode)
@@ -338,6 +340,12 @@ World1.prototype =
         spikes = this.game.add.group();
         spikes.enableBody = true;
         map.createFromObjects('layerObj', 21, 'spikes', 0, true, false, spikes);
+
+        /*magnetBlock = this.game.add.group();
+        magnetBlock.enableBody = true;
+        map.createFromObjects('layerObj', 34, 'powerUpBlocks', 1, true, false, magnetBlock);
+        for (mBlock of magnetBlock.children)
+                mBlock.body.immovable = true;*/
 
         cages = this.game.add.group();
         cages.enableBody = true;
