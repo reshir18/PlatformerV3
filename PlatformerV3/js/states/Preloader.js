@@ -74,6 +74,7 @@ preload.prototype =
             this.game.load.image('iceAnomaly', 'assets/Enemies/iceAnomaly.png');
             this.game.load.image('babyIceDragon', 'assets/Enemies/babyIceDragon.png');
             //*********************** World 4 *****************************************************
+            this.game.load.image('cog', 'assets/Enemies/cog.png');
 
             this.game.stage.backgroundColor = '#3BB9FF';
             this.game.world.setBounds(0, 0, 3500, 3500);

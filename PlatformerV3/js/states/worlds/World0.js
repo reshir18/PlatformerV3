@@ -9,6 +9,8 @@ World0.prototype =
         this.game.load.image('world1Tiles', 'assets/Tiles/world1Tiles.png');
         this.game.load.image('world2Tiles', 'assets/Tiles/world2Tiles.png');
         this.game.load.image('world3Tiles', 'assets/Tiles/world3Tiles.png');
+        this.game.load.image('world4Tiles', 'assets/Tiles/world4Tiles.png');
+        this.game.load.image('world5Tiles', 'assets/Tiles/world5Tiles.png');
         this.game.load.spritesheet('world3TilesS', 'assets/Tiles/world3Tiles.png', 70, 70);
         game.load.audio('ambient', ['assets/audio/mainWorldAmbient.mp3', 'assets/audio/mainWorldAmbient.ogg']);
         this.game.load.image('sign', 'assets/Objects/sign.png');
@@ -49,6 +51,7 @@ World0.prototype =
         var coins;
         var keys;
         var locks;
+        var magnetBlock;
         var orbs;
         var portals;
         var watersTop;
@@ -84,6 +87,9 @@ World0.prototype =
 
         if(this.player.body.onFloor() || this.player.body.touching.down)
             this.player.jumpCount = 0;
+
+        if(this.player.magnetMode)
+            this.game.physics.arcade.collide(this.player, magnetBlock);
 
         movePlayerMinimap(this.player);
 
@@ -128,8 +134,11 @@ World0.prototype =
         map.addTilesetImage('world1Tiles');
         map.addTilesetImage('world2Tiles');
         map.addTilesetImage('world3Tiles');
+        map.addTilesetImage('world4Tiles');
+        map.addTilesetImage('world5Tiles');
 
         map.setCollisionBetween(1, 9);
+        map.setCollisionBetween(30, 35);
 
         layer = map.createLayer('layerGround');
 
@@ -205,6 +214,12 @@ World0.prototype =
         for (ladder of ladders.children)
             if(ladder.name == 'top')
                 ladder.frame = 0;
+
+        magnetBlock = this.game.add.group();
+        magnetBlock.enableBody = true;
+        map.createFromObjects('layerObj', 29, 'powerUpBlocks', 1, true, false, magnetBlock);
+        for (mBlock of magnetBlock.children)
+                mBlock.body.immovable = true;
 
         this.player.bringToTop();
 

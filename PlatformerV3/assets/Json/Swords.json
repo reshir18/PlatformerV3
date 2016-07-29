@@ -165,5 +165,22 @@
 			"idItem" : 21,
 			"qts" : 8
 		}]
+	},
+	{
+		"name" : "Prism sword",
+		"damages" : 45,
+		"craft" : [
+		{
+			"idItem" : 17,
+			"qts" : 2
+		},
+		{
+			"idItem" : 24,
+			"qts" : 5
+		},
+		{
+			"idItem" : 22,
+			"qts" : 10
+		}]
 	}
 ]}

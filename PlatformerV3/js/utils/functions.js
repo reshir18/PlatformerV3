@@ -163,20 +163,6 @@ function burnBlock(player, block)
 	killCollectedObject(block, player.burnMode);
 }
 
-function moveBlock(p, b)
-{
-	//b.body.gravity.y = 400;
-	p.magnetBlock = null;
-	if(!p.magnetMode)
-		b.body.immovable = true;
-	else
-	{
-		b.body.immovable = false;
-		b.body.velocity.x + (400 * p.lastDirection);
-		p.magnetBlock = b;
-	}
-}
-
 function waterContact (p, w)
 {
     if(p.groundState == 'ground'){

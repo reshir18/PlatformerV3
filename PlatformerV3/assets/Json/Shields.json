@@ -157,6 +157,23 @@
 			"idItem" : 24,
 			"qts" : 3
 		}]
+	},
+	{
+		"name" : "Dragon shield",
+		"protect" : 39,
+		"craft" : [
+		{
+			"idItem" : 23,
+			"qts" : 8
+		},
+		{
+			"idItem" : 25,
+			"qts" : 2
+		},
+		{
+			"idItem" : 20,
+			"qts" : 12
+		}]
 	}
 
 ]}

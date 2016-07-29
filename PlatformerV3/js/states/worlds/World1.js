@@ -104,8 +104,8 @@ World1.prototype =
         if(this.player.lava)
             this.game.physics.arcade.overlap(this.player, lavaExits, lavaContactExit, null, this);
 
-        /*if(this.player.magnetMode)
-            this.game.physics.arcade.collide(this.player, magnetBlock);*/
+        if(this.player.magnetMode)
+            this.game.physics.arcade.collide(this.player, magnetBlock);
 
         //POWER UP + WATER
         if(!this.player.ghostMode)
@@ -285,8 +285,8 @@ World1.prototype =
         for (portal of portals.children)
         {
             portal.body.setSize(30, 30, 20, 15);
-            /*if(portal.name == "map5" && (!getData(29) || !this.player.checkSkyCoins()))
-                portal.kill();*/
+            if(portal.name == "map5" && (!getData(29) || !this.player.checkSkyCoins()))
+                portal.kill();
         }
 
         //SAVES POINTS ************************************************************/
@@ -341,11 +341,11 @@ World1.prototype =
         spikes.enableBody = true;
         map.createFromObjects('layerObj', 21, 'spikes', 0, true, false, spikes);
 
-        /*magnetBlock = this.game.add.group();
+        magnetBlock = this.game.add.group();
         magnetBlock.enableBody = true;
         map.createFromObjects('layerObj', 34, 'powerUpBlocks', 1, true, false, magnetBlock);
         for (mBlock of magnetBlock.children)
-                mBlock.body.immovable = true;*/
+                mBlock.body.immovable = true;
 
         cages = this.game.add.group();
         cages.enableBody = true;
