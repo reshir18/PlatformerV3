@@ -11407,6 +11407,22 @@
                  "width":30,
                  "x":449,
                  "y":312
+                }, 
+                {
+                 "gid":7,
+                 "height":20,
+                 "id":890,
+                 "name":"yellowKey",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":30,
+                 "x":650,
+                 "y":322
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -11415,7 +11431,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":890,
+ "nextobjectid":891,
  "orientation":"orthogonal",
  "properties":
     {
