@@ -1,0 +1,186 @@
+{"Swords":[
+	{
+		"name" : "None",
+		"damages" : 1,
+		"craft" : []
+	},
+	{
+		"name" : "Wooden sword",
+		"damages" : 3,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 2
+		}]
+	},
+	{
+		"name" : "Slime sword",
+		"damages" : 5,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 1
+		},
+		{
+			"idItem" : 1,
+			"qts" : 2
+		},
+		{
+			"idItem" : 5,
+			"qts" : 2
+		}]
+	},
+	{
+		"name" : "Wind blade",
+		"damages" : 12,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 8
+		},
+		{
+			"idItem" : 3,
+			"qts" : 4
+		},
+		{
+			"idItem" : 4,
+			"qts" : 1
+		}]
+	},
+	{
+		"name" : "Monster slayer",
+		"damages" : 18,
+		"craft" : [
+		{
+			"idItem" : 7,
+			"qts" : 2
+		},
+		{
+			"idItem" : 9,
+			"qts" : 6
+		},
+		{
+			"idItem" : 6,
+			"qts" : 4
+		}]
+	},
+	{
+		"name" : "Sand sword",
+		"damages" : 13,
+		"craft" : [
+		{
+			"idItem" : 10,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Mummy's sword",
+		"damages" : 18,
+		"craft" : [
+		{
+			"idItem" : 11,
+			"qts" : 20
+		},
+		{
+			"idItem" : 10,
+			"qts" : 4
+		},
+		{
+			"idItem" : 12,
+			"qts" : 4
+		},
+		{
+			"idItem" : 14,
+			"qts" : 1
+		}]
+	},
+	{
+		"name" : "Horus sword",
+		"damages" : 25,
+		"craft" : [
+		{
+			"idItem" : 10,
+			"qts" : 15
+		},
+		{
+			"idItem" : 13,
+			"qts" : 8
+		},
+		{
+			"idItem" : 14,
+			"qts" : 3
+		},
+		{
+			"idItem" : 16,
+			"qts" : 2
+		}]
+	},
+	{
+		"name" : "Spirits blade",
+		"damages" : 34,
+		"craft" : [
+		{
+			"idItem" : 14,
+			"qts" : 8
+		},
+		{
+			"idItem" : 15,
+			"qts" : 5
+		},
+		{
+			"idItem" : 16,
+			"qts" : 3
+		},
+		{
+			"idItem" : 17,
+			"qts" : 1
+		}]
+	},
+	{
+		"name" : "Frost sword",
+		"damages" : 30,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 20
+		},
+		{
+			"idItem" : 18,
+			"qts" : 5
+		},
+		{
+			"idItem" : 19,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Medusa sword",
+		"damages" : 38,
+		"craft" : [
+		{
+			"idItem" : 6,
+			"qts" : 12
+		},
+		{
+			"idItem" : 21,
+			"qts" : 8
+		}]
+	},
+	{
+		"name" : "Prism sword",
+		"damages" : 45,
+		"craft" : [
+		{
+			"idItem" : 17,
+			"qts" : 2
+		},
+		{
+			"idItem" : 24,
+			"qts" : 5
+		},
+		{
+			"idItem" : 22,
+			"qts" : 10
+		}]
+	}
+]}

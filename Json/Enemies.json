@@ -1,0 +1,153 @@
+{"Enemies":[
+	{
+		"nameMob" : "Slime",
+		"imgFoe" : "slime",
+		"hp" : 5,
+		"attack" : 5,
+		"defense" : 0,
+		"speed": 5,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Bat",
+		"imgFoe" : "bat",
+		"hp" : 7,
+		"attack" : 3,
+		"defense" : 1,
+		"speed": 2,
+		"modifyX" : 10,
+		"modifyY" : 25
+	},
+	{
+		"nameMob" : "Spiky Slime",
+		"imgFoe" : "spikySlime",
+		"hp" : 12,
+		"attack" : 8,
+		"defense" : 1,
+		"speed": 7,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Zombie",
+		"imgFoe" : "zombie",
+		"hp" : 20,
+		"attack" : 8,
+		"defense" : 0,
+		"speed": 10,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Carnivore Plant",
+		"imgFoe" : "carnivorPlant",
+		"hp" : 15,
+		"attack" : 12,
+		"defense" : 2,
+		"speed": 4,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Seleton",
+		"imgFoe" : "skeleton",
+		"hp" : 15,
+		"attack" : 8,
+		"defense" : 1,
+		"speed": 4,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Mummy",
+		"imgFoe" : "mummy",
+		"hp" : 20,
+		"attack" : 10,
+		"defense" : 8,
+		"speed": 10,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Pyramid Rock",
+		"imgFoe" : "pyramidRock",
+		"hp" : 27,
+		"attack" : 12,
+		"defense" : 5,
+		"speed": 8,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Desert Soul",
+		"imgFoe" : "desertSoul",
+		"hp" : 15,
+		"attack" : 20,
+		"defense" : 10,
+		"speed": 5,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Golem",
+		"imgFoe" : "golem",
+		"hp" : 40,
+		"attack" : 30,
+		"defense" : 15,
+		"speed": 5,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Ice Monster",
+		"imgFoe" : "iceMonster",
+		"hp" : 30,
+		"attack" : 15,
+		"defense" : 15,
+		"speed": 3,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Wolf",
+		"imgFoe" : "wolf",
+		"hp" : 35,
+		"attack" : 20,
+		"defense" : 12,
+		"speed": 1,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Medusa",
+		"imgFoe" : "medusa",
+		"hp" : 50,
+		"attack" : 32,
+		"defense" : 28,
+		"speed": 4,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Ice Anomaly",
+		"imgFoe" : "iceAnomaly",
+		"hp" : 10,
+		"attack" : 50,
+		"defense" : 35,
+		"speed": 3,
+		"modifyX" : 20,
+		"modifyY" : 20
+	},
+	{
+		"nameMob" : "Baby Ice Dragon",
+		"imgFoe" : "babyIceDragon",
+		"hp" : 50,
+		"attack" : 50,
+		"defense" : 40,
+		"speed": 10,
+		"modifyX" : 20,
+		"modifyY" : 20
+	}
+
+]}

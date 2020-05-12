@@ -1,0 +1,179 @@
+{"Shields":[
+	{
+		"name" : "None",
+		"protect" : 0,
+		"craft" : []
+	},
+	{
+		"name" : "Wooden shield",
+		"protect" : 1,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 2
+		}]
+	},
+	{
+		"name" : "Slime shield",
+		"protect" : 3,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 1
+		},
+		{
+			"idItem" : 1,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Beast shield",
+		"protect" : 5,
+		"craft" : [
+		{
+			"idItem" : 1,
+			"qts" : 5
+		},
+		{
+			"idItem" : 2,
+			"qts" : 5
+		}]
+	},
+	{
+		"name" : "Jungle shield",
+		"protect" : 10,
+		"craft" : [
+		{
+			"idItem" : 0,
+			"qts" : 3
+		},
+		{
+			"idItem" : 5,
+			"qts" : 5
+		},
+		{
+			"idItem" : 8,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Desert shield",
+		"protect" : 8,
+		"craft" : [
+		{
+			"idItem" : 10,
+			"qts" : 3
+		},
+		{
+			"idItem" : 9,
+			"qts" : 2
+		}]
+	},
+	{
+		"name" : "Sturdy shield",
+		"protect" : 13,
+		"craft" : [
+		{
+			"idItem" : 10,
+			"qts" : 5
+		},
+		{
+			"idItem" : 11,
+			"qts" : 5
+		},
+		{
+			"idItem" : 12,
+			"qts" : 5
+		}]
+	},
+	{
+		"name" : "Ghost shield",
+		"protect" : 18,
+		"craft" : [
+		{
+			"idItem" : 14,
+			"qts" : 2
+		},
+		{
+			"idItem" : 15,
+			"qts" : 5
+		},
+		{
+			"idItem" : 16,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Aegypti shield",
+		"protect" : 25,
+		"craft" : [
+		{
+			"idItem" : 7,
+			"qts" : 2
+		},
+		{
+			"idItem" : 10,
+			"qts" : 8
+		},
+		{
+			"idItem" : 13,
+			"qts" : 10
+		},
+		{
+			"idItem" : 17,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Frost shield",
+		"protect" : 21,
+		"craft" : [
+		{
+			"idItem" : 2,
+			"qts" : 15
+		},
+		{
+			"idItem" : 18,
+			"qts" : 5
+		},
+		{
+			"idItem" : 20,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Pure Ice shield",
+		"protect" : 30,
+		"craft" : [
+		{
+			"idItem" : 19,
+			"qts" : 10
+		},
+		{
+			"idItem" : 22,
+			"qts" : 5
+		},
+		{
+			"idItem" : 24,
+			"qts" : 3
+		}]
+	},
+	{
+		"name" : "Dragon shield",
+		"protect" : 39,
+		"craft" : [
+		{
+			"idItem" : 23,
+			"qts" : 8
+		},
+		{
+			"idItem" : 25,
+			"qts" : 2
+		},
+		{
+			"idItem" : 20,
+			"qts" : 12
+		}]
+	}
+
+]}
